@@ -1,0 +1,1173 @@
+- generic [active] [ref=f21e1]:
+  - generic [ref=f21e2]:
+    - iframe [ref=f21e6]:
+      - generic [ref=f39e1]:
+        - link [ref=f39e2] [cursor=pointer]:
+          - /url: https://pagead2.googlesyndication.com/pcs/click?xai=AKAOjssOPBhOxv8Lwnat_0-dP0m6X-QfdDOS4VoLyQQMmVmDIbBQO2JBhFOhjuOmVNaw5bjrcd02-rQ8MXnivGiBsRZ2rz1BgaEsM0W6V4eOe5Mehx8a8CegVypuoV0Va8nNLHCVQJuERLd3y7muxkiYAeZ0sXvRZrCLw6BfTMBDvbvm9fyYEx_TYW4cV4CsHeU7Ad0nnU0iR3haE5UhFCCprstc8mWh8qTNMzpMMLlC3xXtNCPYzR5wKqxTNlszx2vsFDr54JqHty78O6h_HZ2ZrjSVczqH3TiPogIJEkGhNDQkoj1eBSUplkNvGSpN3Fyje9aaF2KCTJhVqcZZsN0me7EYg0fZ0U1hmmRy7tKV_gpgSQPbazX9JECH4xMsjYDbNGfbZt4V1SSzaTUOzWEFG2tXH9AGR2K6PBZSCZVTngFn40zDsY69pXknMDU&sig=Cg0ArKJSzOr1c7FEzSDY&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.youtube.com/%40KitcoMining
+        - generic [ref=f39e3] [cursor=pointer]
+        - button [ref=f39e10] [cursor=pointer]
+    - generic [ref=f21e7]:
+      - navigation "Main" [ref=f21e8]:
+        - generic [ref=f21e9]:
+          - link [ref=f21e10] [cursor=pointer]:
+            - /url: /
+            - img "Kitco logo" [ref=f21e11]
+          - list [ref=f21e14]:
+            - listitem [ref=f21e15]:
+              - button [ref=f21e16] [cursor=pointer]:
+                - link [ref=f21e17]:
+                  - /url: https://online.kitco.com/
+                  - generic [ref=f21e18]:
+                    - paragraph [ref=f21e19]: BUY/SELL GOLD & SILVER
+                    - text: Bullion Coins and Bars
+            - listitem [ref=f21e20]:
+              - button [ref=f21e21] [cursor=pointer]:
+                - link [ref=f21e22]:
+                  - /url: /price/precious-metals
+                  - text: Precious Metals
+                  - paragraph [ref=f21e23]: All Metal Quotes
+              - list [aria-hidden] [ref=f21e24]:
+                - listitem [ref=f21e25]:
+                  - link [ref=f21e26] [cursor=pointer]:
+                    - /url: /price/precious-metals
+                    - text: All Metal Quotes
+                - listitem [ref=f21e27]:
+                  - link [ref=f21e28] [cursor=pointer]:
+                    - /url: /price
+                    - text: All Market Prices
+                - listitem [ref=f21e29]:
+                  - link [ref=f21e30] [cursor=pointer]:
+                    - /url: /price/base-metals
+                    - text: Base Metals
+                - listitem [ref=f21e31]:
+                  - link [ref=f21e32] [cursor=pointer]:
+                    - /url: /price/crypto
+                    - text: Cryptocurrencies
+                - listitem [ref=f21e33]:
+                  - link [ref=f21e34] [cursor=pointer]:
+                    - /url: /price/fixes/kitco-fix
+                    - text: Kitco Fixes
+                - listitem [ref=f21e35]:
+                  - link [ref=f21e36] [cursor=pointer]:
+                    - /url: /price/fixes/shanghai-benchmark
+                    - text: Shanghai Benchmark
+                - listitem [ref=f21e37]:
+                  - link [ref=f21e38] [cursor=pointer]:
+                    - /url: /price/precious-metals/text-quotes
+                    - text: Text Quotes
+                - listitem [ref=f21e39]:
+                  - link [ref=f21e40] [cursor=pointer]:
+                    - /url: /markets/kitco-gold-index
+                    - text: What’s really moving prices?
+                - listitem [ref=f21e41]:
+                  - link [ref=f21e42] [cursor=pointer]:
+                    - /url: /charts/gold
+                    - text: Gold
+                - listitem [ref=f21e43]:
+                  - link [ref=f21e44] [cursor=pointer]:
+                    - /url: /charts/silver
+                    - text: Silver
+                - listitem [ref=f21e45]:
+                  - link [ref=f21e46] [cursor=pointer]:
+                    - /url: /charts/platinum
+                    - text: Platinum
+                - listitem [ref=f21e47]:
+                  - link [ref=f21e48] [cursor=pointer]:
+                    - /url: /charts/palladium
+                    - text: Palladium
+                - listitem [ref=f21e49]:
+                  - link [ref=f21e50] [cursor=pointer]:
+                    - /url: /charts/rhodium
+                    - text: Rhodium
+                - listitem [ref=f21e51]:
+                  - link [ref=f21e52] [cursor=pointer]:
+                    - /url: /price/base-metals/copper
+                    - text: Copper
+                - listitem [ref=f21e53]:
+                  - link [ref=f21e54] [cursor=pointer]:
+                    - /url: /price/base-metals/aluminum
+                    - text: Aluminum
+                - listitem [ref=f21e55]:
+                  - link [ref=f21e56] [cursor=pointer]:
+                    - /url: /price/base-metals/zinc
+                    - text: Zinc
+                - listitem [ref=f21e57]:
+                  - link [ref=f21e58] [cursor=pointer]:
+                    - /url: /price/base-metals/nickel
+                    - text: Nickel
+                - listitem [ref=f21e59]:
+                  - link [ref=f21e60] [cursor=pointer]:
+                    - /url: /price/base-metals/lead
+                    - text: Lead
+                - listitem [ref=f21e61]:
+                  - link [ref=f21e62] [cursor=pointer]:
+                    - /url: /price
+                    - text: US Dollar — USD
+                - listitem [ref=f21e63]:
+                  - link [ref=f21e64] [cursor=pointer]:
+                    - /url: /price/canada
+                    - text: All Market Prices
+                - listitem [ref=f21e65]:
+                  - link [ref=f21e66] [cursor=pointer]:
+                    - /url: /price/precious-metals/canada
+                    - text: Precious Metals
+                - listitem [ref=f21e67]:
+                  - link [ref=f21e68] [cursor=pointer]:
+                    - /url: /price/gold-price-cad
+                    - text: Gold
+                - listitem [ref=f21e69]:
+                  - link [ref=f21e70] [cursor=pointer]:
+                    - /url: /price/silver-price-cad
+                    - text: Silver
+                - listitem [ref=f21e71]:
+                  - link [ref=f21e72] [cursor=pointer]:
+                    - /url: /price/platinum-price-cad
+                    - text: Platinum
+                - listitem [ref=f21e73]:
+                  - link [ref=f21e74] [cursor=pointer]:
+                    - /url: /price/palladium-price-cad
+                    - text: Palladium
+                - listitem [ref=f21e75]:
+                  - link [ref=f21e76] [cursor=pointer]:
+                    - /url: /price?Symbol=EUR
+                    - text: Gold price EUR
+                - listitem [ref=f21e77]:
+                  - link [ref=f21e78] [cursor=pointer]:
+                    - /url: /price?Symbol=GBP
+                    - text: Gold price GBP
+                - listitem [ref=f21e79]:
+                  - link [ref=f21e80] [cursor=pointer]:
+                    - /url: /price?Symbol=AUD
+                    - text: Gold price AUD
+                - listitem [ref=f21e81]:
+                  - link [ref=f21e82] [cursor=pointer]:
+                    - /url: /price?Symbol=JPY
+                    - text: Gold price JPY
+                - listitem [ref=f21e83]:
+                  - link [ref=f21e84] [cursor=pointer]:
+                    - /url: /price?Symbol=CHF
+                    - text: Gold price CHF
+                - listitem [ref=f21e85]:
+                  - link [ref=f21e86] [cursor=pointer]:
+                    - /url: /price?Symbol=CNY
+                    - text: Gold price CNY
+                - listitem [ref=f21e87]:
+                  - link [ref=f21e88] [cursor=pointer]:
+                    - /url: /price?Symbol=HKD
+                    - text: Gold price HKD
+                - listitem [ref=f21e89]:
+                  - link [ref=f21e90] [cursor=pointer]:
+                    - /url: /price?Symbol=INR
+                    - text: Gold price INR
+                - listitem [ref=f21e91]:
+                  - link [ref=f21e92] [cursor=pointer]:
+                    - /url: /price?Symbol=BRL
+                    - text: Gold price BRL
+                - listitem [ref=f21e93]:
+                  - link [ref=f21e94] [cursor=pointer]:
+                    - /url: /price?Symbol=MXN
+                    - text: Gold price MXN
+                - listitem [ref=f21e95]:
+                  - link [ref=f21e96] [cursor=pointer]:
+                    - /url: /price?Symbol=ZAR
+                    - text: Gold price ZAR
+                - listitem [ref=f21e97]:
+                  - link [ref=f21e98] [cursor=pointer]:
+                    - /url: /jeweler-resources
+                    - text: Jeweler Resources
+                - listitem [ref=f21e99]:
+                  - link [ref=f21e100] [cursor=pointer]:
+                    - /url: /jeweler-table/melting-point
+                    - text: Reference Tables
+                - listitem [ref=f21e101]:
+                  - link [ref=f21e102] [cursor=pointer]:
+                    - /url: https://www.kitconet.com/price/
+                    - text: Free Web Quote Banners
+                - listitem [ref=f21e103]:
+                  - link [ref=f21e104] [cursor=pointer]:
+                    - /url: https://www.kitconet.com/
+                    - text: Free Charts on Your Website
+                - listitem [ref=f21e105]:
+                  - link [ref=f21e106] [cursor=pointer]:
+                    - /url: /jeweler-resources
+                    - text: Calculate precious metals value right here
+            - listitem [ref=f21e107]:
+              - button [ref=f21e108] [cursor=pointer]:
+                - link "Cryptos" [ref=f21e109]:
+                  - /url: /price/crypto
+            - listitem [ref=f21e110]:
+              - button [ref=f21e111] [cursor=pointer]:
+                - link "Base Metals" [ref=f21e112]:
+                  - /url: /price/base-metals
+            - listitem [ref=f21e113]:
+              - button [ref=f21e114] [cursor=pointer]:
+                - link "Markets" [ref=f21e115]:
+                  - /url: /markets
+            - listitem [ref=f21e116]:
+              - button [ref=f21e117] [cursor=pointer]:
+                - link "Mining" [ref=f21e118]:
+                  - /url: /news/category/mining
+            - listitem [ref=f21e119]:
+              - button [ref=f21e120] [cursor=pointer]:
+                - link "News" [ref=f21e121]:
+                  - /url: /news
+            - listitem [ref=f21e122]:
+              - button "About" [ref=f21e123]
+          - list [ref=f21e126]:
+            - link [ref=f21e127] [cursor=pointer]:
+              - /url: /search
+      - list [ref=f21e133]:
+        - listitem [ref=f21e134]:
+          - generic [ref=f21e135]:
+            - link "Metals & FX Calculator" [ref=f21e136] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=f21e137]: NEW
+        - listitem [ref=f21e138]:
+          - link "Top 10 Mining Stocks" [ref=f21e140] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=f21e141]:
+          - link "Kitco Forum" [ref=f21e143] [cursor=pointer]:
+            - /url: https://forum.kitco.com/categories?utm_source=kitco_website&utm_medium=navbar&utm_campaign=forum_navigation
+        - listitem [ref=f21e144]:
+          - link [ref=f21e146] [cursor=pointer]:
+            - /url: https://www.youtube.com/kitconews
+            - img "YouTube Channel" [ref=f21e147]
+        - listitem [ref=f21e148]:
+          - link "Jeweler Resources" [ref=f21e150] [cursor=pointer]:
+            - /url: /jeweler-resources
+        - listitem [ref=f21e151]:
+          - link "Newsletters" [ref=f21e153] [cursor=pointer]:
+            - /url: https://www.kitco.com/services
+    - main [ref=f21e155]:
+      - heading "Precious Metals" [level=1] [ref=f21e156]
+      - generic [ref=f21e157]:
+        - generic [ref=f21e158]:
+          - link [ref=f21e160] [cursor=pointer]:
+            - /url: https://www.youtube.com/kitconews
+            - img "Kitco News YouTube Channel" [ref=f21e161]
+          - generic [ref=f21e162]:
+            - heading "Gold Indicators" [level=2] [ref=f21e164]
+            - generic [ref=f21e165]:
+              - heading [level=3] [ref=f21e166]:
+                - link "XAU" [ref=f21e169] [cursor=pointer]:
+                  - /url: /markets/stocks/NASDAQ-XAU
+              - paragraph [ref=f21e170]: "383.48"
+              - paragraph [ref=f21e171]: 0.64%
+            - generic [ref=f21e172]:
+              - heading [level=3] [ref=f21e173]:
+                - link "HUI" [ref=f21e176] [cursor=pointer]:
+                  - /url: /markets/stocks/NYSE-HUI
+              - paragraph [ref=f21e177]: "786.02"
+              - paragraph [ref=f21e178]: 0.77%
+            - generic [ref=f21e179]:
+              - heading [level=3] [ref=f21e180]:
+                - link "TSX" [ref=f21e183] [cursor=pointer]:
+                  - /url: /markets/stocks/TSX-TTGD
+              - paragraph [ref=f21e184]: "936.31"
+              - paragraph [ref=f21e185]: 0.61%
+          - generic [ref=f21e186]:
+            - link [ref=f21e188] [cursor=pointer]:
+              - /url: /price/fixes/shanghai-benchmark
+              - heading "Shanghai Gold Benchmark Price" [level=2] [ref=f21e189]
+            - generic [ref=f21e191]:
+              - generic [ref=f21e192]:
+                - generic [ref=f21e193]:
+                  - button "CNY" [ref=f21e195] [cursor=pointer]
+                  - button "GRAM" [ref=f21e203] [cursor=pointer]
+                - paragraph [ref=f21e208]: Sep 26, 2026
+              - generic [ref=f21e209]:
+                - generic [ref=f21e210]: AM
+                - generic [ref=f21e211]: "936.31"
+              - generic [ref=f21e212]:
+                - generic [ref=f21e213]: PM
+                - generic [ref=f21e214]: "935.50"
+              - link "Historical SGE Fix" [ref=f21e216] [cursor=pointer]:
+                - /url: /price/fixes/shanghai-benchmark
+          - generic [ref=f21e217]: Loading market data…
+          - generic [ref=f21e221]:
+            - link [ref=f21e223] [cursor=pointer]:
+              - /url: https://online.kitco.com/gold-coins
+              - img "Buy Gold Coins" [ref=f21e224]
+            - link [ref=f21e226] [cursor=pointer]:
+              - /url: https://online.kitco.com/silver-coins
+              - img "Buy Silver Coins" [ref=f21e227]
+            - link [ref=f21e229] [cursor=pointer]:
+              - /url: https://online.kitco.com/gold-bars
+              - img "Buy Gold Bars" [ref=f21e230]
+            - link [ref=f21e232] [cursor=pointer]:
+              - /url: https://online.kitco.com/silver-bars
+              - img "Buy Silver Bars" [ref=f21e233]
+        - generic [ref=f21e234]:
+          - generic [ref=f21e236]:
+            - link "KGX Kitco Global Index Did Gold really go up 11.00 (0.26%)?" [ref=f21e237] [cursor=pointer]:
+              - /url: /markets/kitco-gold-index
+              - generic [ref=f21e238]:
+                - generic [ref=f21e239]:
+                  - generic [ref=f21e240]: KGX
+                  - generic [ref=f21e241]: Kitco Global Index
+                - generic [ref=f21e246]:
+                  - generic [ref=f21e247]: Did Gold really go up
+                  - generic [ref=f21e248]: 11.00 (0.26%)?
+            - generic:
+              - generic:
+                - generic:
+                  - paragraph: Did the US Dollar fluctuation impact the price?
+                  - paragraph: Click here to find out more information.
+          - generic [ref=f21e262]:
+            - generic [ref=f21e263]: Open historical charts
+            - combobox "Month" [ref=f21e264] [cursor=pointer]:
+              - option "Jan"
+              - option "Feb"
+              - option "Mar"
+              - option "Apr"
+              - option "May"
+              - option "Jun"
+              - option "Jul"
+              - option "Aug"
+              - option "Sep" [selected]
+              - option "Oct"
+              - option "Nov"
+              - option "Dec"
+            - combobox "Day" [ref=f21e265] [cursor=pointer]:
+              - option "1"
+              - option "2"
+              - option "3"
+              - option "4"
+              - option "5"
+              - option "6"
+              - option "7"
+              - option "8"
+              - option "9"
+              - option "10"
+              - option "11"
+              - option "12"
+              - option "13"
+              - option "14"
+              - option "15"
+              - option "16"
+              - option "17"
+              - option "18"
+              - option "19"
+              - option "20"
+              - option "21"
+              - option "22"
+              - option "23"
+              - option "24"
+              - option "25"
+              - option "26"
+              - option "27" [selected]
+              - option "28"
+              - option "29"
+              - option "30"
+            - combobox "Year" [ref=f21e266] [cursor=pointer]:
+              - option "2026" [selected]
+              - option "2025"
+              - option "2024"
+              - option "2023"
+              - option "2022"
+              - option "2021"
+              - option "2020"
+              - option "2019"
+              - option "2018"
+              - option "2017"
+              - option "2016"
+              - option "2015"
+              - option "2014"
+              - option "2013"
+              - option "2012"
+              - option "2011"
+              - option "2010"
+              - option "2009"
+              - option "2008"
+              - option "2007"
+              - option "2006"
+              - option "2005"
+              - option "2004"
+              - option "2003"
+              - option "2002"
+              - option "2001"
+              - option "2000"
+              - option "1999"
+            - button "View chart" [ref=f21e267] [cursor=pointer]
+          - generic [ref=f21e270]:
+            - generic [ref=f21e271]:
+              - img "Info" [ref=f21e272] [cursor=pointer]
+              - heading "Kitco Morning Fix" [level=2] [ref=f21e273]
+              - generic [ref=f21e274]:
+                - img "Historical Data" [ref=f21e275] [cursor=pointer]
+                - img "Widget" [ref=f21e277]
+                - img "Algorithm" [ref=f21e279]
+                - img "Data Subscription" [ref=f21e281]
+            - generic [ref=f21e282]:
+              - generic "Select a date (weekends are not available)" [ref=f21e285] [cursor=pointer]:
+                - textbox [ref=f21e286]: September 25, 2026
+                - img "Calendar"
+              - generic [ref=f21e287]:
+                - text: Prices posted around
+                - strong [ref=f21e288]: 10:30 AM
+                - text: local time in each hub
+              - generic [ref=f21e289]:
+                - button "USD flag USD" [ref=f21e291] [cursor=pointer]:
+                  - generic [ref=f21e292]:
+                    - img "USD flag" [ref=f21e293]
+                    - generic [ref=f21e294]: USD
+                - button "OZ" [ref=f21e300] [cursor=pointer]
+            - generic [ref=f21e305]:
+              - generic [ref=f21e306]:
+                - generic [ref=f21e307]:
+                  - img "Hong Kong Flag" [ref=f21e309]
+                  - generic [ref=f21e310]:
+                    - generic [ref=f21e311]: HONG KONG
+                    - generic [ref=f21e312]: 10:31 (HKT)
+                - table [ref=f21e313]:
+                  - rowgroup [ref=f21e314]:
+                    - row [ref=f21e315]:
+                      - cell "GOLD" [ref=f21e316]
+                      - cell "4,288.24" [ref=f21e317]
+                    - row [ref=f21e318]:
+                      - cell "SILVER" [ref=f21e319]
+                      - cell "63.90" [ref=f21e320]
+                    - row [ref=f21e321]:
+                      - cell "PLATINUM" [ref=f21e322]
+                      - cell "1,760.00" [ref=f21e323]
+                    - row [ref=f21e324]:
+                      - cell "PALLADIUM" [ref=f21e325]
+                      - cell "1,263.10" [ref=f21e326]
+              - generic [ref=f21e327]:
+                - generic [ref=f21e328]:
+                  - img "India Flag" [ref=f21e330]
+                  - generic [ref=f21e331]:
+                    - generic [ref=f21e332]: MUMBAI
+                    - generic [ref=f21e333]: 10:31 (IST)
+                - table [ref=f21e334]:
+                  - rowgroup [ref=f21e335]:
+                    - row [ref=f21e336]:
+                      - cell "GOLD" [ref=f21e337]
+                      - cell "4,262.77" [ref=f21e338]
+                    - row [ref=f21e339]:
+                      - cell "SILVER" [ref=f21e340]
+                      - cell "63.52" [ref=f21e341]
+                    - row [ref=f21e342]:
+                      - cell "PLATINUM" [ref=f21e343]
+                      - cell "1,746.65" [ref=f21e344]
+                    - row [ref=f21e345]:
+                      - cell "PALLADIUM" [ref=f21e346]
+                      - cell "1,252.20" [ref=f21e347]
+              - generic [ref=f21e348]:
+                - generic [ref=f21e349]:
+                  - img "UK Flag" [ref=f21e351]
+                  - generic [ref=f21e352]:
+                    - generic [ref=f21e353]: LONDON
+                    - generic [ref=f21e354]: 10:31 (GMT)
+                - table [ref=f21e355]:
+                  - rowgroup [ref=f21e356]:
+                    - row [ref=f21e357]:
+                      - cell "GOLD" [ref=f21e358]
+                      - cell "4,290.98" [ref=f21e359]
+                    - row [ref=f21e360]:
+                      - cell "SILVER" [ref=f21e361]
+                      - cell "64.52" [ref=f21e362]
+                    - row [ref=f21e363]:
+                      - cell "PLATINUM" [ref=f21e364]
+                      - cell "1,760.00" [ref=f21e365]
+                    - row [ref=f21e366]:
+                      - cell "PALLADIUM" [ref=f21e367]
+                      - cell "1,255.55" [ref=f21e368]
+              - generic [ref=f21e369]:
+                - generic [ref=f21e370]:
+                  - img "USA Flag" [ref=f21e372]
+                  - generic [ref=f21e373]:
+                    - generic [ref=f21e374]: NEW YORK
+                    - generic [ref=f21e375]: 10:31 (EDT)
+                - table [ref=f21e376]:
+                  - rowgroup [ref=f21e377]:
+                    - row [ref=f21e378]:
+                      - cell "GOLD" [ref=f21e379]
+                      - cell "4,265.59" [ref=f21e380]
+                    - row [ref=f21e381]:
+                      - cell "SILVER" [ref=f21e382]
+                      - cell "63.79" [ref=f21e383]
+                    - row [ref=f21e384]:
+                      - cell "PLATINUM" [ref=f21e385]
+                      - cell "1,753.00" [ref=f21e386]
+                    - row [ref=f21e387]:
+                      - cell "PALLADIUM" [ref=f21e388]
+                      - cell "1,256.90" [ref=f21e389]
+          - generic [ref=f21e391]:
+            - heading "Gold Ratios" [level=2] [ref=f21e393]
+            - generic [ref=f21e394]:
+              - paragraph [ref=f21e395]
+              - paragraph [ref=f21e396]: Silver
+              - paragraph [ref=f21e397]: Platinum
+              - paragraph [ref=f21e398]: Palladium
+              - paragraph [ref=f21e399]: XAU
+              - paragraph [ref=f21e400]: HUI
+              - paragraph [ref=f21e401]: S&P 500
+              - paragraph [ref=f21e402]: DJIA
+              - paragraph [ref=f21e403]: Crude Oil
+            - list [ref=f21e404]:
+              - listitem [ref=f21e405]:
+                - generic [ref=f21e406]:
+                  - generic [ref=f21e407]: GOLD
+                  - generic [ref=f21e408]: "66.76"
+                  - generic [ref=f21e409]: "2.42"
+                  - generic [ref=f21e410]: "3.42"
+                  - generic [ref=f21e411]: "11.17"
+                  - generic [ref=f21e412]: "5.45"
+                  - generic [ref=f21e413]: "0.5533"
+                  - generic [ref=f21e414]: "0.0827"
+                  - generic [ref=f21e415]: "46.33"
+          - separator [ref=f21e424]
+          - generic [ref=f21e425]:
+            - generic [ref=f21e427]:
+              - img "Kitco Mining" [ref=f21e428]
+              - link "Record market cap, but stalled momentum as conference season approaches Record market cap, but stalled momentum as conference season approaches Kitco News | Sep 14 (Kitco News) - Mining companies are heading into this year's investor conference season with an all-time-high aggregate market capitalization, even as executives grapple with an energy cost shock that has undercut margins and forced dealmakers to rework their playbooks." [ref=f21e430] [cursor=pointer]:
+                - /url: /news/article/2026-09-14/record-market-cap-stalled-momentum-conference-season-approaches
+                - generic [ref=f21e431]:
+                  - img "Record market cap, but stalled momentum as conference season approaches" [ref=f21e433]
+                  - generic [ref=f21e434]:
+                    - heading "Record market cap, but stalled momentum as conference season approaches" [level=3] [ref=f21e435]
+                    - paragraph [ref=f21e436]:
+                      - text: Kitco News |
+                      - time [ref=f21e437]: Sep 14
+                    - generic [ref=f21e438]: (Kitco News) - Mining companies are heading into this year's investor conference season with an all-time-high aggregate market capitalization, even as executives grapple with an energy cost shock that has undercut margins and forced dealmakers to rework their playbooks.
+              - list [ref=f21e440]:
+                - listitem [ref=f21e441]:
+                  - generic [ref=f21e442]:
+                    - link [ref=f21e443] [cursor=pointer]:
+                      - /url: /news/off-the-wire/2026-09-25/atomic-eagle-expects-renewed-financing-interest-niger-after-uranium
+                      - heading "Atomic Eagle expects renewed financing interest in Niger after uranium deal" [level=3] [ref=f21e444]
+                    - generic [ref=f21e445]:
+                      - text: Reuters|
+                      - time [ref=f21e446]: Sep 25
+                - listitem [ref=f21e447]:
+                  - generic [ref=f21e448]:
+                    - link [ref=f21e449] [cursor=pointer]:
+                      - /url: /news/off-the-wire/2026-09-25/jfe-steel-sees-600000-ton-production-impact-chiba-weather-damage
+                      - heading "JFE Steel sees 600,000-ton production impact from Chiba weather damage" [level=3] [ref=f21e450]
+                    - generic [ref=f21e451]:
+                      - text: Reuters|
+                      - time [ref=f21e452]: Sep 25
+                - listitem [ref=f21e453]:
+                  - generic [ref=f21e454]:
+                    - link [ref=f21e455] [cursor=pointer]:
+                      - /url: /news/off-the-wire/2026-09-25/belgian-gem-trader-hb-downsizes-botswana-operations-after-failed
+                      - heading "Belgian gem trader HB downsizes Botswana operations after failed supply deal" [level=3] [ref=f21e456]
+                    - generic [ref=f21e457]:
+                      - text: Reuters|
+                      - time [ref=f21e458]: Sep 25
+                - listitem [ref=f21e459]:
+                  - generic [ref=f21e460]:
+                    - link [ref=f21e461] [cursor=pointer]:
+                      - /url: /news/off-the-wire/2026-09-24/masan-high-tech-sell-stake-elmet-sign-tungsten-supply-deal
+                      - heading "Masan High-Tech to sell stake to Elmet, sign tungsten supply deal" [level=3] [ref=f21e462]
+                    - generic [ref=f21e463]:
+                      - text: Reuters|
+                      - time [ref=f21e464]: Sep 24
+                - listitem [ref=f21e465]:
+                  - generic [ref=f21e466]:
+                    - link [ref=f21e467] [cursor=pointer]:
+                      - /url: /news/off-the-wire/2026-09-24/singapore-court-appoints-kpmg-manage-radiant-world-bloomberg-reports
+                      - heading "Singapore court appoints KPMG to manage Radiant World, Bloomberg reports" [level=3] [ref=f21e468]
+                    - generic [ref=f21e469]:
+                      - text: Reuters|
+                      - time [ref=f21e470]: Sep 24
+              - link "More from Kitco Mining" [ref=f21e472] [cursor=pointer]:
+                - /url: /news/category/mining
+            - generic [ref=f21e478]:
+              - img "Investment Trends" [ref=f21e479]
+              - list [ref=f21e481]:
+                - listitem [ref=f21e482]:
+                  - link [ref=f21e483] [cursor=pointer]:
+                    - /url: /opinion/investment-trends/2026-09-21/blue-jay-golds-first-drill-results-extend-high-grade-gold
+                    - generic [ref=f21e484]:
+                      - img "Article teaser image" [ref=f21e486]
+                      - heading "Blue Jay Gold's first drill results extend high-grade gold deeper at Steller" [level=3] [ref=f21e488]
+                - listitem [ref=f21e489]:
+                  - link [ref=f21e490] [cursor=pointer]:
+                    - /url: /opinion/investment-trends/2026-07-21/while-majors-wait-prices-recover-empress-royalty-buying
+                    - generic [ref=f21e491]:
+                      - img "Article teaser image" [ref=f21e493]
+                      - heading "While majors wait for prices to recover, Empress Royalty is buying" [level=3] [ref=f21e495]
+                - listitem [ref=f21e496]:
+                  - link [ref=f21e497] [cursor=pointer]:
+                    - /url: /opinion/investment-trends/2026-07-10/blackrock-silver-advances-tonopah-west-toward-underground
+                    - generic [ref=f21e498]:
+                      - img "Article teaser image" [ref=f21e500]
+                      - heading "Blackrock Silver advances Tonopah West toward underground development" [level=3] [ref=f21e502]
+                - listitem [ref=f21e503]:
+                  - link [ref=f21e504] [cursor=pointer]:
+                    - /url: /opinion/investment-trends/2026-07-09/mackay-starts-major-comstock-drill-program-after-district
+                    - generic [ref=f21e505]:
+                      - img "Article teaser image" [ref=f21e507]
+                      - heading "Mackay starts major Comstock drill program after district consolidation" [level=3] [ref=f21e509]
+              - link "More" [ref=f21e510] [cursor=pointer]:
+                - /url: /opinion/investment-trends
+          - separator [ref=f21e515]
+          - generic [ref=f21e516]:
+            - heading "Gold And Silver Prices, News and Quotes" [level=1] [ref=f21e517]
+            - generic [ref=f21e519]:
+              - generic [ref=f21e521]:
+                - link [ref=f21e522] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/gold-throwing-out-old-rulebook
+                  - img "Gold is throwing out the old rulebook" [ref=f21e523]
+                  - heading "Gold is throwing out the old rulebook" [level=6] [ref=f21e524]
+                - paragraph [ref=f21e525]: Kitco News | Sep 25
+                - generic [ref=f21e526]: (Kitco News) - By almost every traditional correlation, gold should be substantially lower than it is today – and the fact that it isn’t is telling us something loud and clear.
+              - generic [ref=f21e527]:
+                - generic [ref=f21e528]:
+                  - link [ref=f21e530] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/wall-street-split-gold-price-path-after-drop-below-4300-main-street
+                    - heading "Wall Street split on gold price path after drop below $4,300, Main Street maintains bullish majority as jobs take center stage" [level=3] [ref=f21e531]
+                  - generic [ref=f21e532]: Kitco News Sep 25
+                - generic [ref=f21e533]:
+                  - link [ref=f21e535] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/gold-caps-weekly-loss-fed-bets-52-yields-limit-rebound-kitco-pm-report
+                    - heading "Gold caps weekly loss as Fed bets, 5.2% yields limit rebound - Kitco PM Report" [level=3] [ref=f21e536]
+                  - generic [ref=f21e537]: Kitco NewsWire Sep 25
+                - generic [ref=f21e538]:
+                  - link [ref=f21e540] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/golds-4300-support-faces-another-test-next-week-bond-yields-surge-and-jobs
+                    - heading "Gold’s $4,300 support faces another test next week as bond yields surge and jobs data looms" [level=3] [ref=f21e541]
+                  - generic [ref=f21e542]: Kitco News Sep 25
+                - generic [ref=f21e543]:
+                  - link [ref=f21e545] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/rising-inflation-risks-and-bond-yields-put-portfolio-diversification-back
+                    - heading "Rising inflation risks and bond yields put portfolio diversification back in focus – Man Group" [level=3] [ref=f21e546]
+                  - generic [ref=f21e547]: Kitco News Sep 25
+                - generic [ref=f21e548]:
+                  - link [ref=f21e550] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/gold-price-hits-low-4254oz-after-final-consumer-sentiment-rises-481
+                    - heading "Gold price hits low of $4,254/oz after final Consumer Sentiment rises to 48.1, inflation expectations spike" [level=3] [ref=f21e551]
+                  - generic [ref=f21e552]: Kitco News Sep 25
+                - generic [ref=f21e553]:
+                  - link [ref=f21e555] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/metals-bounce-hormuz-diplomacy-cools-crude-yields-stay-elevated-kitco-am
+                    - heading "Metals bounce as Hormuz diplomacy cools crude, yields stay elevated - Kitco AM Report" [level=3] [ref=f21e556]
+                  - generic [ref=f21e557]: Kitco NewsWire Sep 25
+                - generic [ref=f21e558]:
+                  - link [ref=f21e560] [cursor=pointer]:
+                    - /url: /news/article/2026-09-25/gold-holding-its-own-around-4300-us-durable-goods-remains-resilient
+                    - heading "Gold holding its own around $4,300 as US durable goods remains resilient" [level=3] [ref=f21e561]
+                  - generic [ref=f21e562]: Kitco News Sep 25
+                - generic [ref=f21e563]:
+                  - link [ref=f21e565] [cursor=pointer]:
+                    - /url: /news/article/2026-09-24/silvers-tight-supply-creates-yield-opportunity-theo-launches-new-tokenized
+                    - heading "Silver’s tight supply creates yield opportunity as Theo launches new tokenized product" [level=3] [ref=f21e566]
+                  - generic [ref=f21e567]: Kitco News Sep 24
+                - generic [ref=f21e568]:
+                  - link [ref=f21e570] [cursor=pointer]:
+                    - /url: /news/article/2026-09-24/dowgold-ratio-shows-stocks-are-down-33-2023-and-next-crash-will-come-2030
+                    - heading "The Dow:Gold ratio shows stocks are down 33% since 2023 – and the next crash will come by 2030 – Mises Institute" [level=3] [ref=f21e571]
+                  - generic [ref=f21e572]: Kitco News Sep 24
+            - link "More News" [ref=f21e574] [cursor=pointer]:
+              - /url: /news/digest
+          - generic [ref=f21e579]:
+            - region "Understanding Precious Metals Prices" [ref=f21e580]:
+              - heading "Understanding Precious Metals Prices" [level=2] [ref=f21e581]
+              - paragraph [ref=f21e582]: The live prices, charts and market data displayed above provide a real-time overview of the world's major precious metals markets. Whether you are monitoring today's spot prices, comparing metals or researching long-term performance, this page brings together the latest prices for Gold, Silver, Platinum, Palladium and Rhodium in one place.
+              - paragraph [ref=f21e583]: Each precious metal has unique characteristics that influence its market value. Gold is widely recognized as a store of value and safe-haven asset, while Silver combines investment demand with extensive industrial use. Platinum, Palladium and Rhodium are more heavily influenced by industrial applications, particularly in the automotive sector, causing their prices to respond differently to changes in global economic activity.
+            - region "Live Prices By Precious Metal" [ref=f21e584]:
+              - heading "Live Prices By Precious Metal" [level=2] [ref=f21e585]
+              - paragraph [ref=f21e586]: The live price cards below provide an at-a-glance view of the five precious metals tracked on this page. Each card displays the current price in U.S. dollars, daily market movement and commonly used weight conversions. Select a metal to open its dedicated price page, where you can explore live charts, historical prices, market trends and more detailed pricing information.
+              - generic [ref=f21e587]:
+                - link "Gold price USD $4,284.20/ oz +$10.80 (+0.25%) $137.74 / gram · $137,740.23 / kilo" [ref=f21e588] [cursor=pointer]:
+                  - /url: /charts/gold
+                  - text: Gold price USD
+                  - generic [ref=f21e589]: $4,284.20/ oz
+                  - generic [ref=f21e590]: +$10.80 (+0.25%)
+                  - generic [ref=f21e591]: $137.74 / gram · $137,740.23 / kilo
+                - link "Silver price USD $64.17/ oz +$0.45 (+0.70%) $2.06 / gram · $2,063.08 / kilo" [ref=f21e592] [cursor=pointer]:
+                  - /url: /charts/silver
+                  - text: Silver price USD
+                  - generic [ref=f21e593]: $64.17/ oz
+                  - generic [ref=f21e594]: +$0.45 (+0.70%)
+                  - generic [ref=f21e595]: $2.06 / gram · $2,063.08 / kilo
+                - link "Platinum price USD $1,773.00/ oz +$23.00 (+1.31%) $57.00 / gram · $57,003.27 / kilo" [ref=f21e596] [cursor=pointer]:
+                  - /url: /charts/platinum
+                  - text: Platinum price USD
+                  - generic [ref=f21e597]: $1,773.00/ oz
+                  - generic [ref=f21e598]: +$23.00 (+1.31%)
+                  - generic [ref=f21e599]: $57.00 / gram · $57,003.27 / kilo
+                - link "Palladium price USD $1,251.00/ oz +$4.00 (+0.32%) $40.22 / gram · $40,220.58 / kilo" [ref=f21e600] [cursor=pointer]:
+                  - /url: /charts/palladium
+                  - text: Palladium price USD
+                  - generic [ref=f21e601]: $1,251.00/ oz
+                  - generic [ref=f21e602]: +$4.00 (+0.32%)
+                  - generic [ref=f21e603]: $40.22 / gram · $40,220.58 / kilo
+                - link "Rhodium price USD $8,675.00/ oz -$325.00 (-3.61%) $278.91 / gram · $278,907.73 / kilo" [ref=f21e604] [cursor=pointer]:
+                  - /url: /charts/rhodium
+                  - text: Rhodium price USD
+                  - generic [ref=f21e605]: $8,675.00/ oz
+                  - generic [ref=f21e606]: "-$325.00 (-3.61%)"
+                  - generic [ref=f21e607]: $278.91 / gram · $278,907.73 / kilo
+              - paragraph [ref=f21e608]: For investors, traders and collectors alike, following these metals together provides useful market context. Comparing their relative performance can help reveal broader trends in inflation expectations, economic conditions and investor sentiment.
+            - region "What Moves Precious Metal Prices?" [ref=f21e609]:
+              - heading "What Moves Precious Metal Prices?" [level=2] [ref=f21e610]
+              - paragraph [ref=f21e611]: Precious metal prices are determined by global supply and demand, with spot prices continuously reflecting activity across international financial markets. Economic conditions, geopolitical developments and investor sentiment all contribute to daily price fluctuations.
+              - paragraph [ref=f21e612]: "Several factors commonly influence precious metal prices, including:"
+              - list [ref=f21e613]:
+                - listitem [ref=f21e614]: Inflation and interest rate expectations
+                - listitem [ref=f21e615]: Strength or weakness of the U.S. dollar
+                - listitem [ref=f21e616]: Central bank buying and selling activity
+                - listitem [ref=f21e617]: Industrial demand and manufacturing trends
+                - listitem [ref=f21e618]: Jewelry demand and seasonal purchasing
+                - listitem [ref=f21e619]: Mining production and supply constraints
+                - listitem [ref=f21e620]: Global economic uncertainty and geopolitical events
+              - paragraph [ref=f21e621]: While many of these factors affect all precious metals, each metal responds differently depending on its primary sources of demand. Gold often benefits during periods of financial uncertainty, whereas Platinum, Palladium and Rhodium tend to be more closely linked to industrial production. Silver frequently reflects a combination of both investment and industrial market dynamics.
+            - region "Comparing The Major Precious Metals" [ref=f21e622]:
+              - heading "Comparing The Major Precious Metals" [level=2] [ref=f21e623]
+              - paragraph [ref=f21e624]: Although often grouped together, each precious metal serves a distinct role in global markets.
+              - paragraph [ref=f21e625]:
+                - strong [ref=f21e626]: Gold
+                - text: remains the world's leading precious metal for investment, central bank reserves and wealth preservation.
+              - paragraph [ref=f21e627]:
+                - strong [ref=f21e628]: Silver
+                - text: is valued both as an investment asset and for its extensive use in electronics, solar energy and industrial manufacturing.
+              - paragraph [ref=f21e629]:
+                - strong [ref=f21e630]: Platinum
+                - text: is widely used in automotive technology, jewelry and emerging hydrogen-related applications, making it sensitive to industrial demand.
+              - paragraph [ref=f21e631]:
+                - strong [ref=f21e632]: Palladium
+                - text: plays an important role in vehicle emissions control systems and has experienced periods of significant price volatility as industrial demand and supply conditions change.
+              - paragraph [ref=f21e633]:
+                - strong [ref=f21e634]: Rhodium
+                - text: is one of the rarest precious metals traded globally. Its limited supply and specialized industrial applications often make it the most volatile—and at times the highest-priced—metal within the precious metals market.
+            - region "Using Precious Metals Prices And Historical Charts" [ref=f21e635]:
+              - heading "Using Precious Metals Prices And Historical Charts" [level=2] [ref=f21e636]
+              - paragraph [ref=f21e637]: Live spot prices provide a snapshot of current market conditions, while historical charts help place today's movements into a broader market perspective. Comparing performance across different timeframes allows investors to identify longer-term trends, periods of volatility and changing market cycles.
+              - paragraph [ref=f21e638]: Each individual metal page offers additional historical price data, interactive charts and pricing in multiple trading units, including troy ounces, grams and kilograms, allowing you to explore each precious metal in greater detail.
+            - region "Precious Metals FAQ" [ref=f21e639]:
+              - heading "Precious Metals FAQ" [level=2] [ref=f21e640]
+              - generic [ref=f21e641]:
+                - generic [ref=f21e642]:
+                  - term [ref=f21e643]: What are precious metals?
+                  - definition [ref=f21e644]: "Precious metals are naturally occurring metallic elements that are valued for their rarity, durability and economic importance. This page tracks five of the most actively followed precious metals: Gold, Silver, Platinum, Palladium and Rhodium."
+                - generic [ref=f21e645]:
+                  - term [ref=f21e646]: How are precious metal prices determined?
+                  - definition [ref=f21e647]: Prices are based on the global spot market, where buyers and sellers continuously establish market value through supply and demand. Economic conditions, industrial activity and investor sentiment all influence price movements.
+                - generic [ref=f21e648]:
+                  - term [ref=f21e649]: Why do precious metal prices change every day?
+                  - definition [ref=f21e650]: Precious metal prices respond to changing market conditions, including inflation expectations, interest rates, currency movements, industrial demand and geopolitical events. Because global markets operate around the clock, prices are updated continuously during active trading hours.
+                - generic [ref=f21e651]:
+                  - term [ref=f21e652]: Which precious metal is the most expensive?
+                  - definition [ref=f21e653]: The highest-priced precious metal can change over time. Rhodium has frequently traded at significantly higher prices than Gold, Platinum or Palladium due to its limited supply and specialized industrial demand.
+                - generic [ref=f21e654]:
+                  - term [ref=f21e655]: Why do Gold and Silver often move together?
+                  - definition [ref=f21e656]: Both metals are widely held as investment assets and can respond similarly to changes in inflation expectations, interest rates and broader market sentiment. However, Silver's larger industrial component often causes its price to diverge from Gold during periods of strong or weak manufacturing activity.
+                - generic [ref=f21e657]:
+                  - term [ref=f21e658]: Can I compare historical prices for different precious metals?
+                  - definition [ref=f21e659]: Yes. Kitco provides historical charts and market data for each precious metal, making it easy to compare performance across different timeframes and market conditions.
+                - generic [ref=f21e660]:
+                  - term [ref=f21e661]: How often are precious metal prices updated?
+                  - definition [ref=f21e662]: Live spot prices are updated every few seconds or every minute throughout active market hours using Kitco's market data feeds, providing timely pricing across the precious metals market.
+                - generic [ref=f21e663]:
+                  - term [ref=f21e664]: Where can I find detailed information for each precious metal?
+                  - definition [ref=f21e665]:
+                    - text: Select any of the individual precious metal pages to explore dedicated live prices, historical charts, market data and additional pricing information for
+                    - link "Gold" [ref=f21e666] [cursor=pointer]:
+                      - /url: /charts/gold
+                    - text: ","
+                    - link "Silver" [ref=f21e667] [cursor=pointer]:
+                      - /url: /charts/silver
+                    - text: ","
+                    - link "Platinum" [ref=f21e668] [cursor=pointer]:
+                      - /url: /charts/platinum
+                    - text: ","
+                    - link "Palladium" [ref=f21e669] [cursor=pointer]:
+                      - /url: /charts/palladium
+                    - text: or
+                    - link "Rhodium" [ref=f21e670] [cursor=pointer]:
+                      - /url: /charts/rhodium
+                    - text: .
+            - paragraph [ref=f21e671]:
+              - text: "Also available:"
+              - link "Precious metals prices in Canadian dollars (CAD)" [ref=f21e672] [cursor=pointer]:
+                - /url: /price/precious-metals/canada
+        - generic [ref=f21e673]:
+          - iframe [ref=f21e676]:
+            - generic [ref=f40e1]:
+              - link [ref=f40e2] [cursor=pointer]:
+                - /url: https://pagead2.googlesyndication.com/pcs/click?xai=AKAOjssIp9NYmOF6IkZ0ZsDtCSGFRGxJra1kR98mQktGcJ_DPtRJwf2PeHzZHSbv1kPiCeXSAcxjltXXzGab_o0k0RGmR-TCb65oVPRsKwAddCwyrgyHgBejYm9dtP7LhkYUzxbV6PunBMzptmb2fFcVJxeh5HH0rDcakKjXeJ6StzqaOn6sahBH7z_iRl4W4_5bSw2jWfx5r9fsoRRKQK_jSGr5fsLXIDhSkZ4BNMNXLQ1EAk0FMhrIVf8kPJV6e0oO0udmezVfXt3D4oeMkXfiygWPWyIcRtMLr4wKthKl-_rel9Z6YnRm9_WCR3-NOsmKFzgjz6A0pToIcAi1zq1aHys7Hj1s-8eEYAGYI36iRNSE96wuUzrSfGdoVooo1P7Pz1DoI5Jl1HbqvcAw4-9I_k_apdyT92zXi_Rmw02LYVMWTFBAly4KrzROqmWGVJs&sig=Cg0ArKJSzHiN7McKjncF&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.youtube.com/%40KitcoMining
+              - generic [ref=f40e3] [cursor=pointer]
+              - button [ref=f40e10] [cursor=pointer]
+          - generic [ref=f21e677]:
+            - generic [ref=f21e678]:
+              - heading "Kitco News Channel" [level=3] [ref=f21e682]
+              - generic [ref=f21e683]:
+                - button "Turn sound on" [ref=f21e684] [cursor=pointer]
+                - button "Fullscreen" [ref=f21e689] [cursor=pointer]
+            - iframe [ref=f21e696]:
+              - generic [ref=f32e1]:
+                - generic "YouTube Video Player" [ref=f32e3]
+                - generic [ref=f32e5]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f32e6] [cursor=pointer]
+                      - button "Play video" [ref=f32e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f32e14] [cursor=pointer]
+                      - generic [ref=f32e21]:
+                        - generic [ref=f32e22]:
+                          - link "The Rare Earth Card China Brings To The Trump Xi Meeting | This Week In Focus" [ref=f32e23] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=8eU0gOkWRvc
+                          - link "Kitco NEWS" [ref=f32e24] [cursor=pointer]:
+                            - /url: /channel/UC9ijza42jVR3T6b8bColgvg
+                        - generic [ref=f32e26]:
+                          - button [ref=f32e27] [cursor=pointer]
+                          - generic [ref=f32e29]:
+                            - generic: Kitco NEWS
+                            - generic: 780K subscribers
+          - generic [ref=f21e698]:
+            - heading "Precious Metals Historical Performance" [level=2] [ref=f21e699]
+            - generic [ref=f21e700]:
+              - generic [ref=f21e701]:
+                - generic [ref=f21e702]:
+                  - generic [ref=f21e703]: Metal
+                  - combobox [ref=f21e704]:
+                    - option "Gold" [selected]
+                    - option "Silver"
+                    - option "Platinum"
+                    - option "Palladium"
+                - generic [ref=f21e705]:
+                  - generic [ref=f21e706]: Unit of measure
+                  - combobox [ref=f21e707]:
+                    - option "OZ" [selected]
+                    - option "Kilo"
+                    - option "Gram"
+                    - option "Tola"
+                - generic [ref=f21e708]:
+                  - generic [ref=f21e709]: Currency
+                  - combobox [ref=f21e710]:
+                    - option "USD" [selected]
+                    - option "CAD"
+                    - option "EUR"
+                    - option "GBP"
+                    - option "JPY"
+                    - option "CHF"
+                    - option "AUD"
+                    - option "CNY"
+                    - option "INR"
+                    - option "MXN"
+                    - option "BRL"
+                    - option "ZAR"
+                    - option "RUB"
+              - generic [ref=f21e711]:
+                - generic [ref=f21e712]:
+                  - generic [ref=f21e713]: "Current Price:"
+                  - generic [ref=f21e714]:
+                    - generic [ref=f21e715]: 4,284.20
+                    - text: USD/oz
+                - generic [ref=f21e716]:
+                  - generic [ref=f21e717]: Sep 27, 2026, 03:45 PM NY
+                  - generic [ref=f21e718]:
+                    - text: +$10.80
+                    - generic [ref=f21e719]: (+0.25%)
+              - table [ref=f21e720]:
+                - rowgroup [ref=f21e721]:
+                  - row [ref=f21e722]:
+                    - columnheader "Time" [ref=f21e723]
+                    - columnheader "Change" [ref=f21e724]
+                    - columnheader "Change%" [ref=f21e725]
+                - rowgroup [ref=f21e726]:
+                  - row [ref=f21e727] [cursor=pointer]:
+                    - cell "3 Days" [ref=f21e728]
+                    - cell "-72.80" [ref=f21e729]
+                    - cell "-1.67%" [ref=f21e730]
+                  - row [ref=f21e731] [cursor=pointer]:
+                    - cell "7 Days" [ref=f21e732]
+                    - cell "-92.80" [ref=f21e733]
+                    - cell "-2.12%" [ref=f21e734]
+                  - row [ref=f21e735] [cursor=pointer]:
+                    - cell "30 Days" [ref=f21e736]
+                    - cell "-308.70" [ref=f21e737]
+                    - cell "-6.72%" [ref=f21e738]
+                  - row [ref=f21e739] [cursor=pointer]:
+                    - cell "60 Days" [ref=f21e740]
+                    - cell "+208.60" [ref=f21e741]
+                    - cell "+5.12%" [ref=f21e742]
+                  - row [ref=f21e743] [cursor=pointer]:
+                    - cell "6 Months" [ref=f21e744]
+                    - cell "-208.80" [ref=f21e745]
+                    - cell "-4.65%" [ref=f21e746]
+                  - row [ref=f21e747] [cursor=pointer]:
+                    - cell "1 Year" [ref=f21e748]
+                    - cell "+536.00" [ref=f21e749]
+                    - cell "+14.30%" [ref=f21e750]
+                  - row [ref=f21e751] [cursor=pointer]:
+                    - cell "5 Years" [ref=f21e752]
+                    - cell "+2,534.00" [ref=f21e753]
+                    - cell "+144.78%" [ref=f21e754]
+                  - row [ref=f21e755] [cursor=pointer]:
+                    - cell "10 Years" [ref=f21e756]
+                    - cell "+2,957.20" [ref=f21e757]
+                    - cell "+222.85%" [ref=f21e758]
+                  - row [ref=f21e759] [cursor=pointer]:
+                    - cell "15 Years" [ref=f21e760]
+                    - cell "+2,668.30" [ref=f21e761]
+                    - cell "+165.13%" [ref=f21e762]
+            - generic [ref=f21e764]:
+              - text: Want this widget on your site?
+              - link "Get the widget" [ref=f21e765] [cursor=pointer]:
+                - /url: https://widgets.kitco.com/#/widgets/precious_metals_performance
+          - generic [ref=f21e766]:
+            - heading "Market Indices" [level=2] [ref=f21e768]
+            - generic [ref=f21e771]:
+              - iframe [ref=f21e772]:
+                - generic [ref=f33e3]:
+                  - generic [ref=f33e4]:
+                    - tablist [ref=f33e8]:
+                      - tab "North America" [selected] [ref=f33e9]
+                      - tab "Europe" [ref=f33e12]
+                      - tab "Asia" [ref=f33e15]
+                      - tab "Australia" [ref=f33e18]
+                      - button [aria-hidden]:
+                        - generic: More
+                    - generic [ref=f33e23]:
+                      - table [ref=f33e27]:
+                        - row [ref=f33e28]:
+                          - cell
+                          - cell [ref=f33e29]
+                          - cell
+                        - row [ref=f33e33]:
+                          - cell
+                          - cell [ref=f33e34]
+                          - cell
+                      - generic [ref=f33e39]:
+                        - button "1D" [ref=f33e40]
+                        - button "1M" [ref=f33e43]
+                        - button "3M" [ref=f33e46]
+                        - button "1Y" [ref=f33e49]
+                        - button "5Y" [ref=f33e52]
+                        - button "All" [ref=f33e55]
+                      - generic [ref=f33e59]:
+                        - generic [ref=f33e60]:
+                          - generic [ref=f33e61]:
+                            - generic [ref=f33e62]: "false"
+                            - generic [ref=f33e63]:
+                              - generic [ref=f33e64]:
+                                - link "SPXUSD" [ref=f33e65] [cursor=pointer]:
+                                  - /url: https://www.tradingview.com/symbols/FOREXCOM-SPX500/?utm_campaign=market-overview&utm_medium=widget_new&utm_source=www.kitco.com
+                                - generic "Market closed" [ref=f33e66]
+                              - generic [ref=f33e68]: S&P 500 Index
+                          - generic [ref=f33e70]:
+                            - generic [ref=f33e71]: 7,745.9
+                            - generic:
+                              - generic [ref=f33e73]: +0.65%
+                              - generic [ref=f33e74]: "+50.4"
+                        - generic [ref=f33e75]:
+                          - generic [ref=f33e76]:
+                            - generic [ref=f33e77]: "false"
+                            - generic [ref=f33e78]:
+                              - generic [ref=f33e79]:
+                                - link "NAS100" [ref=f33e80] [cursor=pointer]:
+                                  - /url: https://www.tradingview.com/symbols/FOREXCOM-NAS100/?utm_campaign=market-overview&utm_medium=widget_new&utm_source=www.kitco.com
+                                - generic "Market closed" [ref=f33e81]
+                              - generic [ref=f33e83]: US 100 Cash CFD
+                          - generic [ref=f33e85]:
+                            - generic [ref=f33e86]: 30,642.1
+                            - generic:
+                              - generic [ref=f33e88]: +0.65%
+                              - generic [ref=f33e89]: "+198.1"
+                        - generic [ref=f33e90]:
+                          - generic [ref=f33e91]:
+                            - generic [ref=f33e92]: "false"
+                            - generic [ref=f33e93]:
+                              - generic [ref=f33e94]:
+                                - link "US30" [ref=f33e95] [cursor=pointer]:
+                                  - /url: https://www.tradingview.com/symbols/PHILLIPNOVA-US30/?utm_campaign=market-overview&utm_medium=widget_new&utm_source=www.kitco.com
+                                - generic "Market closed" [ref=f33e96]
+                              - generic [ref=f33e98]: DJIA Index
+                          - generic [ref=f33e100]:
+                            - generic [ref=f33e101]: 51,828.5
+                            - generic:
+                              - generic [ref=f33e103]: +1.03%
+                              - generic [ref=f33e104]: "+530.0"
+                        - generic [ref=f33e105]:
+                          - generic [ref=f33e106]:
+                            - generic [ref=f33e107]: "false"
+                            - generic [ref=f33e108]:
+                              - generic [ref=f33e109]:
+                                - link "NYA" [ref=f33e110] [cursor=pointer]:
+                                  - /url: https://www.tradingview.com/symbols/NYSE-NYA/?utm_campaign=market-overview&utm_medium=widget_new&utm_source=www.kitco.com
+                                - generic "End of Day" [ref=f33e111]: E
+                                - generic "Market closed" [ref=f33e112]
+                              - generic [ref=f33e114]: NYSE Composite Index
+                          - generic [ref=f33e116]:
+                            - generic [ref=f33e117]: 23,912.59
+                            - generic:
+                              - generic [ref=f33e119]: +0.40%
+                              - generic [ref=f33e120]: "+96.09"
+                        - generic [ref=f33e121]:
+                          - generic [ref=f33e122]:
+                            - generic [ref=f33e123]: "false"
+                            - generic [ref=f33e124]:
+                              - generic [ref=f33e125]:
+                                - link "TSX" [ref=f33e126] [cursor=pointer]:
+                                  - /url: https://www.tradingview.com/symbols/TSX-TSX/?utm_campaign=market-overview&utm_medium=widget_new&utm_source=www.kitco.com
+                                - generic "Quotes are delayed by 15 min" [ref=f33e127]: D
+                                - generic "Market closed" [ref=f33e128]
+                              - generic [ref=f33e130]: S&P / TSX Composite Index
+                          - generic [ref=f33e132]:
+                            - generic [ref=f33e133]: 35,800.89
+                            - generic:
+                              - generic [ref=f33e135]: +0.26%
+                              - generic [ref=f33e136]: "+94.43"
+                  - generic [ref=f33e137]:
+                    - link "Visit TradingView — financial charting platform and trading community":
+                      - /url: https://www.tradingview.com?utm_campaign=market-overview-logo&utm_medium=widget_new&utm_source=www.kitco.com
+              - generic [ref=f21e773]:
+                - link "World markets" [ref=f21e774] [cursor=pointer]:
+                  - /url: https://www.tradingview.com/markets/?utm_source=www.kitco.com&utm_medium=widget_new&utm_campaign=market-overview
+                - text: by TradingView
+          - generic [ref=f21e775]:
+            - heading "Latest News" [level=2] [ref=f21e777]
+            - generic [ref=f21e778]:
+              - generic [ref=f21e779]:
+                - button "News" [ref=f21e780] [cursor=pointer]
+                - button "Videos" [ref=f21e781] [cursor=pointer]
+                - button "Opinion" [ref=f21e782] [cursor=pointer]
+              - generic [ref=f21e783]:
+                - paragraph
+                - link [ref=f21e784] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/gold-throwing-out-old-rulebook
+                  - heading "Gold is throwing out the old rulebook" [level=3] [ref=f21e785]
+                - generic [ref=f21e786]: Sep 25
+              - generic [ref=f21e787]:
+                - paragraph
+                - link [ref=f21e788] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/wall-street-split-gold-price-path-after-drop-below-4300-main-street
+                  - heading "Wall Street split on gold price path after drop below $4,300, Main Street maintains bullish majority as jobs take center stage" [level=3] [ref=f21e789]
+                - generic [ref=f21e790]: Sep 25
+              - generic [ref=f21e791]:
+                - paragraph
+                - link [ref=f21e792] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/gold-caps-weekly-loss-fed-bets-52-yields-limit-rebound-kitco-pm-report
+                  - heading "Gold caps weekly loss as Fed bets, 5.2% yields limit rebound - Kitco PM Report" [level=3] [ref=f21e793]
+                - generic [ref=f21e794]: Sep 25
+              - generic [ref=f21e795]:
+                - paragraph
+                - link [ref=f21e796] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/golds-4300-support-faces-another-test-next-week-bond-yields-surge-and-jobs
+                  - heading "Gold’s $4,300 support faces another test next week as bond yields surge and jobs data looms" [level=3] [ref=f21e797]
+                - generic [ref=f21e798]: Sep 25
+              - generic [ref=f21e799]:
+                - paragraph
+                - link [ref=f21e800] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/rising-inflation-risks-and-bond-yields-put-portfolio-diversification-back
+                  - heading "Rising inflation risks and bond yields put portfolio diversification back in focus – Man Group" [level=3] [ref=f21e801]
+                - generic [ref=f21e802]: Sep 25
+              - generic [ref=f21e803]:
+                - paragraph
+                - link [ref=f21e804] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/gold-price-hits-low-4254oz-after-final-consumer-sentiment-rises-481
+                  - heading "Gold price hits low of $4,254/oz after final Consumer Sentiment rises to 48.1, inflation expectations spike" [level=3] [ref=f21e805]
+                - generic [ref=f21e806]: Sep 25
+              - generic [ref=f21e807]:
+                - paragraph
+                - link [ref=f21e808] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/metals-bounce-hormuz-diplomacy-cools-crude-yields-stay-elevated-kitco-am
+                  - heading "Metals bounce as Hormuz diplomacy cools crude, yields stay elevated - Kitco AM Report" [level=3] [ref=f21e809]
+                - generic [ref=f21e810]: Sep 25
+              - generic [ref=f21e811]:
+                - paragraph
+                - link [ref=f21e812] [cursor=pointer]:
+                  - /url: /news/article/2026-09-25/gold-holding-its-own-around-4300-us-durable-goods-remains-resilient
+                  - heading "Gold holding its own around $4,300 as US durable goods remains resilient" [level=3] [ref=f21e813]
+                - generic [ref=f21e814]: Sep 25
+              - generic [ref=f21e815]:
+                - paragraph
+                - link [ref=f21e816] [cursor=pointer]:
+                  - /url: /news/article/2026-09-24/silvers-tight-supply-creates-yield-opportunity-theo-launches-new-tokenized
+                  - heading "Silver’s tight supply creates yield opportunity as Theo launches new tokenized product" [level=3] [ref=f21e817]
+                - generic [ref=f21e818]: Sep 24
+              - generic [ref=f21e819]:
+                - paragraph
+                - link [ref=f21e820] [cursor=pointer]:
+                  - /url: /news/article/2026-09-24/dowgold-ratio-shows-stocks-are-down-33-2023-and-next-crash-will-come-2030
+                  - heading "The Dow:Gold ratio shows stocks are down 33% since 2023 – and the next crash will come by 2030 – Mises Institute" [level=3] [ref=f21e821]
+                - generic [ref=f21e822]: Sep 24
+      - text: X
+    - contentinfo [ref=f21e825]:
+      - generic [ref=f21e826]:
+        - generic [ref=f21e827]:
+          - img "Kitco logo for Kitco.com" [ref=f21e828]
+          - generic [ref=f21e829]:
+            - link [ref=f21e830] [cursor=pointer]:
+              - /url: https://www.facebook.com/KitcoNews
+            - link [ref=f21e834] [cursor=pointer]:
+              - /url: https://twitter.com/kitconewsnow
+            - link [ref=f21e838] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/kitco-metals-inc./
+            - link [ref=f21e844] [cursor=pointer]:
+              - /url: https://www.instagram.com/kitconews/
+            - link [ref=f21e849] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/KitcoNews
+            - link [ref=f21e854] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@kitconews
+        - generic [ref=f21e859]:
+          - heading "KITCO" [level=3] [ref=f21e860]
+          - link "All Metal Quotes" [ref=f21e862] [cursor=pointer]:
+            - /url: /price/precious-metals
+          - link "Cryptocurrencies" [ref=f21e864] [cursor=pointer]:
+            - /url: /charts
+          - link "Markets" [ref=f21e866] [cursor=pointer]:
+            - /url: /markets
+          - link "News" [ref=f21e868] [cursor=pointer]:
+            - /url: /news
+          - link "Commentaries" [ref=f21e870] [cursor=pointer]:
+            - /url: /opinion
+          - link "Mining" [ref=f21e872] [cursor=pointer]:
+            - /url: /news/category/mining
+        - generic [ref=f21e873]:
+          - img "Kitco on AppStore" [ref=f21e874]
+          - generic [ref=f21e875]:
+            - img "Kitco QR Code" [ref=f21e876]
+            - paragraph [ref=f21e877]:
+              - link [ref=f21e878] [cursor=pointer]:
+                - /url: https://play.google.com/store/apps/details?id=com.kitco.goldlive&hl=en&gl=US
+                - img "Download Kitco on GooglePlay" [ref=f21e879]
+              - link [ref=f21e880] [cursor=pointer]:
+                - /url: https://apps.apple.com/ca/app/gold-live-gold-price-silver/id1444886741
+                - img "Kitco on AppStore" [ref=f21e881]
+        - generic [ref=f21e882]:
+          - paragraph [ref=f21e886]: We appreciate your feedback
+          - textbox "Name" [ref=f21e887]
+          - textbox "Email" [ref=f21e888]
+          - textbox "Subject" [ref=f21e889]
+          - textbox "Message" [ref=f21e890]
+          - button "Submit" [ref=f21e892] [cursor=pointer]
+      - generic [ref=f21e893]:
+        - generic [ref=f21e894]:
+          - link "Terms of Use" [ref=f21e895] [cursor=pointer]:
+            - /url: /terms-of-use
+          - link "Terms & Conditions" [ref=f21e896] [cursor=pointer]:
+            - /url: /legal/terms-and-conditions
+          - link "Privacy Policy" [ref=f21e897] [cursor=pointer]:
+            - /url: /legal/privacy-policy
+          - paragraph [ref=f21e898]: "|"
+          - button [ref=f21e899] [cursor=pointer]:
+            - paragraph [ref=f21e900]: Your Privacy Choices
+            - paragraph [ref=f21e901]:
+              - img "privacy opt out icon" [ref=f21e902]
+        - paragraph [ref=f21e903]: © 2026 Kitco Metals Inc.
+  - alert [ref=f21e904]
+  - text: "\" \""
+  - generic:
+    - generic:
+      - button "Toggle privacy and legal settings display" [ref=f21e908] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f21e910]: verified_user
+      - dialog "Manage data and privacy preferences" [ref=f21e918]:
+        - generic [ref=f21e919]:
+          - heading "Manage data and privacy preferences" [level=1] [ref=f21e921]
+          - generic [ref=f21e922]:
+            - paragraph [ref=f21e923]: "Your privacy preferences are important. That's why, based on legitimate interest, we and select partners process and share only limited data such as your device type and content interactions for advertising, research and service development purposes. Manage options below. We and select partners also ask for your consent to use your personal data for the following purposes: 1) Personalised advertising and content, advertising and content measurement, audience research and services development 2) Store and/or access information on a device."
+            - paragraph [ref=f21e924]:
+              - text: Your personal data will be processed and information from your device (cookies, unique identifiers, and other device data) may be stored by, accessed by and shared with 308 partners, or used specifically by this site. We and our partners may use precise geolocation data.
+              - button "List of partners." [ref=f21e925] [cursor=pointer]
+              - text: Look for a link at the bottom of this page or in the site menu to manage or withdraw consent. Object to certain processing on the basis of legitimate interest by managing your options below.
+        - contentinfo [ref=f21e926]:
+          - generic [ref=f21e927]:
+            - button "Consent" [ref=f21e928] [cursor=pointer]:
+              - paragraph [ref=f21e930]: Consent
+            - button "Manage options" [ref=f21e931] [cursor=pointer]:
+              - paragraph [ref=f21e933]: Manage options

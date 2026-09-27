@@ -1,0 +1,2537 @@
+- generic [active] [ref=f43e1]:
+  - region [ref=f43e2]:
+    - generic [ref=f43e3]:
+      - link "Cookiebot by Usercentrics - opens in a new window" [ref=f43e6] [cursor=pointer]:
+        - /url: https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2
+      - tablist [ref=f43e34]:
+        - tab "Consent" [selected] [ref=f43e35] [cursor=pointer]
+        - tab "Details" [ref=f43e36] [cursor=pointer]
+        - tab "About" [ref=f43e37] [cursor=pointer]
+      - tabpanel "Consent" [ref=f43e39]:
+        - generic [ref=f43e41]:
+          - heading "We Value Your Privacy" [level=2] [ref=f43e42]
+          - generic [ref=f43e43]:
+            - text: We use strictly necessary cookies on this site. You may consent to the use of other cookies and similar technologies, such as those used to measure site usage (Statistics), enable personalization (Preferences) and for targeted advertising, marketing, and social media (Marketing and Advertising) by clicking "Allow all cookies" or selecting only those cookies to which you consent by clicking
+            - strong [ref=f43e44]: Your Privacy Choices
+            - text: in the website footer or by clicking
+            - strong [ref=f43e45]: Manage Preferences
+            - text: in this notice. View our
+            - link "Privacy Policy" [ref=f43e46] [cursor=pointer]:
+              - /url: /privacy.html
+            - text: for more information.
+      - generic [ref=f43e50]:
+        - button "Only necessary cookies" [ref=f43e51] [cursor=pointer]
+        - button "Manage preferences" [ref=f43e52] [cursor=pointer]
+        - button "Allow all cookies" [ref=f43e54] [cursor=pointer]
+  - link "Skip to main content" [ref=f43e56] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f43e58]:
+    - navigation [ref=f43e62]:
+      - link [ref=f43e63] [cursor=pointer]:
+        - /url: https://goldprice.org/
+        - img "main-logo" [ref=f43e64]
+      - generic [ref=f43e66]:
+        - list [ref=f43e67]:
+          - listitem [ref=f43e68]:
+            - link "Charts " [ref=f43e69] [cursor=pointer]:
+              - /url: /
+              - text: Charts
+              - generic:
+                - strong: 
+          - listitem [ref=f43e70]:
+            - link "Price of Gold " [ref=f43e71] [cursor=pointer]:
+              - /url: /buy-gold.html
+              - text: Price of Gold
+              - generic:
+                - strong: 
+          - listitem [ref=f43e72]:
+            - link "Gold Stocks " [ref=f43e73] [cursor=pointer]:
+              - /url: /gold-stocks
+              - text: Gold Stocks
+              - generic:
+                - strong: 
+          - listitem [ref=f43e74]:
+            - link "Silver Price" [ref=f43e75] [cursor=pointer]:
+              - /url: https://silverprice.org
+          - listitem [ref=f43e76]:
+            - link "Crypto " [ref=f43e77] [cursor=pointer]:
+              - /url: ""
+              - text: Crypto
+              - generic:
+                - strong: 
+          - listitem [ref=f43e78]:
+            - link "News" [ref=f43e79] [cursor=pointer]:
+              - /url: /news
+        - navigation [ref=f43e80]:
+          - generic [ref=f43e81]: English
+  - main [ref=f43e84]:
+    - generic [ref=f43e89]:
+      - generic [ref=f43e90]:
+        - heading "GoldPrice." [level=1] [ref=f43e91]
+        - heading "WHERE THE WORLD CHECKS THE GOLD PRICE" [level=2] [ref=f43e92]
+      - generic [ref=f43e94] [cursor=pointer]:
+        - text: Holdings
+        - strong [ref=f43e96]: 
+    - article [ref=f43e102]:
+      - generic [ref=f43e103]:
+        - generic [ref=f43e104]:
+          - generic [ref=f43e105]:
+            - generic [ref=f43e111]:
+              - generic [ref=f43e112]:
+                - generic [ref=f43e113]: 4,285.29
+                - generic [ref=f43e116]: "+22.20"
+                - generic [ref=f43e118]: +0.52%
+              - generic [ref=f43e121]:
+                - combobox [ref=f43e122]:
+                  - option "Gold" [selected]
+                  - option "Silver"
+                - combobox [ref=f43e123]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+                - combobox [ref=f43e124]:
+                  - option "oz" [selected]
+                  - option "g"
+                  - option "kg"
+            - generic [ref=f43e130]:
+              - link "gold_chart" [ref=f43e133] [cursor=pointer]:
+                - /url: /spot-gold.html
+                - img "gold_chart" [ref=f43e134]
+              - generic [ref=f43e136]:
+                - combobox [ref=f43e137]:
+                  - option "Gold" [selected]
+                  - option "Silver"
+                - combobox [ref=f43e138]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+                - combobox [ref=f43e139]:
+                  - option "oz" [selected]
+                  - option "g"
+                  - option "kg"
+                - combobox [ref=f43e140]:
+                  - option "1 Day" [selected]
+                  - option "7 Days"
+                  - option "30 Days"
+                  - option "60 Days"
+                  - option "6 months"
+                  - option "1 Year"
+                  - option "2 Years"
+                  - option "5 Years"
+                  - option "10 Years"
+                  - option "15 Years"
+                  - option "20 Years"
+                  - option "30 Years"
+                  - option "All Data"
+          - generic [ref=f43e141]:
+            - generic [ref=f43e147]:
+              - generic [ref=f43e148]:
+                - generic [ref=f43e149]: "64.3"
+                - generic [ref=f43e152]: "+0.76"
+                - generic [ref=f43e154]: +1.19%
+              - generic [ref=f43e157]:
+                - combobox [ref=f43e158]:
+                  - option "Gold"
+                  - option "Silver" [selected]
+                - combobox [ref=f43e159]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+                - combobox [ref=f43e160]:
+                  - option "oz" [selected]
+                  - option "kg"
+            - generic [ref=f43e167]:
+              - link "silver_chart" [ref=f43e170] [cursor=pointer]:
+                - /url: /silver-price.html
+                - img "silver_chart" [ref=f43e171]
+              - generic [ref=f43e173]:
+                - combobox [ref=f43e174]:
+                  - option "Gold"
+                  - option "Silver" [selected]
+                - combobox [ref=f43e175]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+                - combobox [ref=f43e176]:
+                  - option "oz" [selected]
+                  - option "kg"
+                - combobox [ref=f43e177]:
+                  - option "1 Day" [selected]
+                  - option "7 Days"
+                  - option "30 Days"
+                  - option "60 Days"
+                  - option "6 months"
+                  - option "1 Year"
+                  - option "2 Years"
+                  - option "5 Years"
+                  - option "10 Years"
+                  - option "15 Years"
+                  - option "20 Years"
+                  - option "30 Years"
+                  - option "All Data"
+          - generic [ref=f43e178]:
+            - paragraph [ref=f43e182]:
+              - link [ref=f43e183] [cursor=pointer]:
+                - /url: https://www.jmbullion.com?utm_source=goldprice.org&utm_medium=banner&utm_campaign=Replace-370x70
+                - img "Buy Gold & Silver At Spot" [ref=f43e184]
+            - generic [ref=f43e191]:
+              - heading "Gold Price Performance USD" [level=3] [ref=f43e193]
+              - table [ref=f43e196] [cursor=pointer]:
+                - rowgroup [ref=f43e197]:
+                  - row [ref=f43e198]:
+                    - columnheader "Change" [ref=f43e199]
+                    - columnheader "Amount" [ref=f43e200]
+                    - columnheader "%" [ref=f43e201]
+                - rowgroup [ref=f43e202]:
+                  - row [ref=f43e203]:
+                    - cell "Today" [ref=f43e204]
+                    - cell "+22.20" [ref=f43e205]
+                    - cell "+0.52%" [ref=f43e206]
+                  - row [ref=f43e207]:
+                    - cell "30 Days" [ref=f43e208]
+                    - cell "-347.56" [ref=f43e209]
+                    - cell "-7.54%" [ref=f43e210]
+                  - row [ref=f43e211]:
+                    - cell "6 Months" [ref=f43e212]
+                    - cell "-119.89" [ref=f43e213]
+                    - cell "-2.74%" [ref=f43e214]
+                  - row [ref=f43e215]:
+                    - cell "1 Year" [ref=f43e216]
+                    - cell "+503.24" [ref=f43e217]
+                    - cell "+13.38%" [ref=f43e218]
+                  - row [ref=f43e219]:
+                    - cell "5 Year" [ref=f43e220]
+                    - cell "+2,513.60" [ref=f43e221]
+                    - cell "+143.68%" [ref=f43e222]
+                  - row [ref=f43e223]:
+                    - cell "20 Years" [ref=f43e224]
+                    - cell "+3,672.46" [ref=f43e225]
+                    - cell "+621.78%" [ref=f43e226]
+                  - row [ref=f43e227]:
+                    - cell "goldprice.org - 17:15 NY Time" [ref=f43e228]
+              - generic [ref=f43e230]:
+                - combobox [ref=f43e231]:
+                  - option "Gold" [selected]
+                  - option "Silver"
+                - combobox [ref=f43e232]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+                - combobox [ref=f43e233]:
+                  - option "%" [selected]
+                  - option "Max"
+        - generic [ref=f43e244]:
+          - heading "Silver Price Performance USD" [level=3] [ref=f43e246]
+          - table [ref=f43e249] [cursor=pointer]:
+            - rowgroup [ref=f43e250]:
+              - row [ref=f43e251]:
+                - columnheader "Change" [ref=f43e252]
+                - columnheader "Amount" [ref=f43e253]
+                - columnheader "%" [ref=f43e254]
+            - rowgroup [ref=f43e255]:
+              - row [ref=f43e256]:
+                - cell "Today" [ref=f43e257]
+                - cell "+0.76" [ref=f43e258]
+                - cell "+1.19%" [ref=f43e259]
+              - row [ref=f43e260]:
+                - cell "30 Days" [ref=f43e261]
+                - cell "-5.95" [ref=f43e262]
+                - cell "-8.56%" [ref=f43e263]
+              - row [ref=f43e264]:
+                - cell "6 Months" [ref=f43e265]
+                - cell "-4.29" [ref=f43e266]
+                - cell "-6.32%" [ref=f43e267]
+              - row [ref=f43e268]:
+                - cell "1 Year" [ref=f43e269]
+                - cell "+17.49" [ref=f43e270]
+                - cell "+37.98%" [ref=f43e271]
+              - row [ref=f43e272]:
+                - cell "5 Year" [ref=f43e273]
+                - cell "+41.12" [ref=f43e274]
+                - cell "+183.41%" [ref=f43e275]
+              - row [ref=f43e276]:
+                - cell "20 Years" [ref=f43e277]
+                - cell "+52.24" [ref=f43e278]
+                - cell "+462.09%" [ref=f43e279]
+              - row [ref=f43e280]:
+                - cell "silverprice.org - 17:15 NY Time" [ref=f43e281]
+          - generic [ref=f43e283]:
+            - combobox [ref=f43e284]:
+              - option "Gold"
+              - option "Silver" [selected]
+            - combobox [ref=f43e285]:
+              - option "USD United States Dollar" [selected]
+              - option "AED United Arab Emirates Dirham"
+              - option "AFN Afghan Afghani"
+              - option "ALL Albanian Lek"
+              - option "AMD Armenian Dram"
+              - option "ANG Netherlands Antillean Guilder"
+              - option "AOA Angolan Kwanza"
+              - option "ARS Argentine Peso"
+              - option "AUD Australian Dollar"
+              - option "AWG Aruban Florin"
+              - option "AZN Azerbaijani Manat"
+              - option "BAM Bosnia-Herzegovina Convertible Mark"
+              - option "BBD Barbadian Dollar"
+              - option "BDT Bangladeshi Taka"
+              - option "BGN Bulgarian Lev"
+              - option "BHD Bahraini Dinar"
+              - option "BIF Burundian Franc"
+              - option "BMD Bermudan Dollar"
+              - option "BND Brunei Dollar"
+              - option "BOB Bolivian Boliviano"
+              - option "BRL Brazilian Real"
+              - option "BSD Bahamian Dollar"
+              - option "BTN Bhutanese Ngultrum"
+              - option "BWP Botswanan Pula"
+              - option "BYN New Belarusian Ruble"
+              - option "BZD Belize Dollar"
+              - option "CAD Canadian Dollar"
+              - option "CDF Congolese Franc"
+              - option "CHF Swiss Franc"
+              - option "CLP Chilean Peso"
+              - option "CNY Chinese Yuan"
+              - option "COP Colombian Peso"
+              - option "CRC Costa Rican Colón"
+              - option "CUC Cuban Convertible Peso"
+              - option "CUP Cuban Peso"
+              - option "CVE Cape Verdean Escudo"
+              - option "CZK Czech Republic Koruna"
+              - option "DJF Djiboutian Franc"
+              - option "DKK Danish Krone"
+              - option "DOP Dominican Peso"
+              - option "DZD Algerian Dinar"
+              - option "EGP Egyptian Pound"
+              - option "ERN Eritrean Nakfa"
+              - option "ETB Ethiopian Birr"
+              - option "EUR Euro"
+              - option "FJD Fijian Dollar"
+              - option "FKP Falkland Islands Pound"
+              - option "GBP British Pound Sterling"
+              - option "GEL Georgian Lari"
+              - option "GGP Guernsey Pound"
+              - option "GHS Ghanaian Cedi"
+              - option "GIP Gibraltar Pound"
+              - option "GMD Gambian Dalasi"
+              - option "GNF Guinean Franc"
+              - option "GTQ Guatemalan Quetzal"
+              - option "GYD Guyanaese Dollar"
+              - option "HKD Hong Kong Dollar"
+              - option "HNL Honduran Lempira"
+              - option "HRK Croatian Kuna"
+              - option "HTG Haitian Gourde"
+              - option "HUF Hungarian Forint"
+              - option "IDR Indonesian Rupiah"
+              - option "ILS Israeli New Sheqel"
+              - option "IMP Manx pound"
+              - option "INR Indian Rupee"
+              - option "IQD Iraqi Dinar"
+              - option "IRR Iranian Rial"
+              - option "ISK Icelandic Króna"
+              - option "JEP Jersey Pound"
+              - option "JMD Jamaican Dollar"
+              - option "JOD Jordanian Dinar"
+              - option "JPY Japanese Yen"
+              - option "KES Kenyan Shilling"
+              - option "KGS Kyrgystani Som"
+              - option "KHR Cambodian Riel"
+              - option "KMF Comorian Franc"
+              - option "KRW South Korean Won"
+              - option "KWD Kuwaiti Dinar"
+              - option "KYD Cayman Islands Dollar"
+              - option "KZT Kazakhstani Tenge"
+              - option "LAK Laotian Kip"
+              - option "LBP Lebanese Pound"
+              - option "LKR Sri Lankan Rupee"
+              - option "LRD Liberian Dollar"
+              - option "LSL Lesotho Loti"
+              - option "LYD Libyan Dinar"
+              - option "MAD Moroccan Dirham"
+              - option "MDL Moldovan Leu"
+              - option "MGA Malagasy Ariary"
+              - option "MKD North Macedonian Denar"
+              - option "MMK Myanma Kyat"
+              - option "MNT Mongolian Tugrik"
+              - option "MOP Macanese Pataca"
+              - option "MRU Mauritanian Ouguiya"
+              - option "MUR Mauritian Rupee"
+              - option "MVR Maldivian Rufiyaa"
+              - option "MWK Malawian Kwacha"
+              - option "MXN Mexican Peso"
+              - option "MYR Malaysian Ringgit"
+              - option "MZN Mozambican Metical"
+              - option "NAD Namibian Dollar"
+              - option "NGN Nigerian Naira"
+              - option "NIO Nicaraguan Córdoba"
+              - option "NOK Norwegian Krone"
+              - option "NPR Nepalese Rupee"
+              - option "NZD New Zealand Dollar"
+              - option "OMR Omani Rial"
+              - option "PAB Panamanian Balboa"
+              - option "PEN Peruvian Nuevo Sol"
+              - option "PGK Papua New Guinean Kina"
+              - option "PHP Philippine Peso"
+              - option "PKR Pakistani Rupee"
+              - option "PLN Polish Zloty"
+              - option "PYG Paraguayan Guarani"
+              - option "QAR Qatari Rial"
+              - option "RON Romanian Leu"
+              - option "RSD Serbian Dinar"
+              - option "RUB Russian Ruble"
+              - option "RWF Rwandan Franc"
+              - option "SAR Saudi Riyal"
+              - option "SBD Solomon Islands Dollar"
+              - option "SCR Seychellois Rupee"
+              - option "SDG Sudanese Pound"
+              - option "SEK Swedish Krona"
+              - option "SGD Singapore Dollar"
+              - option "SHP Saint Helena Pound"
+              - option "SLL Sierra Leonean Leone"
+              - option "SOS Somali Shilling"
+              - option "SRD Surinamese Dollar"
+              - option "STD São Tomé and Príncipe Dobra"
+              - option "SVC Salvadoran Colón"
+              - option "SYP Syrian Pound"
+              - option "SZL Swazi Lilangeni"
+              - option "THB Thai Baht"
+              - option "TJS Tajikistani Somoni"
+              - option "TMT Turkmenistani Manat"
+              - option "TND Tunisian Dinar"
+              - option "TOP Tongan Paʻanga"
+              - option "TRY Turkish Lira"
+              - option "TTD Trinidad and Tobago Dollar"
+              - option "TWD New Taiwan Dollar"
+              - option "TZS Tanzanian Shilling"
+              - option "UAH Ukrainian Hryvnia"
+              - option "UGX Ugandan Shilling"
+              - option "USD United States Dollar"
+              - option "UYU Uruguayan Peso"
+              - option "UZS Uzbekistan Som"
+              - option "VEF Venezuelan Bolívar Fuerte"
+              - option "VND Vietnamese Dong"
+              - option "VUV Vanuatu Vatu"
+              - option "WST Samoan Tala"
+              - option "XAF CFA Franc BEAC"
+              - option "XCD East Caribbean Dollar"
+              - option "XOF CFA Franc BCEAO"
+              - option "XPF CFP Franc"
+              - option "YER Yemeni Rial"
+              - option "ZAR South African Rand"
+              - option "ZMW Zambian Kwacha"
+            - combobox [ref=f43e286]:
+              - option "%" [selected]
+              - option "Max"
+        - generic [ref=f43e287]:
+          - generic [ref=f43e294]:
+            - generic [ref=f43e296]:
+              - link "ratios_chart_gold":
+                - /url: /spot-gold.html
+            - generic [ref=f43e298]:
+              - combobox [ref=f43e299]:
+                - option "Gold" [selected]
+                - option "Silver"
+                - option "Ratios"
+              - combobox [ref=f43e300]:
+                - option "USD United States Dollar" [selected]
+                - option "AED United Arab Emirates Dirham"
+                - option "AFN Afghan Afghani"
+                - option "ALL Albanian Lek"
+                - option "AMD Armenian Dram"
+                - option "ANG Netherlands Antillean Guilder"
+                - option "AOA Angolan Kwanza"
+                - option "ARS Argentine Peso"
+                - option "AUD Australian Dollar"
+                - option "AWG Aruban Florin"
+                - option "AZN Azerbaijani Manat"
+                - option "BAM Bosnia-Herzegovina Convertible Mark"
+                - option "BBD Barbadian Dollar"
+                - option "BDT Bangladeshi Taka"
+                - option "BGN Bulgarian Lev"
+                - option "BHD Bahraini Dinar"
+                - option "BIF Burundian Franc"
+                - option "BMD Bermudan Dollar"
+                - option "BND Brunei Dollar"
+                - option "BOB Bolivian Boliviano"
+                - option "BRL Brazilian Real"
+                - option "BSD Bahamian Dollar"
+                - option "BTN Bhutanese Ngultrum"
+                - option "BWP Botswanan Pula"
+                - option "BYN New Belarusian Ruble"
+                - option "BZD Belize Dollar"
+                - option "CAD Canadian Dollar"
+                - option "CDF Congolese Franc"
+                - option "CHF Swiss Franc"
+                - option "CLP Chilean Peso"
+                - option "CNY Chinese Yuan"
+                - option "COP Colombian Peso"
+                - option "CRC Costa Rican Colón"
+                - option "CUC Cuban Convertible Peso"
+                - option "CUP Cuban Peso"
+                - option "CVE Cape Verdean Escudo"
+                - option "CZK Czech Republic Koruna"
+                - option "DJF Djiboutian Franc"
+                - option "DKK Danish Krone"
+                - option "DOP Dominican Peso"
+                - option "DZD Algerian Dinar"
+                - option "EGP Egyptian Pound"
+                - option "ERN Eritrean Nakfa"
+                - option "ETB Ethiopian Birr"
+                - option "EUR Euro"
+                - option "FJD Fijian Dollar"
+                - option "FKP Falkland Islands Pound"
+                - option "GBP British Pound Sterling"
+                - option "GEL Georgian Lari"
+                - option "GGP Guernsey Pound"
+                - option "GHS Ghanaian Cedi"
+                - option "GIP Gibraltar Pound"
+                - option "GMD Gambian Dalasi"
+                - option "GNF Guinean Franc"
+                - option "GTQ Guatemalan Quetzal"
+                - option "GYD Guyanaese Dollar"
+                - option "HKD Hong Kong Dollar"
+                - option "HNL Honduran Lempira"
+                - option "HRK Croatian Kuna"
+                - option "HTG Haitian Gourde"
+                - option "HUF Hungarian Forint"
+                - option "IDR Indonesian Rupiah"
+                - option "ILS Israeli New Sheqel"
+                - option "IMP Manx pound"
+                - option "INR Indian Rupee"
+                - option "IQD Iraqi Dinar"
+                - option "IRR Iranian Rial"
+                - option "ISK Icelandic Króna"
+                - option "JEP Jersey Pound"
+                - option "JMD Jamaican Dollar"
+                - option "JOD Jordanian Dinar"
+                - option "JPY Japanese Yen"
+                - option "KES Kenyan Shilling"
+                - option "KGS Kyrgystani Som"
+                - option "KHR Cambodian Riel"
+                - option "KMF Comorian Franc"
+                - option "KRW South Korean Won"
+                - option "KWD Kuwaiti Dinar"
+                - option "KYD Cayman Islands Dollar"
+                - option "KZT Kazakhstani Tenge"
+                - option "LAK Laotian Kip"
+                - option "LBP Lebanese Pound"
+                - option "LKR Sri Lankan Rupee"
+                - option "LRD Liberian Dollar"
+                - option "LSL Lesotho Loti"
+                - option "LYD Libyan Dinar"
+                - option "MAD Moroccan Dirham"
+                - option "MDL Moldovan Leu"
+                - option "MGA Malagasy Ariary"
+                - option "MKD North Macedonian Denar"
+                - option "MMK Myanma Kyat"
+                - option "MNT Mongolian Tugrik"
+                - option "MOP Macanese Pataca"
+                - option "MRU Mauritanian Ouguiya"
+                - option "MUR Mauritian Rupee"
+                - option "MVR Maldivian Rufiyaa"
+                - option "MWK Malawian Kwacha"
+                - option "MXN Mexican Peso"
+                - option "MYR Malaysian Ringgit"
+                - option "MZN Mozambican Metical"
+                - option "NAD Namibian Dollar"
+                - option "NGN Nigerian Naira"
+                - option "NIO Nicaraguan Córdoba"
+                - option "NOK Norwegian Krone"
+                - option "NPR Nepalese Rupee"
+                - option "NZD New Zealand Dollar"
+                - option "OMR Omani Rial"
+                - option "PAB Panamanian Balboa"
+                - option "PEN Peruvian Nuevo Sol"
+                - option "PGK Papua New Guinean Kina"
+                - option "PHP Philippine Peso"
+                - option "PKR Pakistani Rupee"
+                - option "PLN Polish Zloty"
+                - option "PYG Paraguayan Guarani"
+                - option "QAR Qatari Rial"
+                - option "RON Romanian Leu"
+                - option "RSD Serbian Dinar"
+                - option "RUB Russian Ruble"
+                - option "RWF Rwandan Franc"
+                - option "SAR Saudi Riyal"
+                - option "SBD Solomon Islands Dollar"
+                - option "SCR Seychellois Rupee"
+                - option "SDG Sudanese Pound"
+                - option "SEK Swedish Krona"
+                - option "SGD Singapore Dollar"
+                - option "SHP Saint Helena Pound"
+                - option "SLL Sierra Leonean Leone"
+                - option "SOS Somali Shilling"
+                - option "SRD Surinamese Dollar"
+                - option "STD São Tomé and Príncipe Dobra"
+                - option "SVC Salvadoran Colón"
+                - option "SYP Syrian Pound"
+                - option "SZL Swazi Lilangeni"
+                - option "THB Thai Baht"
+                - option "TJS Tajikistani Somoni"
+                - option "TMT Turkmenistani Manat"
+                - option "TND Tunisian Dinar"
+                - option "TOP Tongan Paʻanga"
+                - option "TRY Turkish Lira"
+                - option "TTD Trinidad and Tobago Dollar"
+                - option "TWD New Taiwan Dollar"
+                - option "TZS Tanzanian Shilling"
+                - option "UAH Ukrainian Hryvnia"
+                - option "UGX Ugandan Shilling"
+                - option "USD United States Dollar"
+                - option "UYU Uruguayan Peso"
+                - option "UZS Uzbekistan Som"
+                - option "VEF Venezuelan Bolívar Fuerte"
+                - option "VND Vietnamese Dong"
+                - option "VUV Vanuatu Vatu"
+                - option "WST Samoan Tala"
+                - option "XAF CFA Franc BEAC"
+                - option "XCD East Caribbean Dollar"
+                - option "XOF CFA Franc BCEAO"
+                - option "XPF CFP Franc"
+                - option "YER Yemeni Rial"
+                - option "ZAR South African Rand"
+                - option "ZMW Zambian Kwacha"
+              - combobox [ref=f43e301]:
+                - option "oz" [selected]
+                - option "g"
+                - option "kg"
+              - combobox [ref=f43e302]:
+                - option "1 Day"
+                - option "3 Days" [selected]
+                - option "7 Days"
+                - option "30 Days"
+                - option "60 Days"
+                - option "6 months"
+                - option "1 Year"
+                - option "2 Years"
+                - option "5 Years"
+                - option "10 Years"
+                - option "15 Years"
+                - option "20 Years"
+                - option "30 Years"
+                - option "All Data"
+          - table [ref=f43e308]:
+            - rowgroup [ref=f43e309]:
+              - row [ref=f43e310]:
+                - columnheader [ref=f43e311]:
+                  - heading [level=3] [ref=f43e312]:
+                    - link "Price Of Gold" [ref=f43e313] [cursor=pointer]:
+                      - /url: /
+            - rowgroup [ref=f43e314]:
+              - row [ref=f43e315]:
+                - cell [ref=f43e316]:
+                  - link "Gold Price per Ounce:" [ref=f43e317] [cursor=pointer]:
+                    - /url: /gold-price.html
+                - cell "4,285.29" [ref=f43e318]
+                - cell "+22.20" [ref=f43e319]
+              - row [ref=f43e320]:
+                - cell [ref=f43e321]:
+                  - link "Gold Price per Gram:" [ref=f43e322] [cursor=pointer]:
+                    - /url: /gold-price-per-gram.html
+                - cell "137.78" [ref=f43e323]
+                - cell "+0.72" [ref=f43e324]
+              - row [ref=f43e325]:
+                - cell [ref=f43e326]:
+                  - link "Gold Price per Kilo:" [ref=f43e327] [cursor=pointer]:
+                    - /url: /gold-price-per-kilo.html
+                - cell "137,775.17" [ref=f43e328]
+                - cell "+713.75" [ref=f43e329]
+            - rowgroup [ref=f43e330]:
+              - row [ref=f43e331]:
+                - cell "Sep 27th 2026, 03:46:05 pm NY time" [ref=f43e332]
+        - generic [ref=f43e335]:
+          - generic [ref=f43e338]:
+            - generic [ref=f43e340]:
+              - link [ref=f43e341] [cursor=pointer]:
+                - /url: /best-gold-price
+                - img "economic-growth" [ref=f43e342]
+              - link "Best Gold Price" [ref=f43e344] [cursor=pointer]:
+                - /url: /best-gold-price
+            - generic [ref=f43e346]:
+              - link [ref=f43e347] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-united-states
+                - img "Buy Gold in USA" [ref=f43e348]
+              - link "Buy Gold in USA" [ref=f43e350] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-united-states
+            - generic [ref=f43e352]:
+              - link [ref=f43e353] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-united-kingdom
+                - img "Buy Gold in UK" [ref=f43e354]
+              - link "Buy Gold in UK" [ref=f43e356] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-united-kingdom
+            - generic [ref=f43e358]:
+              - link [ref=f43e359] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-canada
+                - img "Buy Gold in Canada" [ref=f43e360]
+              - link "Buy Gold in Canada" [ref=f43e362] [cursor=pointer]:
+                - /url: https://goldprice.org/exchanges/buy-gold-in-canada
+          - link "Gold Price chart by TradingView" [ref=f43e367] [cursor=pointer]:
+            - /url: https://www.tradingview.com/symbols/FX-XAUUSD/
+          - generic [ref=f43e370]:
+            - generic [ref=f43e373]:
+              - generic [ref=f43e375]:
+                - text: GoldSilver10m1h6h1d3d5d1w1m2m6m1y2y3y5y10y15y20y30yAll
+                - combobox "chart" [ref=f43e376]:
+                  - option "USD United States Dollar" [selected]
+                  - option "AED United Arab Emirates Dirham"
+                  - option "AFN Afghan Afghani"
+                  - option "ALL Albanian Lek"
+                  - option "AMD Armenian Dram"
+                  - option "ANG Netherlands Antillean Guilder"
+                  - option "AOA Angolan Kwanza"
+                  - option "ARS Argentine Peso"
+                  - option "AUD Australian Dollar"
+                  - option "AWG Aruban Florin"
+                  - option "AZN Azerbaijani Manat"
+                  - option "BAM Bosnia-Herzegovina Convertible Mark"
+                  - option "BBD Barbadian Dollar"
+                  - option "BDT Bangladeshi Taka"
+                  - option "BGN Bulgarian Lev"
+                  - option "BHD Bahraini Dinar"
+                  - option "BIF Burundian Franc"
+                  - option "BMD Bermudan Dollar"
+                  - option "BND Brunei Dollar"
+                  - option "BOB Bolivian Boliviano"
+                  - option "BRL Brazilian Real"
+                  - option "BSD Bahamian Dollar"
+                  - option "BTN Bhutanese Ngultrum"
+                  - option "BWP Botswanan Pula"
+                  - option "BYN New Belarusian Ruble"
+                  - option "BZD Belize Dollar"
+                  - option "CAD Canadian Dollar"
+                  - option "CDF Congolese Franc"
+                  - option "CHF Swiss Franc"
+                  - option "CLP Chilean Peso"
+                  - option "CNY Chinese Yuan"
+                  - option "COP Colombian Peso"
+                  - option "CRC Costa Rican Colón"
+                  - option "CUC Cuban Convertible Peso"
+                  - option "CUP Cuban Peso"
+                  - option "CVE Cape Verdean Escudo"
+                  - option "CZK Czech Republic Koruna"
+                  - option "DJF Djiboutian Franc"
+                  - option "DKK Danish Krone"
+                  - option "DOP Dominican Peso"
+                  - option "DZD Algerian Dinar"
+                  - option "EGP Egyptian Pound"
+                  - option "ERN Eritrean Nakfa"
+                  - option "ETB Ethiopian Birr"
+                  - option "EUR Euro"
+                  - option "FJD Fijian Dollar"
+                  - option "FKP Falkland Islands Pound"
+                  - option "GBP British Pound Sterling"
+                  - option "GEL Georgian Lari"
+                  - option "GGP Guernsey Pound"
+                  - option "GHS Ghanaian Cedi"
+                  - option "GIP Gibraltar Pound"
+                  - option "GMD Gambian Dalasi"
+                  - option "GNF Guinean Franc"
+                  - option "GTQ Guatemalan Quetzal"
+                  - option "GYD Guyanaese Dollar"
+                  - option "HKD Hong Kong Dollar"
+                  - option "HNL Honduran Lempira"
+                  - option "HRK Croatian Kuna"
+                  - option "HTG Haitian Gourde"
+                  - option "HUF Hungarian Forint"
+                  - option "IDR Indonesian Rupiah"
+                  - option "ILS Israeli New Sheqel"
+                  - option "IMP Manx pound"
+                  - option "INR Indian Rupee"
+                  - option "IQD Iraqi Dinar"
+                  - option "IRR Iranian Rial"
+                  - option "ISK Icelandic Króna"
+                  - option "JEP Jersey Pound"
+                  - option "JMD Jamaican Dollar"
+                  - option "JOD Jordanian Dinar"
+                  - option "JPY Japanese Yen"
+                  - option "KES Kenyan Shilling"
+                  - option "KGS Kyrgystani Som"
+                  - option "KHR Cambodian Riel"
+                  - option "KMF Comorian Franc"
+                  - option "KRW South Korean Won"
+                  - option "KWD Kuwaiti Dinar"
+                  - option "KYD Cayman Islands Dollar"
+                  - option "KZT Kazakhstani Tenge"
+                  - option "LAK Laotian Kip"
+                  - option "LBP Lebanese Pound"
+                  - option "LKR Sri Lankan Rupee"
+                  - option "LRD Liberian Dollar"
+                  - option "LSL Lesotho Loti"
+                  - option "LYD Libyan Dinar"
+                  - option "MAD Moroccan Dirham"
+                  - option "MDL Moldovan Leu"
+                  - option "MGA Malagasy Ariary"
+                  - option "MKD North Macedonian Denar"
+                  - option "MMK Myanma Kyat"
+                  - option "MNT Mongolian Tugrik"
+                  - option "MOP Macanese Pataca"
+                  - option "MRU Mauritanian Ouguiya"
+                  - option "MUR Mauritian Rupee"
+                  - option "MVR Maldivian Rufiyaa"
+                  - option "MWK Malawian Kwacha"
+                  - option "MXN Mexican Peso"
+                  - option "MYR Malaysian Ringgit"
+                  - option "MZN Mozambican Metical"
+                  - option "NAD Namibian Dollar"
+                  - option "NGN Nigerian Naira"
+                  - option "NIO Nicaraguan Córdoba"
+                  - option "NOK Norwegian Krone"
+                  - option "NPR Nepalese Rupee"
+                  - option "NZD New Zealand Dollar"
+                  - option "OMR Omani Rial"
+                  - option "PAB Panamanian Balboa"
+                  - option "PEN Peruvian Nuevo Sol"
+                  - option "PGK Papua New Guinean Kina"
+                  - option "PHP Philippine Peso"
+                  - option "PKR Pakistani Rupee"
+                  - option "PLN Polish Zloty"
+                  - option "PYG Paraguayan Guarani"
+                  - option "QAR Qatari Rial"
+                  - option "RON Romanian Leu"
+                  - option "RSD Serbian Dinar"
+                  - option "RUB Russian Ruble"
+                  - option "RWF Rwandan Franc"
+                  - option "SAR Saudi Riyal"
+                  - option "SBD Solomon Islands Dollar"
+                  - option "SCR Seychellois Rupee"
+                  - option "SDG Sudanese Pound"
+                  - option "SEK Swedish Krona"
+                  - option "SGD Singapore Dollar"
+                  - option "SHP Saint Helena Pound"
+                  - option "SLL Sierra Leonean Leone"
+                  - option "SOS Somali Shilling"
+                  - option "SRD Surinamese Dollar"
+                  - option "STD São Tomé and Príncipe Dobra"
+                  - option "SVC Salvadoran Colón"
+                  - option "SYP Syrian Pound"
+                  - option "SZL Swazi Lilangeni"
+                  - option "THB Thai Baht"
+                  - option "TJS Tajikistani Somoni"
+                  - option "TMT Turkmenistani Manat"
+                  - option "TND Tunisian Dinar"
+                  - option "TOP Tongan Paʻanga"
+                  - option "TRY Turkish Lira"
+                  - option "TTD Trinidad and Tobago Dollar"
+                  - option "TWD New Taiwan Dollar"
+                  - option "TZS Tanzanian Shilling"
+                  - option "UAH Ukrainian Hryvnia"
+                  - option "UGX Ugandan Shilling"
+                  - option "USD United States Dollar"
+                  - option "UYU Uruguayan Peso"
+                  - option "UZS Uzbekistan Som"
+                  - option "VEF Venezuelan Bolívar Fuerte"
+                  - option "VND Vietnamese Dong"
+                  - option "VUV Vanuatu Vatu"
+                  - option "WST Samoan Tala"
+                  - option "XAF CFA Franc BEAC"
+                  - option "XCD East Caribbean Dollar"
+                  - option "XOF CFA Franc BCEAO"
+                  - option "XPF CFP Franc"
+                  - option "YER Yemeni Rial"
+                  - option "ZAR South African Rand"
+                  - option "ZMW Zambian Kwacha"
+              - img [ref=f43e377]:
+                - img [aria-hidden] [ref=f43e379]:
+                  - generic [ref=f43e388]: USD/kg
+                  - generic [ref=f43e394] [cursor=pointer]
+                  - generic [ref=f43e395]: Click chart to zoom in
+                  - generic [ref=f43e396]: 137,775.27
+                  - generic [ref=f43e397]: 15:46:01 NY Time
+                  - generic [ref=f43e398]: 4,285.29
+                  - generic [ref=f43e399]:
+                    - generic [ref=f43e400]: 25 Sep
+                    - generic [ref=f43e401]: 12:00
+                    - generic [ref=f43e402]: 26 Sep
+                    - generic [ref=f43e403]: 12:00
+                    - generic [ref=f43e404]: 27 Sep
+                    - generic [ref=f43e405]: 12:00
+                  - generic [ref=f43e406]:
+                    - generic [ref=f43e407]: 137,000
+                    - generic [ref=f43e408]: 137,100
+                    - generic [ref=f43e409]: 137,200
+                    - generic [ref=f43e410]: 137,300
+                    - generic [ref=f43e411]: 137,400
+                    - generic [ref=f43e412]: 137,500
+                    - generic [ref=f43e413]: 137,600
+                    - generic [ref=f43e414]: 137,700
+                    - generic [ref=f43e415]: 137,800
+                    - generic [ref=f43e416]: 137,900
+                    - generic [ref=f43e417]: 138,000
+                    - generic [ref=f43e418]: 138,100
+                    - generic [ref=f43e419]: 138,200
+                    - generic [ref=f43e420]: 138,300
+                    - generic [ref=f43e421]: 138,400
+                    - generic [ref=f43e422]: 138,500
+                    - generic [ref=f43e423]: 138,600
+                  - generic [ref=f43e424]:
+                    - generic [ref=f43e425]: 4,260
+                    - generic [ref=f43e426]: 4,270
+                    - generic [ref=f43e427]: 4,280
+                    - generic [ref=f43e428]: 4,290
+                    - generic [ref=f43e429]: 4,300
+                    - generic [ref=f43e430]: 4,310
+            - generic [ref=f43e431]:
+              - link "Add to site" [ref=f43e433] [cursor=pointer]:
+                - /url: https://goldprice.org/gold-price-charts.html
+              - generic [ref=f43e434]:
+                - text: Full Screen
+                - link "Gold Price Chart" [ref=f43e435] [cursor=pointer]:
+                  - /url: https://goldprice.org/gold-price-chart.html
+              - generic [ref=f43e436]:
+                - text: "Source:"
+                - link "GOLD PRICE" [ref=f43e437] [cursor=pointer]:
+                  - /url: https://goldprice.org/
+          - generic [ref=f43e440]:
+            - tablist [ref=f43e442]:
+              - listitem [ref=f43e443]:
+                - button "Gold Price Performance" [ref=f43e445] [cursor=pointer]
+              - listitem [ref=f43e446]:
+                - button "Silver Price Performance" [ref=f43e448] [cursor=pointer]
+            - table [ref=f43e451] [cursor=pointer]:
+              - rowgroup [ref=f43e452]:
+                - row [ref=f43e453]:
+                  - 'columnheader "Gold Price Performance: % Annual Change" [ref=f43e454]'
+                - row [ref=f43e455]:
+                  - columnheader "Year" [ref=f43e456]
+                  - columnheader "USD" [ref=f43e457]
+                  - columnheader "AUD" [ref=f43e458]
+                  - columnheader "CAD" [ref=f43e459]
+                  - columnheader "CHF" [ref=f43e460]
+                  - columnheader "CNY" [ref=f43e461]
+                  - columnheader "EUR" [ref=f43e462]
+                  - columnheader "GBP" [ref=f43e463]
+                  - columnheader "INR" [ref=f43e464]
+                  - columnheader "JPY" [ref=f43e465]
+              - rowgroup [ref=f43e466]:
+                - row [ref=f43e467]:
+                  - cell "2011" [ref=f43e468]
+                  - cell "+10.1%" [ref=f43e469]
+                  - cell "+10.2%" [ref=f43e470]
+                  - cell "+13.5%" [ref=f43e471]
+                  - cell "+11.2%" [ref=f43e472]
+                  - cell "+5.9%" [ref=f43e473]
+                  - cell "+14.2%" [ref=f43e474]
+                  - cell "+10.5%" [ref=f43e475]
+                  - cell "+31.1%" [ref=f43e476]
+                  - cell "+4.5%" [ref=f43e477]
+                - row [ref=f43e478]:
+                  - cell "2012" [ref=f43e479]
+                  - cell "+7.0%" [ref=f43e480]
+                  - cell "+5.4%" [ref=f43e481]
+                  - cell "+4.3%" [ref=f43e482]
+                  - cell "+4.2%" [ref=f43e483]
+                  - cell "+6.2%" [ref=f43e484]
+                  - cell "+4.9%" [ref=f43e485]
+                  - cell "+2.2%" [ref=f43e486]
+                  - cell "+10.3%" [ref=f43e487]
+                  - cell "+20.7%" [ref=f43e488]
+                - row [ref=f43e489]:
+                  - cell "2013" [ref=f43e490]
+                  - cell "-28.3%" [ref=f43e491]
+                  - cell "-16.2%" [ref=f43e492]
+                  - cell "-23.0%" [ref=f43e493]
+                  - cell "-30.1%" [ref=f43e494]
+                  - cell "-30.2%" [ref=f43e495]
+                  - cell "-31.2%" [ref=f43e496]
+                  - cell "-29.4%" [ref=f43e497]
+                  - cell "-18.7%" [ref=f43e498]
+                  - cell "-12.8%" [ref=f43e499]
+                - row [ref=f43e500]:
+                  - cell "2014" [ref=f43e501]
+                  - cell "-1.5%" [ref=f43e502]
+                  - cell "+7.7%" [ref=f43e503]
+                  - cell "+7.9%" [ref=f43e504]
+                  - cell "+9.9%" [ref=f43e505]
+                  - cell "+1.2%" [ref=f43e506]
+                  - cell "+12.1%" [ref=f43e507]
+                  - cell "+5.0%" [ref=f43e508]
+                  - cell "+0.8%" [ref=f43e509]
+                  - cell "+12.3%" [ref=f43e510]
+                - row [ref=f43e511]:
+                  - cell "2015" [ref=f43e512]
+                  - cell "-10.4%" [ref=f43e513]
+                  - cell "+0.4%" [ref=f43e514]
+                  - cell "+7.5%" [ref=f43e515]
+                  - cell "-9.9%" [ref=f43e516]
+                  - cell "-6.2%" [ref=f43e517]
+                  - cell "-0.3%" [ref=f43e518]
+                  - cell "-5.2%" [ref=f43e519]
+                  - cell "-5.9%" [ref=f43e520]
+                  - cell "-10.1%" [ref=f43e521]
+                - row [ref=f43e522]:
+                  - cell "2016" [ref=f43e523]
+                  - cell "+9.1%" [ref=f43e524]
+                  - cell "+10.5%" [ref=f43e525]
+                  - cell "+5.9%" [ref=f43e526]
+                  - cell "+10.8%" [ref=f43e527]
+                  - cell "+16.8%" [ref=f43e528]
+                  - cell "+12.4%" [ref=f43e529]
+                  - cell "+30.2%" [ref=f43e530]
+                  - cell "+11.9%" [ref=f43e531]
+                  - cell "+5.8%" [ref=f43e532]
+                - row [ref=f43e533]:
+                  - cell "2017" [ref=f43e534]
+                  - cell "+13.6%" [ref=f43e535]
+                  - cell "+4.6%" [ref=f43e536]
+                  - cell "+6.0%" [ref=f43e537]
+                  - cell "+8.1%" [ref=f43e538]
+                  - cell "+6.4%" [ref=f43e539]
+                  - cell "-1.0%" [ref=f43e540]
+                  - cell "+3.2%" [ref=f43e541]
+                  - cell "+6.4%" [ref=f43e542]
+                  - cell "+8.9%" [ref=f43e543]
+                - row [ref=f43e544]:
+                  - cell "2018" [ref=f43e545]
+                  - cell "-2.1%" [ref=f43e546]
+                  - cell "+8.5%" [ref=f43e547]
+                  - cell "+6.3%" [ref=f43e548]
+                  - cell "-1.2%" [ref=f43e549]
+                  - cell "+3.5%" [ref=f43e550]
+                  - cell "+2.7%" [ref=f43e551]
+                  - cell "+3.8%" [ref=f43e552]
+                  - cell "+6.6%" [ref=f43e553]
+                  - cell "-4.7%" [ref=f43e554]
+                - row [ref=f43e555]:
+                  - cell "2019" [ref=f43e556]
+                  - cell "+18.9%" [ref=f43e557]
+                  - cell "+19.3%" [ref=f43e558]
+                  - cell "+13.0%" [ref=f43e559]
+                  - cell "+17.1%" [ref=f43e560]
+                  - cell "+20.3%" [ref=f43e561]
+                  - cell "+22.7%" [ref=f43e562]
+                  - cell "+14.2%" [ref=f43e563]
+                  - cell "+21.6%" [ref=f43e564]
+                  - cell "+17.7%" [ref=f43e565]
+                - row [ref=f43e566]:
+                  - cell "2020" [ref=f43e567]
+                  - cell "+24.6%" [ref=f43e568]
+                  - cell "+13.6%" [ref=f43e569]
+                  - cell "+22.2%" [ref=f43e570]
+                  - cell "+14.0%" [ref=f43e571]
+                  - cell "+16.9%" [ref=f43e572]
+                  - cell "+14.4%" [ref=f43e573]
+                  - cell "+20.9%" [ref=f43e574]
+                  - cell "+27.9%" [ref=f43e575]
+                  - cell "+18.5%" [ref=f43e576]
+                - row [ref=f43e577]:
+                  - cell "2021" [ref=f43e578]
+                  - cell "-3.5%" [ref=f43e579]
+                  - cell "+2.2%" [ref=f43e580]
+                  - cell "-4.1%" [ref=f43e581]
+                  - cell "-2.0%" [ref=f43e582]
+                  - cell "-6.1%" [ref=f43e583]
+                  - cell "+2.9%" [ref=f43e584]
+                  - cell "-2.5%" [ref=f43e585]
+                  - cell "-1.6%" [ref=f43e586]
+                  - cell "+7.5%" [ref=f43e587]
+                - row [ref=f43e588]:
+                  - cell "2022" [ref=f43e589]
+                  - cell "-0.3%" [ref=f43e590]
+                  - cell "+6.5%" [ref=f43e591]
+                  - cell "+6.9%" [ref=f43e592]
+                  - cell "+1.0%" [ref=f43e593]
+                  - cell "+8.3%" [ref=f43e594]
+                  - cell "+6.0%" [ref=f43e595]
+                  - cell "+11.8%" [ref=f43e596]
+                  - cell "+10.7%" [ref=f43e597]
+                  - cell "+13.4%" [ref=f43e598]
+                - row [ref=f43e599]:
+                  - cell "2023" [ref=f43e600]
+                  - cell "+12.8%" [ref=f43e601]
+                  - cell "+12.6%" [ref=f43e602]
+                  - cell "+9.9%" [ref=f43e603]
+                  - cell "+2.4%" [ref=f43e604]
+                  - cell "+15.7%" [ref=f43e605]
+                  - cell "+8.7%" [ref=f43e606]
+                  - cell "+6.6%" [ref=f43e607]
+                  - cell "+13.4%" [ref=f43e608]
+                  - cell "+21.6%" [ref=f43e609]
+                - row [ref=f43e610]:
+                  - cell "2024" [ref=f43e611]
+                  - cell "+26.3%" [ref=f43e612]
+                  - cell "+38.3%" [ref=f43e613]
+                  - cell "+37.1%" [ref=f43e614]
+                  - cell "+35.9%" [ref=f43e615]
+                  - cell "+30.3%" [ref=f43e616]
+                  - cell "+34.2%" [ref=f43e617]
+                  - cell "+28.2%" [ref=f43e618]
+                  - cell "+29.8%" [ref=f43e619]
+                  - cell "+40.9%" [ref=f43e620]
+                - row [ref=f43e621]:
+                  - cell "2025" [ref=f43e622]
+                  - cell "+66.5%" [ref=f43e623]
+                  - cell "+53.7%" [ref=f43e624]
+                  - cell "+58.3%" [ref=f43e625]
+                  - cell "+45.1%" [ref=f43e626]
+                  - cell "+59.7%" [ref=f43e627]
+                  - cell "+46.6%" [ref=f43e628]
+                  - cell "+54.7%" [ref=f43e629]
+                  - cell "+74.7%" [ref=f43e630]
+                  - cell "+65.5%" [ref=f43e631]
+                - row [ref=f43e632]:
+                  - cell "2026" [ref=f43e633]
+                  - cell "-0.9%" [ref=f43e634]
+                  - cell "-5.9%" [ref=f43e635]
+                  - cell "+2.2%" [ref=f43e636]
+                  - cell "+3.5%" [ref=f43e637]
+                  - cell "-4.9%" [ref=f43e638]
+                  - cell "+2.1%" [ref=f43e639]
+                  - cell "+0.6%" [ref=f43e640]
+                  - cell "+5.5%" [ref=f43e641]
+                  - cell "-0.6%" [ref=f43e642]
+                - row [ref=f43e643]:
+                  - cell "Average" [ref=f43e644]
+                  - cell "8.9%" [ref=f43e645]
+                  - cell "10.7%" [ref=f43e646]
+                  - cell "10.9%" [ref=f43e647]
+                  - cell "7.5%" [ref=f43e648]
+                  - cell "9.0%" [ref=f43e649]
+                  - cell "9.5%" [ref=f43e650]
+                  - cell "9.7%" [ref=f43e651]
+                  - cell "14.0%" [ref=f43e652]
+                  - cell "13.1%" [ref=f43e653]
+                - row [ref=f43e654]:
+                  - cell "goldprice.org Sunday, September 27, 2026" [ref=f43e655]:
+                    - generic [ref=f43e656]:
+                      - generic [ref=f43e657]: goldprice.org
+                      - generic [ref=f43e658]: Sunday, September 27, 2026
+        - generic [ref=f43e660]:
+          - generic [ref=f43e664]:
+            - heading "Latest Financial News Impacting Gold Prices" [level=2] [ref=f43e666]
+            - generic [ref=f43e668]:
+              - link "Preview of the Gold Price" [ref=f43e669] [cursor=pointer]:
+                - /url: /news/fed-hike-jolts-gold-oil-retreat-fuels-sharp-rebound
+              - generic [ref=f43e670]:
+                - generic [ref=f43e671]:
+                  - link "Matthew Bolden" [ref=f43e672] [cursor=pointer]:
+                    - /url: /authors/matthew-bolden
+                  - text: "-"
+                  - link [ref=f43e673] [cursor=pointer]:
+                    - /url: /news/fed-hike-jolts-gold-oil-retreat-fuels-sharp-rebound
+                    - time [ref=f43e674]: Sep 18th, 2026
+                - heading [level=3] [ref=f43e675]:
+                  - link "Fed Hike Jolts Gold Before Oil Retreat Fuels a Sharp Rebound" [ref=f43e676] [cursor=pointer]:
+                    - /url: /news/fed-hike-jolts-gold-oil-retreat-fuels-sharp-rebound
+            - generic [ref=f43e677]:
+              - generic [ref=f43e678]:
+                - generic [ref=f43e680]:
+                  - link "Hot Inflation Revives Fed Hike Bets as Gold Eyes Third Weekly Loss" [ref=f43e681] [cursor=pointer]:
+                    - /url: /news/hot-inflation-revives-fed-hike-bets-gold-eyes-third-weekly-loss
+                  - generic [ref=f43e682]:
+                    - generic [ref=f43e683]:
+                      - link "Matthew Bolden" [ref=f43e684] [cursor=pointer]:
+                        - /url: /authors/matthew-bolden
+                      - text: "-"
+                      - link [ref=f43e685] [cursor=pointer]:
+                        - /url: /news/hot-inflation-revives-fed-hike-bets-gold-eyes-third-weekly-loss
+                        - time [ref=f43e686]: Sep 11th, 2026
+                    - heading [level=3] [ref=f43e687]:
+                      - link "Hot Inflation Revives Fed Hike Bets as Gold Eyes Third Weekly Loss" [ref=f43e688] [cursor=pointer]:
+                        - /url: /news/hot-inflation-revives-fed-hike-bets-gold-eyes-third-weekly-loss
+                - generic [ref=f43e690]:
+                  - link "Warsh's Hawkish Jackson Hole Speech Sends Gold Sharply Lower" [ref=f43e691] [cursor=pointer]:
+                    - /url: /news/warshs-hawkish-jackson-hole-speech-sends-gold-sharply-lower
+                  - generic [ref=f43e692]:
+                    - generic [ref=f43e693]:
+                      - link "Matthew Bolden" [ref=f43e694] [cursor=pointer]:
+                        - /url: /authors/matthew-bolden
+                      - text: "-"
+                      - link [ref=f43e695] [cursor=pointer]:
+                        - /url: /news/warshs-hawkish-jackson-hole-speech-sends-gold-sharply-lower
+                        - time [ref=f43e696]: Aug 28th, 2026
+                    - heading [level=3] [ref=f43e697]:
+                      - link "Warsh's Hawkish Jackson Hole Speech Sends Gold Sharply Lower" [ref=f43e698] [cursor=pointer]:
+                        - /url: /news/warshs-hawkish-jackson-hole-speech-sends-gold-sharply-lower
+              - generic [ref=f43e699]:
+                - generic [ref=f43e701]:
+                  - link "Gold Holds Recent Rally as Fed Rate-Hike Odds Fade" [ref=f43e702] [cursor=pointer]:
+                    - /url: /news/gold-holds-recent-rally-fed-rate-hike-odds-fade
+                  - generic [ref=f43e703]:
+                    - generic [ref=f43e704]:
+                      - link "Matthew Bolden" [ref=f43e705] [cursor=pointer]:
+                        - /url: /authors/matthew-bolden
+                      - text: "-"
+                      - link [ref=f43e706] [cursor=pointer]:
+                        - /url: /news/gold-holds-recent-rally-fed-rate-hike-odds-fade
+                        - time [ref=f43e707]: Aug 14th, 2026
+                    - heading [level=3] [ref=f43e708]:
+                      - link "Gold Holds Recent Rally as Fed Rate-Hike Odds Fade" [ref=f43e709] [cursor=pointer]:
+                        - /url: /news/gold-holds-recent-rally-fed-rate-hike-odds-fade
+                - generic [ref=f43e711]:
+                  - link "Hawkish Fed Hold Caps Gold's Rally as War Risk Supports $4,050" [ref=f43e712] [cursor=pointer]:
+                    - /url: /news/hawkish-fed-hold-caps-golds-rally-war-risk-supports-4050
+                  - generic [ref=f43e713]:
+                    - generic [ref=f43e714]:
+                      - link "Matthew Bolden" [ref=f43e715] [cursor=pointer]:
+                        - /url: /authors/matthew-bolden
+                      - text: "-"
+                      - link [ref=f43e716] [cursor=pointer]:
+                        - /url: /news/hawkish-fed-hold-caps-golds-rally-war-risk-supports-4050
+                        - time [ref=f43e717]: Jul 31st, 2026
+                    - heading [level=3] [ref=f43e718]:
+                      - link "Hawkish Fed Hold Caps Gold's Rally as War Risk Supports $4,050" [ref=f43e719] [cursor=pointer]:
+                        - /url: /news/hawkish-fed-hold-caps-golds-rally-war-risk-supports-4050
+          - generic [ref=f43e724]:
+            - generic [ref=f43e726]:
+              - heading "About Us" [level=2] [ref=f43e727]
+              - paragraph [ref=f43e728]: — EST 2002
+            - paragraph [ref=f43e731]:
+              - strong [ref=f43e732]: GOLDPRICE.ORG
+              - text: provides you with fast loading charts of the current gold price per
+              - link "ounce" [ref=f43e733] [cursor=pointer]:
+                - /url: gold-price.html
+              - text: ","
+              - link "gram" [ref=f43e734] [cursor=pointer]:
+                - /url: gold-price-per-gram.html
+              - text: and
+              - link "kilogram" [ref=f43e735] [cursor=pointer]:
+                - /url: gold-price-per-kilo.html
+              - text: in 160 major currencies. We provide you with timely and accurate
+              - link "silver and gold price commentary" [ref=f43e736] [cursor=pointer]:
+                - /url: /news
+              - text: ","
+              - link "gold price history" [ref=f43e737] [cursor=pointer]:
+                - /url: gold-price-history.html
+              - text: charts for the past 1 days, 3 days, 30 days, 60 days, 1, 2, 5, 10, 15, 20, 30 and up to 43 years. You can also find out where to buy gold coins from gold dealers at the best
+              - link "gold price" [ref=f43e738] [cursor=pointer]:
+                - /url: /best-gold-price
+              - text: .
+          - generic [ref=f43e743]:
+            - generic [ref=f43e745]:
+              - link [ref=f43e747] [cursor=pointer]:
+                - /url: /gold-prices/Gold-Bars.htm
+                - img "gold-bar" [ref=f43e748]
+              - generic [ref=f43e749]:
+                - heading [level=3] [ref=f43e750]:
+                  - link "Gold Bars" [ref=f43e751] [cursor=pointer]:
+                    - /url: /gold-prices/Gold-Bars.htm
+                - paragraph [ref=f43e752]:
+                  - button "Details" [ref=f43e753] [cursor=pointer]
+            - generic [ref=f43e755]:
+              - link [ref=f43e757] [cursor=pointer]:
+                - /url: /gold-prices/1003-Gold-Coins/1001-American-Gold-Eagle.htm
+                - img "gold eagle" [ref=f43e758]
+              - generic [ref=f43e759]:
+                - heading [level=3] [ref=f43e760]:
+                  - link "American Gold Eagle Coins" [ref=f43e761] [cursor=pointer]:
+                    - /url: /gold-prices/1003-Gold-Coins/1001-American-Gold-Eagle.htm
+                - paragraph [ref=f43e762]:
+                  - button "Details" [ref=f43e763] [cursor=pointer]
+            - generic [ref=f43e765]:
+              - link [ref=f43e767] [cursor=pointer]:
+                - /url: /gold-prices/1003-Gold-Coins/canadian-gold-maple-leaf.htm
+                - img "goldmaple" [ref=f43e768]
+              - generic [ref=f43e769]:
+                - heading [level=3] [ref=f43e770]:
+                  - link "Canadian Gold Maple Leaf Coins" [ref=f43e771] [cursor=pointer]:
+                    - /url: /gold-prices/1003-Gold-Coins/canadian-gold-maple-leaf.htm
+                - paragraph [ref=f43e772]:
+                  - button "Details" [ref=f43e773] [cursor=pointer]
+            - generic [ref=f43e775]:
+              - link [ref=f43e777] [cursor=pointer]:
+                - /url: /gold-prices/1003-Gold-Coins/1003-Krugerrand.htm
+                - img "goldkruger" [ref=f43e778]
+              - generic [ref=f43e779]:
+                - heading [level=3] [ref=f43e780]:
+                  - link "South African Gold Krugerrand Coins" [ref=f43e781] [cursor=pointer]:
+                    - /url: /gold-prices/1003-Gold-Coins/1003-Krugerrand.htm
+                - paragraph [ref=f43e782]:
+                  - button "Details" [ref=f43e783] [cursor=pointer]
+          - generic [ref=f43e788]:
+            - generic [ref=f43e790]:
+              - heading [level=3] [ref=f43e791]:
+                - link "Live Gold Price" [ref=f43e792] [cursor=pointer]:
+                  - /url: /live-gold-price.html
+                - text: Charts
+              - paragraph [ref=f43e793]:
+                - link [ref=f43e794] [cursor=pointer]:
+                  - /url: /live-gold-price.html
+                  - img "live-gold-price" [ref=f43e795]
+              - list [ref=f43e796]:
+                - listitem [ref=f43e797]: Real time and historical prices.
+                - listitem [ref=f43e798]: Live Spot Gold and Spot Silver in Euro, Yen, AUD, CAD, GBP and CHF.
+                - listitem [ref=f43e799]: Spot Platinum and Spot Palladium.
+                - listitem [ref=f43e800]: US Dollar Index.
+                - listitem [ref=f43e801]: WTI Crude Oil Price.
+                - listitem [ref=f43e802]: All Major Currency Rates.
+                - listitem [ref=f43e803]: Technical Analysis Tools
+            - generic [ref=f43e805]:
+              - heading [level=3] [ref=f43e806]:
+                - link "Gold Price History" [ref=f43e807] [cursor=pointer]:
+                  - /url: /gold-price-history.html
+                - text: Charts
+              - paragraph [ref=f43e808]:
+                - link [ref=f43e809] [cursor=pointer]:
+                  - /url: /gold-price-history.html
+                  - img "Gold 10 Year" [ref=f43e810]
+              - list [ref=f43e811]:
+                - listitem [ref=f43e812]:
+                  - link "USD" [ref=f43e813] [cursor=pointer]:
+                    - /url: /gold-price-history.html#30_day_gold_price
+                  - text: "-"
+                  - link "EUR" [ref=f43e814] [cursor=pointer]:
+                    - /url: /gold-price-euros.html#30_day_gold_price
+                  - text: "-"
+                  - link "AUD" [ref=f43e815] [cursor=pointer]:
+                    - /url: /gold-price-australia.html#30_day_gold_price
+                  - text: "-"
+                  - link "CAD" [ref=f43e816] [cursor=pointer]:
+                    - /url: /gold-price-canada.html#30_day_gold_price
+                  - text: "-"
+                  - link "GBP" [ref=f43e817] [cursor=pointer]:
+                    - /url: /gold-price-uk.html#30_day_gold_price
+                  - text: "-"
+                  - link "JPY" [ref=f43e818] [cursor=pointer]:
+                    - /url: /gold-price-japan.html#30_day_gold_price
+                - listitem [ref=f43e819]: 30 and 60 days, 6 months, 1 year.
+                - listitem [ref=f43e820]: 2 years, 5 years, 10 years.
+                - listitem [ref=f43e821]: 15 years, 20 years.
+                - listitem [ref=f43e822]: Up to 39 years.
+                - listitem [ref=f43e823]: Available in 50 Currencies.
+                - listitem [ref=f43e824]:
+                  - link "Gold Silver Ratio" [ref=f43e825] [cursor=pointer]:
+                    - /url: /gold-silver-ratio.html
+                  - text: .
+          - generic [ref=f43e830]:
+            - heading [level=3] [ref=f43e832]:
+              - link "Gold Price Calculators" [ref=f43e833] [cursor=pointer]:
+                - /url: /Calculators/Gold-Price-Calculators.html
+            - link "Gold Price Calculators" [ref=f43e835] [cursor=pointer]:
+              - /url: /Calculators/Gold-Price-Calculators.html
+            - generic [ref=f43e837]:
+              - list [ref=f43e839]:
+                - listitem [ref=f43e840]: How much is your gold worth?
+                - listitem [ref=f43e841]: How much was your gold worth when you bought it?
+                - listitem [ref=f43e842]: How much profit have you made on your gold?
+                - listitem [ref=f43e843]: How much is any gold coin worth in any currency?
+                - listitem [ref=f43e844]: All major exchange rates
+                - listitem [ref=f43e845]: How much is your scrap gold worth?
+              - list [ref=f43e847]:
+                - listitem [ref=f43e848]: How much is any Karat of your gold jewelry worth?
+                - listitem [ref=f43e849]: What change should you give in gold coins?
+                - listitem [ref=f43e850]: How much gold can you buy with your currency?
+                - listitem [ref=f43e851]: How much is your gold worth in any currency?
+                - listitem [ref=f43e852]: Convert between ounces, grams and kilos
+                - listitem [ref=f43e853]: How much will you pay to buy or sell gold?
+          - generic [ref=f43e858]:
+            - generic [ref=f43e860]:
+              - link [ref=f43e862] [cursor=pointer]:
+                - /url: https://itunes.apple.com/au/app/gold-price-live/id410177268?mt=8
+                - img "app store" [ref=f43e863]
+              - generic [ref=f43e864]:
+                - heading [level=3] [ref=f43e865]:
+                  - link "Gold Price iPhone App" [ref=f43e866] [cursor=pointer]:
+                    - /url: https://itunes.apple.com/au/app/gold-price-live/id410177268?mt=8
+                - list [ref=f43e867]:
+                  - listitem [ref=f43e868]: All charts from goldprice.org available on iPhone.
+                  - listitem [ref=f43e869]: Live gold and silver price tickers in all national currencies.
+                  - listitem [ref=f43e870]: Save your favorite charts and view in one convenient place.
+                  - listitem [ref=f43e871]: Buy gold from a premier online gold bullion dealer.
+                  - listitem [ref=f43e872]: Read the latest financial news impacting gold prices.
+            - generic [ref=f43e874]:
+              - link [ref=f43e876] [cursor=pointer]:
+                - /url: https://play.google.com/store/apps/details?id=org.goldprice.app&hl=en
+                - img "google play" [ref=f43e877]
+              - generic [ref=f43e878]:
+                - heading [level=3] [ref=f43e879]:
+                  - link "Gold Price Android App" [ref=f43e880] [cursor=pointer]:
+                    - /url: https://play.google.com/store/apps/details?id=org.goldprice.app&hl=en
+                - list [ref=f43e881]:
+                  - listitem [ref=f43e882]: All charts from goldprice.org available on Android.
+                  - listitem [ref=f43e883]: Live gold and silver price tickers in all national currencies.
+                  - listitem [ref=f43e884]: Save your favorite charts and view in one convenient place.
+                  - listitem [ref=f43e885]: Buy gold from a premier online gold bullion dealer.
+                  - listitem [ref=f43e886]: Read the latest financial news impacting gold prices.
+          - generic [ref=f43e891]:
+            - generic [ref=f43e892]:
+              - generic [ref=f43e893]:
+                - img "buy gold" [ref=f43e895]
+                - generic [ref=f43e896]:
+                  - heading [level=3] [ref=f43e897]:
+                    - link "Buy Gold" [ref=f43e898] [cursor=pointer]:
+                      - /url: /best-gold-price
+                  - list [ref=f43e899]:
+                    - listitem [ref=f43e900]: Find the lowest priced gold bullion from trusted online retailers in the USA, UK and Canada.
+                    - listitem [ref=f43e901]: Shop Gold Eagles, Gold Maples, Gold Bars, and more.
+                    - listitem [ref=f43e902]: Learn about the best places to sell your gold bullion online.
+              - generic [ref=f43e903]:
+                - generic [ref=f43e904]:
+                  - link "USA Gold Prices" [ref=f43e905] [cursor=pointer]:
+                    - /url: /best-gold-price
+                  - link "USA Gold Coins" [ref=f43e906] [cursor=pointer]:
+                    - /url: /gold-prices/1003-Gold-Coins.htm
+                  - link "USA Small Gold Coins" [ref=f43e907] [cursor=pointer]:
+                    - /url: /gold-prices/1005-Small-Gold-Coins.htm
+                  - link "USA Gold Bars" [ref=f43e908] [cursor=pointer]:
+                    - /url: /gold-prices/Gold-Bars.htm
+                - generic [ref=f43e909]:
+                  - link "UK Gold Prices" [ref=f43e910] [cursor=pointer]:
+                    - /url: /gold-price-uk.html
+                  - link "UK Gold Coins" [ref=f43e911] [cursor=pointer]:
+                    - /url: /gold-prices/uk-gold-coins.htm
+                  - link "UK Small Gold Coins" [ref=f43e912] [cursor=pointer]:
+                    - /url: /gold-prices/uk-small-gold-coins.htm
+                  - link "UK Gold Bars" [ref=f43e913] [cursor=pointer]:
+                    - /url: /gold-prices/uk-gold-bars.htm
+                - generic [ref=f43e914]:
+                  - link "Australian Gold Prices" [ref=f43e915] [cursor=pointer]:
+                    - /url: /gold-price-australia.html
+                  - link "Australian Gold Coins" [ref=f43e916] [cursor=pointer]:
+                    - /url: /gold-prices/australian-gold-coins.htm
+                  - link "Australian Small Gold Coins" [ref=f43e917] [cursor=pointer]:
+                    - /url: /gold-prices/australian-small-gold-coins.htm
+                  - link "Australian Gold Bars" [ref=f43e918] [cursor=pointer]:
+                    - /url: /gold-prices/australian-gold-bars.htm
+            - generic [ref=f43e919]:
+              - generic [ref=f43e920]:
+                - img "buy silver" [ref=f43e922]
+                - generic [ref=f43e923]:
+                  - heading [level=3] [ref=f43e924]:
+                    - link "Buy Silver" [ref=f43e925] [cursor=pointer]:
+                      - /url: /best-silver-price
+                  - list [ref=f43e926]:
+                    - listitem [ref=f43e927]: Find the lowest priced silver bullion from trusted online retailers in the USA, UK and Canada.
+                    - listitem [ref=f43e928]: Shop Silver Eagles, Silver Maples, Silver Bars, and more.
+                    - listitem [ref=f43e929]: Learn about the best places to sell your silver bullion online.
+              - generic [ref=f43e930]:
+                - generic [ref=f43e931]:
+                  - link "USA Silver Coins" [ref=f43e932] [cursor=pointer]:
+                    - /url: /gold-prices/usa-silver-coins.htm
+                  - link "USA Silver Bars" [ref=f43e933] [cursor=pointer]:
+                    - /url: /gold-prices/usa-silver-bars.htm
+                - generic [ref=f43e934]:
+                  - link "UK Silver Coins" [ref=f43e935] [cursor=pointer]:
+                    - /url: /gold-prices/uk-silver-coins.htm
+                  - link "UK Silver Bars" [ref=f43e936] [cursor=pointer]:
+                    - /url: /gold-prices/uk-silver-bars.htm
+                - generic [ref=f43e937]:
+                  - link "Australian Silver Coins" [ref=f43e938] [cursor=pointer]:
+                    - /url: /gold-prices/australian-silver-coins.htm
+                  - link "Australian Silver Bars" [ref=f43e939] [cursor=pointer]:
+                    - /url: /gold-prices/australian-silver-bars.htm
+    - generic [ref=f43e947]:
+      - generic [ref=f43e950]:
+        - paragraph [ref=f43e952]: Receive Gold and Silver Price Updates via Email
+        - textbox "Email Address" [ref=f43e954]:
+          - /placeholder: Email
+        - button "Subscribe" [ref=f43e955] [cursor=pointer]
+      - generic [ref=f43e957]:
+        - link "app store icon" [ref=f43e958] [cursor=pointer]:
+          - /url: https://itunes.apple.com/au/app/gold-price-live/id410177268?mt=8
+        - link "play store icon" [ref=f43e959] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/details?id=org.goldprice.app&hl=en
+  - contentinfo [ref=f43e960]:
+    - generic [ref=f43e966]:
+      - generic [ref=f43e967]: World Gold Prices
+      - generic [ref=f43e969]:
+        - generic [ref=f43e970]:
+          - link "Gold Price USA" [ref=f43e973] [cursor=pointer]:
+            - /url: /gold-price-usa.html
+          - link "Gold Price Europe" [ref=f43e977] [cursor=pointer]:
+            - /url: /gold-price-euros.html
+          - link "Gold Price Argentina" [ref=f43e981] [cursor=pointer]:
+            - /url: /gold-price-argentina.html
+          - link "Gold Price Australia" [ref=f43e985] [cursor=pointer]:
+            - /url: /gold-price-australia.html
+          - link "Gold Price Bahrain" [ref=f43e989] [cursor=pointer]:
+            - /url: /gold-price-bahrain.html
+          - link "Gold Price Brazil" [ref=f43e993] [cursor=pointer]:
+            - /url: /gold-price-brazil.html
+          - link "Gold Price Canada" [ref=f43e997] [cursor=pointer]:
+            - /url: /gold-price-canada.html
+          - link "Gold Price China" [ref=f43e1001] [cursor=pointer]:
+            - /url: /gold-price-china.html
+          - link "Gold Price Colombia" [ref=f43e1005] [cursor=pointer]:
+            - /url: /gold-price-colombia.html
+          - link "Gold Price Croatia" [ref=f43e1009] [cursor=pointer]:
+            - /url: /gold-price-croatia.html
+          - link "Gold Price Denmark" [ref=f43e1013] [cursor=pointer]:
+            - /url: /gold-price-denmark.html
+          - link "Gold Price Egypt" [ref=f43e1017] [cursor=pointer]:
+            - /url: /gold-price-egypt.html
+        - generic [ref=f43e1019]:
+          - link "Gold Price Hong Kong" [ref=f43e1022] [cursor=pointer]:
+            - /url: /gold-price-hong-kong.html
+          - link "Gold Price Hungary" [ref=f43e1026] [cursor=pointer]:
+            - /url: /gold-price-hungary.html
+          - link "Gold Price India" [ref=f43e1030] [cursor=pointer]:
+            - /url: /gold-price-india.html
+          - link "Gold Price Indonesia" [ref=f43e1034] [cursor=pointer]:
+            - /url: /gold-price-indonesia.html
+          - link "Gold Price Israel" [ref=f43e1038] [cursor=pointer]:
+            - /url: /gold-price-israel.html
+          - link "Gold Price Japan" [ref=f43e1042] [cursor=pointer]:
+            - /url: /gold-price-japan.html
+          - link "Gold Price Jordan" [ref=f43e1046] [cursor=pointer]:
+            - /url: /gold-price-jordan.html
+          - link "Gold Price Kuwait" [ref=f43e1050] [cursor=pointer]:
+            - /url: /gold-price-kuwait.html
+          - link "Gold Price Lebanon" [ref=f43e1054] [cursor=pointer]:
+            - /url: /gold-price-lebanon.html
+          - link "Gold Price Libya" [ref=f43e1058] [cursor=pointer]:
+            - /url: /gold-price-libya.html
+          - link "Gold Price Macau" [ref=f43e1062] [cursor=pointer]:
+            - /url: /gold-price-macau.html
+          - link "Gold Price Malaysia" [ref=f43e1066] [cursor=pointer]:
+            - /url: /gold-price-malaysia.html
+        - generic [ref=f43e1068]:
+          - link "Gold Price Mexico" [ref=f43e1071] [cursor=pointer]:
+            - /url: /gold-price-mexico.html
+          - link "Gold Price Myanmar" [ref=f43e1075] [cursor=pointer]:
+            - /url: /gold-price-myanmar.html
+          - link "Gold Price New Zealand" [ref=f43e1079] [cursor=pointer]:
+            - /url: /gold-price-new-zealand.html
+          - link "Gold Price Nigeria" [ref=f43e1083] [cursor=pointer]:
+            - /url: /gold-price-nigeria.html
+          - link "Gold Price North Macedonia" [ref=f43e1087] [cursor=pointer]:
+            - /url: /gold-price-north-macedonia.html
+          - link "Gold Price Norway" [ref=f43e1091] [cursor=pointer]:
+            - /url: /gold-price-norway.html
+          - link "Gold Price Pakistan" [ref=f43e1095] [cursor=pointer]:
+            - /url: /gold-price-pakistan.html
+          - link "Gold Price Philipines" [ref=f43e1099] [cursor=pointer]:
+            - /url: /gold-price-philipines.html
+          - link "Gold Price Qatar" [ref=f43e1103] [cursor=pointer]:
+            - /url: /gold-price-qatar.html
+          - link "Gold Price Russia" [ref=f43e1107] [cursor=pointer]:
+            - /url: /gold-price-russia.html
+          - link "Gold Price Saudi Arabia" [ref=f43e1111] [cursor=pointer]:
+            - /url: /gold-price-saudi-arabia.html
+          - link "Gold Price Serbia" [ref=f43e1115] [cursor=pointer]:
+            - /url: /gold-price-serbia.html
+        - generic [ref=f43e1117]:
+          - link "Gold Price Singapore" [ref=f43e1120] [cursor=pointer]:
+            - /url: /gold-price-singapore.html
+          - link "Gold Price South Africa" [ref=f43e1124] [cursor=pointer]:
+            - /url: /gold-price-south-africa.html
+          - link "Gold Price South Korea" [ref=f43e1128] [cursor=pointer]:
+            - /url: /gold-price-south-korea.html
+          - link "Gold Price Sweden" [ref=f43e1132] [cursor=pointer]:
+            - /url: /gold-price-sweden.html
+          - link "Gold Price Switzerland" [ref=f43e1136] [cursor=pointer]:
+            - /url: /gold-price-switzerland.html
+          - link "Gold Price Taiwan" [ref=f43e1140] [cursor=pointer]:
+            - /url: /gold-price-taiwan.html
+          - link "Gold Price Thailand" [ref=f43e1144] [cursor=pointer]:
+            - /url: /gold-price-thailand.html
+          - link "Gold Price Turkey" [ref=f43e1148] [cursor=pointer]:
+            - /url: /gold-price-turkey.html
+          - link "Gold Price UK" [ref=f43e1152] [cursor=pointer]:
+            - /url: /gold-price-uk.html
+          - link "Gold Price United Arab Emirates" [ref=f43e1156] [cursor=pointer]:
+            - /url: /gold-price-united-arab-emirates.html
+          - link "Gold Price Vietnam" [ref=f43e1160] [cursor=pointer]:
+            - /url: /gold-price-vietnam.html
+    - generic [ref=f43e1164]:
+      - generic [ref=f43e1166]:
+        - generic [ref=f43e1167]: GOLD PRICE NEWS
+        - list [ref=f43e1168]:
+          - listitem [ref=f43e1169]:
+            - link "News" [ref=f43e1170] [cursor=pointer]:
+              - /url: https://goldprice.org/news
+          - listitem [ref=f43e1171]:
+            - link "Authors" [ref=f43e1172] [cursor=pointer]:
+              - /url: /authors
+        - navigation [ref=f43e1173]:
+          - generic [ref=f43e1174]: GOLD PRICE CHARTS
+          - list [ref=f43e1175]:
+            - listitem [ref=f43e1176]:
+              - link "Spot Gold" [ref=f43e1177] [cursor=pointer]:
+                - /url: /spot-gold.html
+            - listitem [ref=f43e1178]:
+              - link "Live Gold Price" [ref=f43e1179] [cursor=pointer]:
+                - /url: /live-gold-price.html
+            - listitem [ref=f43e1180]:
+              - link "Gold Price Chart" [ref=f43e1181] [cursor=pointer]:
+                - /url: /gold-price-chart.html
+            - listitem [ref=f43e1182]:
+              - link "Gold Price per Ounce" [ref=f43e1183] [cursor=pointer]:
+                - /url: /gold-price.html
+            - listitem [ref=f43e1184]:
+              - link "Gold Price per Gram" [ref=f43e1185] [cursor=pointer]:
+                - /url: /gold-price-per-gram.html
+            - listitem [ref=f43e1186]:
+              - link "Gold Price per Kilo" [ref=f43e1187] [cursor=pointer]:
+                - /url: /gold-price-per-kilo.html
+            - listitem [ref=f43e1188]:
+              - link "Gold Price History" [ref=f43e1189] [cursor=pointer]:
+                - /url: /gold-price-history.html
+            - listitem [ref=f43e1190]:
+              - link "Gold Silver Ratio" [ref=f43e1191] [cursor=pointer]:
+                - /url: /gold-silver-ratio.html
+            - listitem [ref=f43e1192]:
+              - link "Shanghai Gold Exchange Gold Price" [ref=f43e1193] [cursor=pointer]:
+                - /url: /shanghai-gold-exchange-gold-price
+            - listitem [ref=f43e1194]:
+              - link "Gold Price Calculators" [ref=f43e1195] [cursor=pointer]:
+                - /url: /Calculators/Gold-Price-Calculators.html
+            - listitem [ref=f43e1196]:
+              - link "Gold Price Charts For Websites" [ref=f43e1197] [cursor=pointer]:
+                - /url: /gold-price-charts.html
+      - generic [ref=f43e1199]:
+        - navigation [ref=f43e1200]:
+          - generic [ref=f43e1201]: PRECIOUS METALS
+          - list [ref=f43e1202]:
+            - listitem [ref=f43e1203]:
+              - link "Gold Price" [ref=f43e1204] [cursor=pointer]:
+                - /url: https://goldprice.org/
+            - listitem [ref=f43e1205]:
+              - link "Silver Price" [ref=f43e1206] [cursor=pointer]:
+                - /url: https://silverprice.org/
+            - listitem [ref=f43e1207]:
+              - link "Platinum Price" [ref=f43e1208] [cursor=pointer]:
+                - /url: https://platinumprice.org
+            - listitem [ref=f43e1209]:
+              - link "Palladium Price" [ref=f43e1210] [cursor=pointer]:
+                - /url: https://palladiumprice.org
+        - navigation [ref=f43e1211]:
+          - generic [ref=f43e1212]: PRICE OF GOLD
+          - list [ref=f43e1213]:
+            - listitem [ref=f43e1214]:
+              - link "Best Gold Price" [ref=f43e1215] [cursor=pointer]:
+                - /url: /best-gold-price
+            - listitem [ref=f43e1216]:
+              - link "Best Gold Price in United States" [ref=f43e1217] [cursor=pointer]:
+                - /url: /exchanges/buy-gold-in-united-states
+            - listitem [ref=f43e1218]:
+              - link "Best Gold Price in Canada" [ref=f43e1219] [cursor=pointer]:
+                - /url: /exchanges/buy-gold-in-canada
+            - listitem [ref=f43e1220]:
+              - link "Best Gold Price in Singapore" [ref=f43e1221] [cursor=pointer]:
+                - /url: /exchanges/buy-gold-in-singapore
+            - listitem [ref=f43e1222]:
+              - link "Best Gold Price in Switzerland" [ref=f43e1223] [cursor=pointer]:
+                - /url: /exchanges/buy-gold-in-switzerland
+            - listitem [ref=f43e1224]:
+              - link "Best Gold Price in United Kingdom" [ref=f43e1225] [cursor=pointer]:
+                - /url: /exchanges/buy-gold-in-united-kingdom
+        - generic [ref=f43e1226]:
+          - generic [ref=f43e1227]: CRYPTOCURRENCY
+          - generic [ref=f43e1229]:
+            - list [ref=f43e1230]:
+              - listitem [ref=f43e1231]:
+                - link "Bitcoin Price" [ref=f43e1232] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/bitcoin-price
+              - listitem [ref=f43e1233]:
+                - link "Ethereum Price" [ref=f43e1234] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/ethereum-price
+              - listitem [ref=f43e1235]:
+                - link "Tether Price" [ref=f43e1236] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/tether-price
+              - listitem [ref=f43e1237]:
+                - link "Binance Coin Price" [ref=f43e1238] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/binance-coin-price
+              - listitem [ref=f43e1239]:
+                - link "Ripple Price" [ref=f43e1240] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/ripple-price
+              - listitem [ref=f43e1241]:
+                - link "USD Coin Price" [ref=f43e1242] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/usd-coin-price
+              - listitem [ref=f43e1243]:
+                - link "Solana Price" [ref=f43e1244] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/solana-price
+              - listitem [ref=f43e1245]:
+                - link "TRON Price" [ref=f43e1246] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/tron-price
+              - listitem [ref=f43e1247]:
+                - link "Zcash Price" [ref=f43e1248] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/zcash-price
+              - listitem [ref=f43e1249]:
+                - link "Figure Heloc" [ref=f43e1250] [cursor=pointer]:
+                  - /url: /cryptocurrency-price/figure-heloc
+            - list [ref=f43e1252]:
+              - listitem [ref=f43e1253]:
+                - link "More Cryptocurrencies" [ref=f43e1254] [cursor=pointer]:
+                  - /url: /cryptocurrency-price
+      - generic [ref=f43e1259]:
+        - generic [ref=f43e1260]: Buy Gold USA
+        - list [ref=f43e1261]:
+          - listitem [ref=f43e1262]:
+            - link "Gold Coin Prices" [ref=f43e1265] [cursor=pointer]:
+              - /url: /gold-prices/1003-Gold-Coins.htm
+          - listitem [ref=f43e1266]:
+            - link "USA Gold Prices" [ref=f43e1269] [cursor=pointer]:
+              - /url: /gold-prices/usa-gold-prices.htm
+          - listitem [ref=f43e1270]:
+            - link "USA Small Gold Coins" [ref=f43e1273] [cursor=pointer]:
+              - /url: /gold-prices/1005-Small-Gold-Coins.htm
+          - listitem [ref=f43e1274]:
+            - link "Gold Bar Prices" [ref=f43e1277] [cursor=pointer]:
+              - /url: /gold-prices/Gold-Bars.htm
+        - generic [ref=f43e1278]: Buy Gold UK
+        - list [ref=f43e1279]:
+          - listitem [ref=f43e1280]:
+            - link "UK Gold Prices" [ref=f43e1283] [cursor=pointer]:
+              - /url: /gold-prices/uk-gold-prices.htm
+          - listitem [ref=f43e1284]:
+            - link "UK Gold Coins" [ref=f43e1287] [cursor=pointer]:
+              - /url: /gold-prices/uk-gold-coins.htm
+          - listitem [ref=f43e1288]:
+            - link "UK Small Gold Coins" [ref=f43e1291] [cursor=pointer]:
+              - /url: /gold-prices/uk-small-gold-coins.htm
+          - listitem [ref=f43e1292]:
+            - link "UK Gold Bars" [ref=f43e1295] [cursor=pointer]:
+              - /url: /gold-prices/uk-gold-bars.htm
+        - generic [ref=f43e1296]: Buy Gold Canada
+        - list [ref=f43e1297]:
+          - listitem [ref=f43e1298]:
+            - link "Canadian Gold Prices" [ref=f43e1301] [cursor=pointer]:
+              - /url: /gold-prices/canadian-gold-prices.htm
+          - listitem [ref=f43e1302]:
+            - link "Canadian Gold Coins" [ref=f43e1305] [cursor=pointer]:
+              - /url: /gold-prices/canadian-gold-coins.htm
+          - listitem [ref=f43e1306]:
+            - link "Canadian Small Gold Coins" [ref=f43e1309] [cursor=pointer]:
+              - /url: /gold-prices/canadian-small-gold-coins.htm
+          - listitem [ref=f43e1310]:
+            - link "Canadian Gold Bars" [ref=f43e1313] [cursor=pointer]:
+              - /url: /gold-prices/canadian-gold-bars.htm
+        - generic [ref=f43e1314]: Buy Gold Australia
+        - list [ref=f43e1315]:
+          - listitem [ref=f43e1316]:
+            - link "Australian Gold Prices" [ref=f43e1319] [cursor=pointer]:
+              - /url: /gold-prices/australian-gold-prices.htm
+          - listitem [ref=f43e1320]:
+            - link "Australian Gold Coins" [ref=f43e1323] [cursor=pointer]:
+              - /url: /gold-prices/australian-gold-coins.htm
+          - listitem [ref=f43e1324]:
+            - link "Australian Small Gold Coins" [ref=f43e1327] [cursor=pointer]:
+              - /url: /gold-prices/australian-small-gold-coins.htm
+          - listitem [ref=f43e1328]:
+            - link "Australian Gold Bars" [ref=f43e1331] [cursor=pointer]:
+              - /url: /gold-prices/australian-gold-bars.htm
+      - generic [ref=f43e1333]:
+        - generic [ref=f43e1334]:
+          - generic [ref=f43e1335]: CONTACT
+          - generic [ref=f43e1336]:
+            - paragraph [ref=f43e1337]: Gold Price Group
+            - paragraph [ref=f43e1338]:
+              - link "Contact Us from the form" [ref=f43e1339] [cursor=pointer]:
+                - /url: /contact.html
+        - navigation [ref=f43e1340]:
+          - generic [ref=f43e1341]: MOBILE APPS
+          - list [ref=f43e1342]:
+            - listitem [ref=f43e1343]:
+              - link " Gold Price iPhone App" [ref=f43e1344] [cursor=pointer]:
+                - /url: https://itunes.apple.com/au/app/gold-price-live/id410177268?mt=8
+            - listitem [ref=f43e1345]:
+              - link " Gold Price Android App" [ref=f43e1346] [cursor=pointer]:
+                - /url: https://play.google.com/store/apps/details?id=org.goldprice.app&hl=en
+        - navigation [ref=f43e1347]:
+          - generic [ref=f43e1348]: ADVERTISING
+          - list [ref=f43e1349]:
+            - listitem [ref=f43e1350]:
+              - link "Gold Price Advertising" [ref=f43e1351] [cursor=pointer]:
+                - /url: /gold-price-advertising
+    - generic [ref=f43e1352]:
+      - list [ref=f43e1357]:
+        - listitem [ref=f43e1358]:
+          - link "Gold Price" [ref=f43e1359] [cursor=pointer]:
+            - /url: https://goldprice.org/
+        - listitem [ref=f43e1360]:
+          - link "Risk Warning" [ref=f43e1361] [cursor=pointer]:
+            - /url: /risk-warning.html
+        - listitem [ref=f43e1362]:
+          - link "Disclaimer" [ref=f43e1363] [cursor=pointer]:
+            - /url: /disclaimer.html
+        - listitem [ref=f43e1364]:
+          - link "Terms" [ref=f43e1365] [cursor=pointer]:
+            - /url: /terms.html
+        - listitem [ref=f43e1366]:
+          - link "Privacy" [ref=f43e1367] [cursor=pointer]:
+            - /url: /privacy.html
+        - listitem [ref=f43e1368]:
+          - link "California Notice at Collection" [ref=f43e1369] [cursor=pointer]:
+            - /url: /privacy.html#california-privacy-rights
+        - listitem [ref=f43e1370]:
+          - link "Accessibility" [ref=f43e1371] [cursor=pointer]:
+            - /url: /accessibility.html
+        - listitem [ref=f43e1372]:
+          - link "Contact" [ref=f43e1373] [cursor=pointer]:
+            - /url: /contact.html
+        - listitem [ref=f43e1374]:
+          - link "Silver Price" [ref=f43e1375] [cursor=pointer]:
+            - /url: https://silverprice.org
+      - generic [ref=f43e1378]:
+        - generic [ref=f43e1379]:
+          - text: Copyright © 2002 - 2026. GoldPrice.Org All rights reserved.
+          - link [ref=f43e1380] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - text: Your Privacy Choices
+            - img "privacyicon" [ref=f43e1382]
+        - generic [ref=f43e1383]: Gold Price ® is a USA Registered Service Mark of GoldPrice.Org
+  - iframe [aria-hidden] [ref=f43e1385]
