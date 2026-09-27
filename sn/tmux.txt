@@ -39,6 +39,7 @@ set -g @plugin 'tmux-plugins/tmux-logging' # Loggin
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
 run-shell 'powerline-config tmux setup'
+```
 
 # Install nerd fonts 
 # git clone https://github.com/powerline/fonts.git --depth=1
