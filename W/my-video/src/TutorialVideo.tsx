@@ -7,9 +7,10 @@ import {
 } from "remotion";
 
 // ─── Theme ────────────────────────────────────────────────────────
-const COLORS = {
+const C = {
   bg: "#0a0a0f",
   surface: "#12121a",
+  surfaceLight: "#1a1a2e",
   primary: "#6366f1",
   primaryLight: "#818cf8",
   accent: "#22d3ee",
@@ -20,14 +21,180 @@ const COLORS = {
   textDim: "#94a3b8",
   border: "#1e293b",
   terminalBg: "#0d1117",
-  terminalGreen: "#4ade80",
-  terminalBlue: "#60a5fa",
-  terminalYellow: "#fbbf24",
-  terminalPurple: "#a78bfa",
-  terminalCyan: "#22d3ee",
 };
 
 const FONT = "ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace";
+
+// ─── Animated Text Components ─────────────────────────────────────
+
+const SlideInText: React.FC<{
+  children: React.ReactNode;
+  frame: number;
+  startFrame: number;
+  direction?: "left" | "right" | "up" | "down";
+  distance?: number;
+  style?: React.CSSProperties;
+}> = ({ children, frame, startFrame, direction = "up", distance = 40, style }) => {
+  const { fps } = useVideoConfig();
+
+  const progress = spring({
+    frame: frame - startFrame,
+    fps,
+    config: { damping: 14, stiffness: 90 },
+    durationInFrames: 30,
+  });
+
+  const eased = interpolate(progress, [0, 1], [0, 1], {
+    easing: Easing.out(Easing.cubic),
+  });
+
+  const transforms: Record<string, string> = {
+    left: `translateX(${(1 - eased) * -distance}px)`,
+    right: `translateX(${(1 - eased) * distance}px)`,
+    up: `translateY(${(1 - eased) * distance}px)`,
+    down: `translateY(${(1 - eased) * -distance}px)`,
+  };
+
+  return (
+    <div
+      style={{
+        opacity: eased,
+        transform: transforms[direction],
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const TypewriterText: React.FC<{
+  text: string;
+  frame: number;
+  startFrame: number;
+  speed?: number;
+  color?: string;
+  showCursor?: boolean;
+  style?: React.CSSProperties;
+}> = ({ text, frame, startFrame, speed = 2, color = C.text, showCursor = true, style }) => {
+  const charsToShow = interpolate(
+    frame,
+    [startFrame, startFrame + text.length / speed],
+    [0, text.length],
+    { extrapolateRight: "clamp" }
+  );
+
+  const visible = Math.floor(charsToShow);
+  const cursorOpacity = showCursor ? (Math.floor(frame / 6) % 2 === 0 ? 1 : 0) : 0;
+
+  return (
+    <span style={{ color, ...style }}>
+      {text.substring(0, visible)}
+      <span style={{ opacity: cursorOpacity, color: C.accent }}>|</span>
+    </span>
+  );
+};
+
+const FadeInText: React.FC<{
+  children: React.ReactNode;
+  frame: number;
+  startFrame: number;
+  duration?: number;
+  delay?: number;
+  style?: React.CSSProperties;
+}> = ({ children, frame, startFrame, duration = 20, delay = 0, style }) => {
+  const opacity = interpolate(
+    frame,
+    [startFrame + delay, startFrame + delay + duration],
+    [0, 1],
+    { extrapolateRight: "clamp" }
+  );
+
+  return (
+    <div style={{ opacity, ...style }}>
+      {children}
+    </div>
+  );
+};
+
+const ScaleInText: React.FC<{
+  children: React.ReactNode;
+  frame: number;
+  startFrame: number;
+  style?: React.CSSProperties;
+}> = ({ children, frame, startFrame, style }) => {
+  const { fps } = useVideoConfig();
+
+  const scale = spring({
+    frame: frame - startFrame,
+    fps,
+    config: { damping: 10, stiffness: 120 },
+    durationInFrames: 25,
+  });
+
+  const opacity = interpolate(frame, [startFrame, startFrame + 15], [0, 1], {
+    extrapolateRight: "clamp",
+  });
+
+  return (
+    <div
+      style={{
+        transform: `scale(${scale})`,
+        opacity,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const ProgressBar: React.FC<{
+  progress: number;
+  frame: number;
+  startFrame: number;
+  label: string;
+  style?: React.CSSProperties;
+}> = ({ progress, frame, startFrame, label, style }) => {
+  const width = interpolate(frame, [startFrame, startFrame + 30], [0, 100], {
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+
+  return (
+    <div style={{ width: "100%", ...style }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 8,
+        }}
+      >
+        <span style={{ color: C.textDim, fontSize: 14 }}>{label}</span>
+        <span style={{ color: C.accent, fontSize: 14 }}>{Math.round(width)}%</span>
+      </div>
+      <div
+        style={{
+          width: "100%",
+          height: 6,
+          background: C.surface,
+          borderRadius: 3,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            width: `${width}%`,
+            height: "100%",
+            background: `linear-gradient(90deg, ${C.primary}, ${C.accent})`,
+            borderRadius: 3,
+            transition: "none",
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 // ─── Terminal Component ───────────────────────────────────────────
 const Terminal: React.FC<{
@@ -45,7 +212,7 @@ const Terminal: React.FC<{
     durationInFrames: 20,
   });
 
-  const y = interpolate(frame, [startFrame, startFrame + 20], [30, 0], {
+  const y = interpolate(frame, [startFrame, startFrame + 25], [30, 0], {
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
@@ -55,14 +222,13 @@ const Terminal: React.FC<{
       style={{
         opacity,
         transform: `translateY(${y}px)`,
-        background: COLORS.terminalBg,
-        border: `1px solid ${COLORS.border}`,
+        background: C.terminalBg,
+        border: `1px solid ${C.border}`,
         borderRadius: 16,
         overflow: "hidden",
         boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
       }}
     >
-      {/* Title bar */}
       <div
         style={{
           display: "flex",
@@ -70,7 +236,7 @@ const Terminal: React.FC<{
           gap: 8,
           padding: "12px 16px",
           background: "#161b22",
-          borderBottom: `1px solid ${COLORS.border}`,
+          borderBottom: `1px solid ${C.border}`,
         }}
       >
         <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57" }} />
@@ -80,41 +246,17 @@ const Terminal: React.FC<{
           style={{
             fontFamily: FONT,
             fontSize: 14,
-            color: COLORS.textDim,
+            color: C.textDim,
             marginLeft: 12,
           }}
         >
           {title}
         </div>
       </div>
-      {/* Content */}
       <div style={{ padding: 24, fontFamily: FONT, fontSize: 18, lineHeight: 1.7 }}>
         {children}
       </div>
     </div>
-  );
-};
-
-// ─── Typing Text Component ────────────────────────────────────────
-const TypingText: React.FC<{
-  text: string;
-  frame: number;
-  startFrame: number;
-  speed?: number;
-  color?: string;
-}> = ({ text, frame, startFrame, speed = 2, color = COLORS.text }) => {
-  const charsToShow = interpolate(frame, [startFrame, startFrame + text.length / speed], [0, text.length], {
-    extrapolateRight: "clamp",
-  });
-
-  const visible = Math.floor(charsToShow);
-  const cursorOpacity = Math.floor(frame / 6) % 2 === 0 ? 1 : 0;
-
-  return (
-    <span style={{ color }}>
-      {text.substring(0, visible)}
-      <span style={{ opacity: cursorOpacity, color: COLORS.accent }}>|</span>
-    </span>
   );
 };
 
@@ -123,18 +265,7 @@ const Intro: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const scale = spring({
-    frame,
-    fps,
-    config: { damping: 12, stiffness: 100 },
-    durationInFrames: 40,
-  });
-
-  const opacity = interpolate(frame, [0, 20], [0, 1], {
-    extrapolateRight: "clamp",
-  });
-
-  const subtitleOpacity = interpolate(frame, [25, 45], [0, 1], {
+  const bgOpacity = interpolate(frame, [0, 30], [0, 1], {
     extrapolateRight: "clamp",
   });
 
@@ -147,53 +278,83 @@ const Intro: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
+        opacity: bgOpacity,
       }}
     >
-      <div
-        style={{
-          transform: `scale(${scale})`,
-          opacity,
-          textAlign: "center",
-        }}
-      >
+      <SlideInText frame={frame} startFrame={20} direction="down" distance={60}>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 28,
-            color: COLORS.accent,
-            letterSpacing: 6,
+            color: C.accent,
+            letterSpacing: 8,
             textTransform: "uppercase",
-            marginBottom: 24,
+            marginBottom: 32,
           }}
         >
           TUTORIAL
         </div>
+      </SlideInText>
+
+      <SlideInText frame={frame} startFrame={50} direction="up" distance={60}>
         <div
           style={{
             fontFamily: FONT,
-            fontSize: 80,
+            fontSize: 88,
             fontWeight: 800,
-            color: COLORS.text,
+            color: C.text,
             lineHeight: 1.1,
+            textAlign: "center",
             marginBottom: 32,
           }}
         >
           How This Video
           <br />
-          <span style={{ color: COLORS.primaryLight }}>Was Made</span>
+          <span style={{ color: C.primaryLight }}>Was Made</span>
         </div>
+      </SlideInText>
+
+      <FadeInText frame={frame} startFrame={100} duration={30}>
         <div
           style={{
             fontFamily: FONT,
-            fontSize: 24,
-            color: COLORS.textDim,
-            opacity: subtitleOpacity,
+            fontSize: 26,
+            color: C.textDim,
+            textAlign: "center",
           }}
         >
           Zero API cost. Zero subscriptions. Just code.
         </div>
-      </div>
+      </FadeInText>
+
+      <FadeInText frame={frame} startFrame={140} duration={30}>
+        <div
+          style={{
+            marginTop: 48,
+            display: "flex",
+            gap: 32,
+            justifyContent: "center",
+          }}
+        >
+          {["1920x1080", "60 FPS", "50 Seconds", "$0.00"].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                background: C.surface,
+                border: `1px solid ${C.border}`,
+                borderRadius: 12,
+                padding: "12px 24px",
+                fontFamily: FONT,
+                fontSize: 18,
+                color: C.text,
+              }}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </FadeInText>
     </div>
   );
 };
@@ -208,78 +369,79 @@ const BunInit: React.FC = () => {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 32,
       }}
     >
-      <div style={{ width: "100%", maxWidth: 1200 }}>
+      <SlideInText frame={frame} startFrame={240} direction="left" distance={60}>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 22,
+            color: C.success,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+            marginBottom: 8,
+          }}
+        >
+          Step 1
+        </div>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 16,
+          }}
+        >
+          Create a new project
+        </div>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 20,
-            color: COLORS.success,
-            marginBottom: 20,
-            textTransform: "uppercase",
-            letterSpacing: 3,
+            color: C.textDim,
+            lineHeight: 1.6,
+            maxWidth: 500,
           }}
         >
-          Step 1: Create Project
+          We use <span style={{ color: C.accent }}>bun</span> — the fast all-in-one JavaScript runtime. A single command scaffolds a new TypeScript project.
         </div>
-        <Terminal title="Terminal — bash" frame={frame} startFrame={60}>
-          <div style={{ color: COLORS.textDim }}>$</div>
-          <div>
-            <TypingText
-              text="bun init -y"
-              frame={frame}
-              startFrame={70}
-              speed={3}
-              color={COLORS.terminalGreen}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim, marginTop: 12 }}>
-            <TypingText
-              text=" + .gitignore"
-              frame={frame}
-              startFrame={100}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text=" + index.ts"
-              frame={frame}
-              startFrame={115}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text=" + tsconfig.json"
-              frame={frame}
-              startFrame={130}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text=" + README.md"
-              frame={frame}
-              startFrame={150}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalGreen, marginTop: 16 }}>
-            <TypingText
-              text=" 6 packages installed [2.25s]"
-              frame={frame}
-              startFrame={170}
-              speed={5}
-            />
-          </div>
-        </Terminal>
-      </div>
+      </SlideInText>
+
+      <Terminal title="Terminal — bash" frame={frame} startFrame={300}>
+        <div style={{ color: C.textDim }}>$</div>
+        <div>
+          <TypewriterText
+            text="bun init -y"
+            frame={frame}
+            startFrame={320}
+            speed={3}
+            color={C.success}
+          />
+        </div>
+        <div style={{ color: C.textDim, marginTop: 16 }}>
+          <FadeInText frame={frame} startFrame={360} duration={15}>
+            <span> + .gitignore</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={375} duration={15}>
+            <span> + index.ts</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={390} duration={15}>
+            <span> + tsconfig.json</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={405} duration={15}>
+            <span> + README.md</span>
+          </FadeInText>
+        </div>
+        <FadeInText frame={frame} startFrame={430} duration={20}>
+          <div style={{ color: C.success, marginTop: 16 }}> 6 packages installed [2.25s]</div>
+        </FadeInText>
+      </Terminal>
     </div>
   );
 };
@@ -288,104 +450,93 @@ const BunInit: React.FC = () => {
 const BunAdd: React.FC = () => {
   const frame = useCurrentFrame();
 
-  const installProgress = interpolate(frame, [220, 320], [0, 100], {
-    extrapolateRight: "clamp",
-  });
-
   return (
     <div
       style={{
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 32,
       }}
     >
-      <div style={{ width: "100%", maxWidth: 1200 }}>
+      <SlideInText frame={frame} startFrame={600} direction="left" distance={60}>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 22,
+            color: C.success,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+            marginBottom: 8,
+          }}
+        >
+          Step 2
+        </div>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 16,
+          }}
+        >
+          Install Remotion
+        </div>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 20,
-            color: COLORS.success,
-            marginBottom: 20,
-            textTransform: "uppercase",
-            letterSpacing: 3,
+            color: C.textDim,
+            lineHeight: 1.6,
+            maxWidth: 500,
           }}
         >
-          Step 2: Install Remotion
+          <span style={{ color: C.accent }}>Remotion</span> is a React-based framework for creating videos programmatically. It renders your code into frames using headless Chrome.
         </div>
-        <Terminal title="Terminal — bash" frame={frame} startFrame={200}>
-          <div style={{ color: COLORS.textDim }}>$</div>
-          <div>
-            <TypingText
-              text="bun add remotion @remotion/cli @remotion/bundler @remotion/renderer react react-dom"
-              frame={frame}
-              startFrame={210}
-              speed={4}
-              color={COLORS.terminalGreen}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim, marginTop: 16 }}>
-            <TypingText
-              text="bun add v1.4.2 (744846f84)"
-              frame={frame}
-              startFrame={280}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text="Resolving dependencies..."
-              frame={frame}
-              startFrame={300}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text="Resolved, downloaded and extracted [885]"
-              frame={frame}
-              startFrame={320}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalGreen, marginTop: 12 }}>
-            <TypingText
-              text="installed remotion@4.0.529"
-              frame={frame}
-              startFrame={340}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalGreen }}>
-            <TypingText
-              text="installed @remotion/cli@4.0.529"
-              frame={frame}
-              startFrame={360}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalGreen }}>
-            <TypingText
-              text="installed react@19.3.0"
-              frame={frame}
-              startFrame={380}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalCyan, marginTop: 16 }}>
-            <TypingText
-              text="241 packages installed [29.76s]"
-              frame={frame}
-              startFrame={400}
-              speed={5}
-            />
-          </div>
-        </Terminal>
-      </div>
+      </SlideInText>
+
+      <Terminal title="Terminal — bash" frame={frame} startFrame={660}>
+        <div style={{ color: C.textDim }}>$</div>
+        <div>
+          <TypewriterText
+            text="bun add remotion @remotion/cli @remotion/bundler @remotion/renderer react react-dom"
+            frame={frame}
+            startFrame={680}
+            speed={4}
+            color={C.success}
+          />
+        </div>
+        <div style={{ color: C.textDim, marginTop: 16 }}>
+          <FadeInText frame={frame} startFrame={780} duration={15}>
+            <span>bun add v1.4.2 (744846f84)</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={800} duration={15}>
+            <span>Resolving dependencies...</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={820} duration={15}>
+            <span>Resolved, downloaded and extracted [885]</span>
+          </FadeInText>
+        </div>
+        <div style={{ marginTop: 12 }}>
+          <FadeInText frame={frame} startFrame={850} duration={15}>
+            <span style={{ color: C.success }}>installed remotion@4.0.529</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={870} duration={15}>
+            <span style={{ color: C.success }}>installed @remotion/cli@4.0.529</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={890} duration={15}>
+            <span style={{ color: C.success }}>installed react@19.3.0</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={910} duration={15}>
+            <span style={{ color: C.accent }}>241 packages installed [29.76s]</span>
+          </FadeInText>
+        </div>
+      </Terminal>
     </div>
   );
 };
@@ -393,18 +544,18 @@ const BunAdd: React.FC = () => {
 // ─── Scene 4: Project Structure ───────────────────────────────────
 const ProjectStructure: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   const items = [
-    { name: "src/", type: "dir", indent: 0 },
-    { name: "index.ts", type: "file", indent: 1, desc: "Entry point" },
-    { name: "Root.tsx", type: "file", indent: 1, desc: "Composition" },
-    { name: "MyVideo.tsx", type: "file", indent: 1, desc: "Main video" },
-    { name: "TutorialVideo.tsx", type: "file", indent: 1, desc: "This video" },
-    { name: "out/", type: "dir", indent: 0 },
-    { name: "video.mp4", type: "file", indent: 1, desc: "Output" },
-    { name: "package.json", type: "file", indent: 0 },
-    { name: "tsconfig.json", type: "file", indent: 0 },
+    { name: "src/", type: "dir", indent: 0, desc: "Source code" },
+    { name: "index.ts", type: "file", indent: 1, desc: "Entry point — registers the video" },
+    { name: "Root.tsx", type: "file", indent: 1, desc: "Composition definition" },
+    { name: "MyVideo.tsx", type: "file", indent: 1, desc: "Main video content" },
+    { name: "TutorialVideo.tsx", type: "file", indent: 1, desc: "This tutorial video" },
+    { name: "out/", type: "dir", indent: 0, desc: "Rendered output" },
+    { name: "video.mp4", type: "file", indent: 1, desc: "Main video output" },
+    { name: "tutorial.mp4", type: "file", indent: 1, desc: "Tutorial output" },
+    { name: "package.json", type: "file", indent: 0, desc: "Dependencies" },
+    { name: "tsconfig.json", type: "file", indent: 0, desc: "TypeScript config" },
   ];
 
   return (
@@ -413,69 +564,93 @@ const ProjectStructure: React.FC = () => {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 32,
       }}
     >
-      <div style={{ width: "100%", maxWidth: 1000 }}>
+      <SlideInText frame={frame} startFrame={1080} direction="left" distance={60}>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 22,
+            color: C.success,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+            marginBottom: 8,
+          }}
+        >
+          Step 3
+        </div>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 16,
+          }}
+        >
+          Project structure
+        </div>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 20,
-            color: COLORS.success,
-            marginBottom: 20,
-            textTransform: "uppercase",
-            letterSpacing: 3,
+            color: C.textDim,
+            lineHeight: 1.6,
+            maxWidth: 500,
           }}
         >
-          Step 3: Project Structure
+          Each video is a <span style={{ color: C.accent }}>Composition</span> — a React component that defines scenes, animations, and timing.
         </div>
-        <Terminal title="File Explorer" frame={frame} startFrame={450}>
-          {items.map((item, i) => {
-            const itemOpacity = spring({
-              frame: frame - 460 - i * 8,
-              fps,
-              config: { damping: 14 },
-              durationInFrames: 15,
-            });
+      </SlideInText>
 
-            const itemX = interpolate(frame, [460 + i * 8, 475 + i * 8], [-20, 0], {
-              extrapolateRight: "clamp",
-            });
+      <Terminal title="File Explorer" frame={frame} startFrame={1140}>
+        {items.map((item, i) => {
+          const itemOpacity = spring({
+            frame: frame - 1160 - i * 10,
+            fps: 60,
+            config: { damping: 14 },
+            durationInFrames: 15,
+          });
 
-            return (
-              <div
-                key={i}
+          const itemX = interpolate(frame, [1160 + i * 10, 1175 + i * 10], [-20, 0], {
+            extrapolateRight: "clamp",
+          });
+
+          return (
+            <div
+              key={i}
+              style={{
+                opacity: itemOpacity,
+                transform: `translateX(${itemX}px)`,
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                padding: "4px 0",
+              }}
+            >
+              <span style={{ color: C.textDim, width: item.indent * 24 }} />
+              <span
                 style={{
-                  opacity: itemOpacity,
-                  transform: `translateX(${itemX}px)`,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  padding: "4px 0",
+                  color: item.type === "dir" ? "#60a5fa" : C.text,
+                  fontWeight: item.type === "dir" ? 700 : 400,
                 }}
               >
-                <span style={{ color: COLORS.textDim, width: item.indent * 24 }} />
-                <span
-                  style={{
-                    color: item.type === "dir" ? COLORS.terminalBlue : COLORS.text,
-                    fontWeight: item.type === "dir" ? 700 : 400,
-                  }}
-                >
-                  {item.name}
+                {item.name}
+              </span>
+              {item.desc && (
+                <span style={{ color: C.textDim, fontSize: 14, marginLeft: 16 }}>
+                  — {item.desc}
                 </span>
-                {item.desc && (
-                  <span style={{ color: COLORS.textDim, fontSize: 14, marginLeft: 16 }}>
-                    — {item.desc}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </Terminal>
-      </div>
+              )}
+            </div>
+          );
+        })}
+      </Terminal>
     </div>
   );
 };
@@ -485,29 +660,29 @@ const WriteCode: React.FC = () => {
   const frame = useCurrentFrame();
 
   const codeLines = [
-    { text: "export const MyVideo: React.FC = () => {", color: COLORS.terminalPurple },
-    { text: "  const frame = useCurrentFrame();", color: COLORS.terminalCyan },
-    { text: "  const { fps } = useVideoConfig();", color: COLORS.terminalCyan },
-    { text: "", color: COLORS.text },
-    { text: "  const scale = spring({", color: COLORS.terminalYellow },
-    { text: "    frame,", color: COLORS.text },
-    { text: "    fps,", color: COLORS.text },
-    { text: "    config: { damping: 12 },", color: COLORS.text },
-    { text: "  });", color: COLORS.terminalYellow },
-    { text: "", color: COLORS.text },
-    { text: "  const opacity = interpolate(", color: COLORS.terminalBlue },
-    { text: "    frame, [0, 20], [0, 1]", color: COLORS.text },
-    { text: "  );", color: COLORS.terminalBlue },
-    { text: "", color: COLORS.text },
-    { text: "  return (", color: COLORS.terminalPurple },
-    { text: "    <div style={{ opacity, transform: `scale(${scale})` }}>", color: COLORS.text },
-    { text: "      Hello World", color: COLORS.terminalGreen },
-    { text: "    </div>", color: COLORS.text },
-    { text: "  );", color: COLORS.terminalPurple },
-    { text: "};", color: COLORS.terminalPurple },
+    { text: "export const MyVideo: React.FC = () => {", color: "#a78bfa" },
+    { text: "  const frame = useCurrentFrame();", color: "#22d3ee" },
+    { text: "  const { fps } = useVideoConfig();", color: "#22d3ee" },
+    { text: "", color: C.text },
+    { text: "  const scale = spring({", color: "#fbbf24" },
+    { text: "    frame,", color: C.text },
+    { text: "    fps,", color: C.text },
+    { text: "    config: { damping: 12 },", color: C.text },
+    { text: "  });", color: "#fbbf24" },
+    { text: "", color: C.text },
+    { text: "  const opacity = interpolate(", color: "#60a5fa" },
+    { text: "    frame, [0, 20], [0, 1]", color: C.text },
+    { text: "  );", color: "#60a5fa" },
+    { text: "", color: C.text },
+    { text: "  return (", color: "#a78bfa" },
+    { text: "    <div style={{ opacity, transform: `scale(${scale})` }}>", color: C.text },
+    { text: "      Hello World", color: "#4ade80" },
+    { text: "    </div>", color: C.text },
+    { text: "  );", color: "#a78bfa" },
+    { text: "};", color: "#a78bfa" },
   ];
 
-  const visibleChars = interpolate(frame, [560, 680], [0, 600], {
+  const visibleChars = interpolate(frame, [1500, 1750], [0, 600], {
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.quad),
   });
@@ -526,51 +701,75 @@ const WriteCode: React.FC = () => {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 32,
       }}
     >
-      <div style={{ width: "100%", maxWidth: 1100 }}>
+      <SlideInText frame={frame} startFrame={1440} direction="left" distance={60}>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 22,
+            color: C.success,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+            marginBottom: 8,
+          }}
+        >
+          Step 4
+        </div>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 16,
+          }}
+        >
+          Write the video code
+        </div>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 20,
-            color: COLORS.success,
-            marginBottom: 20,
-            textTransform: "uppercase",
-            letterSpacing: 3,
+            color: C.textDim,
+            lineHeight: 1.6,
+            maxWidth: 500,
           }}
         >
-          Step 4: Write the Code
+          Videos are just <span style={{ color: C.accent }}>React components</span>. Use <span style={{ color: C.warning }}>spring()</span> for smooth animations and <span style={{ color: C.primaryLight }}>interpolate()</span> for frame-based transitions.
         </div>
-        <Terminal title="MyVideo.tsx" frame={frame} startFrame={550}>
-          <div style={{ fontFamily: FONT, fontSize: 16, lineHeight: 1.8 }}>
-            {renderedLines.map((line, i) => (
-              <div key={line.key} style={{ display: "flex" }}>
-                <span
-                  style={{
-                    color: COLORS.textDim,
-                    width: 36,
-                    textAlign: "right",
-                    marginRight: 20,
-                    userSelect: "none",
-                  }}
-                >
-                  {i + 1}
-                </span>
-                <span style={{ color: line.color }}>
-                  {line.text.substring(0, line.visible)}
-                  {i === renderedLines.length - 1 && (
-                    <span style={{ opacity: Math.floor(frame / 6) % 2 === 0 ? 1 : 0 }}>|</span>
-                  )}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Terminal>
-      </div>
+      </SlideInText>
+
+      <Terminal title="MyVideo.tsx" frame={frame} startFrame={1500}>
+        <div style={{ fontFamily: FONT, fontSize: 16, lineHeight: 1.8 }}>
+          {renderedLines.map((line, i) => (
+            <div key={line.key} style={{ display: "flex" }}>
+              <span
+                style={{
+                  color: C.textDim,
+                  width: 36,
+                  textAlign: "right",
+                  marginRight: 20,
+                  userSelect: "none",
+                }}
+              >
+                {i + 1}
+              </span>
+              <span style={{ color: line.color }}>
+                {line.text.substring(0, line.visible)}
+                {i === renderedLines.length - 1 && (
+                  <span style={{ opacity: Math.floor(frame / 6) % 2 === 0 ? 1 : 0 }}>|</span>
+                )}
+              </span>
+            </div>
+          ))}
+        </div>
+      </Terminal>
     </div>
   );
 };
@@ -579,104 +778,93 @@ const WriteCode: React.FC = () => {
 const RenderCommand: React.FC = () => {
   const frame = useCurrentFrame();
 
-  const progress = interpolate(frame, [720, 850], [0, 100], {
-    extrapolateRight: "clamp",
-  });
-
   return (
     <div
       style={{
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 32,
       }}
     >
-      <div style={{ width: "100%", maxWidth: 1200 }}>
+      <SlideInText frame={frame} startFrame={2040} direction="left" distance={60}>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 22,
+            color: C.success,
+            textTransform: "uppercase",
+            letterSpacing: 3,
+            marginBottom: 8,
+          }}
+        >
+          Step 5
+        </div>
+        <div
+          style={{
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            marginBottom: 16,
+          }}
+        >
+          Render to MP4
+        </div>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 20,
-            color: COLORS.success,
-            marginBottom: 20,
-            textTransform: "uppercase",
-            letterSpacing: 3,
+            color: C.textDim,
+            lineHeight: 1.6,
+            maxWidth: 500,
           }}
         >
-          Step 5: Render
+          One command renders your composition to video. Remotion captures each frame with <span style={{ color: C.accent }}>headless Chrome</span> and encodes with <span style={{ color: C.accent }}>FFmpeg</span>.
         </div>
-        <Terminal title="Terminal — bash" frame={frame} startFrame={700}>
-          <div style={{ color: COLORS.textDim }}>$</div>
-          <div>
-            <TypingText
-              text="bunx remotion render src/index.ts MyVideo out/video.mp4 --concurrency=2"
-              frame={frame}
-              startFrame={710}
-              speed={4}
-              color={COLORS.terminalGreen}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim, marginTop: 16 }}>
-            <TypingText
-              text="Bundling 100%"
-              frame={frame}
-              startFrame={780}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text="Composition MyVideo"
-              frame={frame}
-              startFrame={800}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text="Codec h264"
-              frame={frame}
-              startFrame={820}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.textDim }}>
-            <TypingText
-              text="Output out/video.mp4"
-              frame={frame}
-              startFrame={840}
-              speed={8}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalCyan, marginTop: 16 }}>
-            <TypingText
-              text={`Rendered 450/450 frames`}
-              frame={frame}
-              startFrame={860}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalGreen, marginTop: 12 }}>
-            <TypingText
-              text="Encoded 450/450"
-              frame={frame}
-              startFrame={880}
-              speed={6}
-            />
-          </div>
-          <div style={{ color: COLORS.terminalYellow, marginTop: 16 }}>
-            <TypingText
-              text=" out/video.mp4 784.3 kB"
-              frame={frame}
-              startFrame={900}
-              speed={6}
-            />
-          </div>
-        </Terminal>
-      </div>
+      </SlideInText>
+
+      <Terminal title="Terminal — bash" frame={frame} startFrame={2100}>
+        <div style={{ color: C.textDim }}>$</div>
+        <div>
+          <TypewriterText
+            text="bunx remotion render src/index.ts MyVideo out/video.mp4 --concurrency=2"
+            frame={frame}
+            startFrame={2120}
+            speed={4}
+            color={C.success}
+          />
+        </div>
+        <div style={{ color: C.textDim, marginTop: 20 }}>
+          <FadeInText frame={frame} startFrame={2220} duration={15}>
+            <span>Bundling 100%</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={2240} duration={15}>
+            <span>Composition MyVideo</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={2260} duration={15}>
+            <span>Codec h264</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={2280} duration={15}>
+            <span>Output out/video.mp4</span>
+          </FadeInText>
+        </div>
+        <div style={{ marginTop: 20 }}>
+          <FadeInText frame={frame} startFrame={2320} duration={20}>
+            <span style={{ color: C.accent }}>Rendered 450/450 frames</span>
+          </FadeInText>
+          <FadeInText frame={frame} startFrame={2350} duration={20}>
+            <span style={{ color: C.success }}>Encoded 450/450</span>
+          </FadeInText>
+        </div>
+        <FadeInText frame={frame} startFrame={2380} duration={20}>
+          <div style={{ color: C.warning, marginTop: 16 }}> out/video.mp4 784.3 kB</div>
+        </FadeInText>
+      </Terminal>
     </div>
   );
 };
@@ -684,27 +872,14 @@ const RenderCommand: React.FC = () => {
 // ─── Scene 7: Result ──────────────────────────────────────────────
 const Result: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const cardOpacity = spring({
-    frame: frame - 950,
-    fps,
-    config: { damping: 14 },
-    durationInFrames: 25,
-  });
-
-  const cardY = interpolate(frame, [950, 975], [40, 0], {
-    extrapolateRight: "clamp",
-    easing: Easing.out(Easing.cubic),
-  });
 
   const stats = [
-    { label: "Resolution", value: "1920x1080" },
-    { label: "Frame Rate", value: "60 fps" },
-    { label: "Duration", value: "15 seconds" },
-    { label: "File Size", value: "766 KB" },
-    { label: "API Cost", value: "$0.00" },
-    { label: "Subscriptions", value: "None" },
+    { label: "Resolution", value: "1920x1080", icon: "Full HD" },
+    { label: "Frame Rate", value: "60 fps", icon: "Smooth" },
+    { label: "Duration", value: "50 seconds", icon: "Short" },
+    { label: "File Size", value: "1.3 MB", icon: "Tiny" },
+    { label: "API Cost", value: "$0.00", icon: "Free" },
+    { label: "Subscriptions", value: "None", icon: "Zero" },
   ];
 
   return (
@@ -713,90 +888,112 @@ const Result: React.FC = () => {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        background: `radial-gradient(ellipse at center, ${COLORS.surface} 0%, ${COLORS.bg} 70%)`,
+        background: `radial-gradient(ellipse at center, ${C.surface} 0%, ${C.bg} 70%)`,
         padding: 60,
+        gap: 40,
       }}
     >
-      <div
-        style={{
-          opacity: cardOpacity,
-          transform: `translateY(${cardY}px)`,
-          background: COLORS.surface,
-          border: `1px solid ${COLORS.border}`,
-          borderRadius: 24,
-          padding: 48,
-          width: "100%",
-          maxWidth: 900,
-        }}
-      >
+      <SlideInText frame={frame} startFrame={2520} direction="up" distance={40}>
         <div
           style={{
             fontFamily: FONT,
-            fontSize: 24,
-            color: COLORS.success,
-            marginBottom: 32,
+            fontSize: 22,
+            color: C.success,
             textTransform: "uppercase",
             letterSpacing: 3,
             textAlign: "center",
+            marginBottom: 8,
           }}
         >
           Result
         </div>
-
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 20,
+            fontFamily: FONT,
+            fontSize: 48,
+            fontWeight: 700,
+            color: C.text,
+            textAlign: "center",
           }}
         >
-          {stats.map((stat, i) => {
-            const statOpacity = spring({
-              frame: frame - 970 - i * 10,
-              fps,
-              config: { damping: 14 },
-              durationInFrames: 15,
-            });
+          Professional quality video
+        </div>
+      </SlideInText>
 
-            return (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 20,
+          maxWidth: 1000,
+          margin: "0 auto",
+        }}
+      >
+        {stats.map((stat, i) => {
+          const col = i % 3;
+          const row = Math.floor(i / 3);
+          const statOpacity = spring({
+            frame: frame - 2580 - i * 15,
+            fps: 60,
+            config: { damping: 12 },
+            durationInFrames: 20,
+          });
+
+          const statY = interpolate(frame, [2580 + i * 15, 2600 + i * 15], [30, 0], {
+            extrapolateRight: "clamp",
+            easing: Easing.out(Easing.cubic),
+          });
+
+          return (
+            <div
+              key={i}
+              style={{
+                opacity: statOpacity,
+                transform: `translateY(${statY}px)`,
+                background: C.surface,
+                border: `1px solid ${C.border}`,
+                borderRadius: 16,
+                padding: 28,
+                textAlign: "center",
+              }}
+            >
               <div
-                key={i}
                 style={{
-                  opacity: statOpacity,
-                  background: COLORS.bg,
-                  borderRadius: 12,
-                  padding: 20,
-                  textAlign: "center",
+                  fontFamily: FONT,
+                  fontSize: 13,
+                  color: C.textDim,
+                  marginBottom: 8,
+                  textTransform: "uppercase",
+                  letterSpacing: 2,
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: FONT,
-                    fontSize: 14,
-                    color: COLORS.textDim,
-                    marginBottom: 8,
-                    textTransform: "uppercase",
-                    letterSpacing: 2,
-                  }}
-                >
-                  {stat.label}
-                </div>
-                <div
-                  style={{
-                    fontFamily: FONT,
-                    fontSize: 28,
-                    fontWeight: 700,
-                    color: stat.value === "$0.00" ? COLORS.success : COLORS.text,
-                  }}
-                >
-                  {stat.value}
-                </div>
+                {stat.label}
               </div>
-            );
-          })}
-        </div>
+              <div
+                style={{
+                  fontFamily: FONT,
+                  fontSize: 32,
+                  fontWeight: 700,
+                  color: stat.value === "$0.00" ? C.success : C.text,
+                  marginBottom: 4,
+                }}
+              >
+                {stat.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: FONT,
+                  fontSize: 13,
+                  color: C.accent,
+                }}
+              >
+                {stat.icon}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -805,17 +1002,9 @@ const Result: React.FC = () => {
 // ─── Scene 8: Outro ───────────────────────────────────────────────
 const Outro: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
-  const opacity = interpolate(frame, [1050, 1070], [0, 1], {
+  const opacity = interpolate(frame, [2880, 2900], [0, 1], {
     extrapolateRight: "clamp",
-  });
-
-  const scale = spring({
-    frame: frame - 1050,
-    fps,
-    config: { damping: 12, stiffness: 80 },
-    durationInFrames: 30,
   });
 
   return (
@@ -831,44 +1020,46 @@ const Outro: React.FC = () => {
         opacity,
       }}
     >
-      <div
-        style={{
-          transform: `scale(${scale})`,
-          textAlign: "center",
-        }}
-      >
+      <SlideInText frame={frame} startFrame={2900} direction="up" distance={40}>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 24,
-            color: COLORS.accent,
-            marginBottom: 24,
+            color: C.accent,
+            marginBottom: 32,
             textTransform: "uppercase",
             letterSpacing: 4,
           }}
         >
           You Can Do This Too
         </div>
+      </SlideInText>
+
+      <SlideInText frame={frame} startFrame={2930} direction="up" distance={40}>
         <div
           style={{
             fontFamily: FONT,
             fontSize: 64,
             fontWeight: 800,
-            color: COLORS.text,
+            color: C.text,
             lineHeight: 1.2,
-            marginBottom: 32,
+            textAlign: "center",
+            marginBottom: 40,
           }}
         >
           No expensive LLM.
           <br />
           No subscriptions.
           <br />
-          <span style={{ color: COLORS.success }}>Just code.</span>
+          <span style={{ color: C.success }}>Just code.</span>
         </div>
+      </SlideInText>
+
+      <ScaleInText frame={frame} startFrame={2960}>
         <div
           style={{
             display: "inline-block",
-            background: `linear-gradient(135deg, ${COLORS.primary}, ${COLORS.accent})`,
+            background: `linear-gradient(135deg, ${C.primary}, ${C.accent})`,
             borderRadius: 16,
             padding: "20px 48px",
           }}
@@ -876,7 +1067,7 @@ const Outro: React.FC = () => {
           <div
             style={{
               fontFamily: FONT,
-              fontSize: 28,
+              fontSize: 32,
               fontWeight: 700,
               color: "white",
             }}
@@ -884,7 +1075,7 @@ const Outro: React.FC = () => {
             Total Cost: $0.00
           </div>
         </div>
-      </div>
+      </ScaleInText>
     </div>
   );
 };
@@ -894,35 +1085,35 @@ export const TutorialVideo: React.FC = () => {
   const frame = useCurrentFrame();
 
   const getSceneOpacity = (start: number, end: number) => {
-    return interpolate(frame, [start, start + 10, end - 10, end], [0, 1, 1, 0], {
+    return interpolate(frame, [start, start + 15, end - 15, end], [0, 1, 1, 0], {
       extrapolateRight: "clamp",
     });
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", background: COLORS.bg }}>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(0, 150) }}>
+    <div style={{ width: "100%", height: "100%", background: C.bg }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(0, 240) }}>
         <Intro />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(150, 300) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(240, 600) }}>
         <BunInit />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(300, 450) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(600, 1080) }}>
         <BunAdd />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(450, 550) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(1080, 1440) }}>
         <ProjectStructure />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(550, 700) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(1440, 2040) }}>
         <WriteCode />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(700, 850) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(2040, 2520) }}>
         <RenderCommand />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(850, 1000) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(2520, 2880) }}>
         <Result />
       </div>
-      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(1000, 1200) }}>
+      <div style={{ position: "absolute", width: "100%", height: "100%", opacity: getSceneOpacity(2880, 3000) }}>
         <Outro />
       </div>
     </div>
