@@ -1,0 +1,69 @@
+{
+  "editor.cursorSmoothCaretAnimation": "on",
+  "workbench.list.smoothScrolling": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "expand",
+  "editor.renderWhitespace": "all",
+  "workbench.colorTheme": "Best Themes - Monokai Awesome",
+  "editor.fontFamily": "GoMono Nerd Font",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "markdown.extension.toc.orderedList": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "editor.formatOnSave": true,
+  "prettier.bracketSameLine": true,
+  "editor.guides.bracketPairs": "active",
+  "codeium.enableConfig": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "ignore": true,
+    "fish": true,
+    "dot": true,
+    "xml": true,
+  },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.useEditorConfig": false,
+  "editor.fontSize": 15,
+  "workbench.iconTheme": "file-icons",
+  "git.openRepositoryInParentFolders": "always",
+  "terminal.integrated.fontSize": 13,
+  "files.autoSave": "onFocusChange",
+  "remote.autoForwardPortsSource": "hybrid",
+  "git.autofetch": true,
+  "githubPullRequests.createOnPublishBranch": "never",
+  "terminal.integrated.lineHeight": 1.5,
+  "editor.lineHeight": 2,
+  "editor.inlayHints.fontFamily": "Dubai",
+
+  // Default formatters
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt",
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "mkhl.shfmt",
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
+
+  // Execute Ruff Server
+  "ruff.nativeServer": "auto",
+  "workbench.editorLargeFileConfirmation": 1000,
+  "editor.inlayHints.fontSize": 12,
+  "redhat.telemetry.enabled": false,
+}
