@@ -1,0 +1,16 @@
+Project 1
+------ 
+S1 - Source Files 1 - r1/ai-security-vulnerabilities-2026-09-27.md
+S2 - Source Files 2 - r1/offensive-ai-models-red-team-2026-09-28.md
+DD - Destination Project - ofs/ 
+
+1. Build an astrojs docs site which has been scaffolded in DD ( it is installed with wrangler to be deployed to cloudflare - DO NOT DEPLOY) with source files in S1 then S2 
+2. This site will be a PWA 
+3. Design appropriate Favicon OG Image Icon Apple Icon etc 
+4. Logically start with content from S1 then S2 
+5. In the documentation layout make the left and right columns narrow but no too narrow, but make the central reading pane wider for reading
+6. Note that all content will have numbered section and sub sections, and ensure it is in the columns also
+7. Each Page will also have a numbered TOC which jumps to numbered sections
+8. Ensure layout doesnt break in mobile mode, scrolling doesnt break layout, content that is wide should be scrollable sideways, take care especially in mobie PWA mode
+8. Theme is synthwave bluishGreen, futuristic but highly readable font ,headings have slight glow
+9. Make a nice landing page with jumpable links to section

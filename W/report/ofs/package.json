@@ -6,12 +6,21 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro build && astro preview",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "astro build && wrangler deploy",
+    "panty": "wrangler types && astro build && wrangler pages deploy ./dist --project-name=your-project-name",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.3.3",
     "@astrojs/starlight": "^0.42.4",
     "astro": "^7.2.10",
     "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "wrangler": "^4.143.0"
   }
 }
