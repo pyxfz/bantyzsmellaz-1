@@ -5,7 +5,7 @@
 **Context:** Evaluation of 3 specialized AI families for authorized offensive security work: (1) OrcaRouter hosted cyber models, (2) Abliteration AI abliterated models, (3) Adverserial AI (`https://adverserial.ai/` — note spelling with E, Adverserial AI LLC, CyberKimi + CyberGLM). Request includes functionalities, costs, legal client workflow integration, independent reviews, and best cost-effective recommendation.
 **Method:** Multi-agent deep research via parallel subagents using TinyFish Search/Fetch, Exa web search, You.com, Firecrawl scrape, docs.fetch, GitHub/HF/Ollama analysis, ToS review + direct fetch of `adverserial.ai/`, `/docs.html`, `/founder.html` on 2026-09-28 correction pass. Cross-referenced with local reports (`ai-security-vulnerabilities-2026-09-27.md`, `omo-alternatives-opencode-v2-2026-09-28.md`, `multi-agentic-workflows-2026-09-28.md`).
 **Sources:** OrcaRouter.ai, docs.orcarouter.ai, Abliteration.ai, docs.abliteration.ai, Adverserial.ai, docs (adverserial.ai/docs.html), founder (adverserial.ai/founder.html), github.com/lordx64/cyberkimi-benchmarks, TechCrunch, LessWrong, CoderCops, Reddit, GitHub, HuggingFace.
-**Correction note (2026-09-28 v2):** v1 incorrectly mapped "adversearial ai" to Lakera/Mindgard/Cisco/Adversarial.com defensive scanners. User corrected to `https://adverserial.ai/`. §5, §6, §7C, §8, §9, §10.3, §12 rewritten to cover the correct vendor. Defensive-scanner category retained only as one-line context in §5.6.
+**Correction note (2026-09-28 v2):** v1 incorrectly mapped "adversearial ai" to Lakera/Mindgard/Cisco/Adversarial.com defensive scanners. User corrected to `https://adverserial.ai/`. §5, §6, §7C, §8, §9, §10.3, §12 rewritten to cover the correct vendor. Defensive-scanner category retained only as one-line context in §5.7.
 
 ---
 
@@ -14,17 +14,61 @@
 1. [Executive Summary](#1-executive-summary)
 2. [Background: What You Asked For](#2-background-what-you-asked-for)
 3. [OrcaRouter — Gateway + Native Cyber Models](#3-orcarouter--gateway--native-cyber-models)
+   - 3.1 [Identity](#31-identity)
+   - 3.2 [Cyber Models (Confirms >1)](#32-cyber-models-confirms-1)
+   - 3.3 [Pricing & Plans](#33-pricing--plans)
+   - 3.4 [API](#34-api)
+   - 3.5 [Legal / Guardrails](#35-legal--guardrails)
 4. [Abliteration AI — Hosted Guardrail-Removed Models](#4-abliteration-ai--hosted-guardrail-removed-models)
-5. [Adverserial AI — CyberKimi + CyberGLM (correction)](#5-adverserial-ai--cyberkimi--cyberglm-correction)
+   - 4.1 [Identity](#41-identity)
+   - 4.2 [Models & Functionalities](#42-models--functionalities)
+   - 4.3 [Pricing](#43-pricing)
+   - 4.4 [API](#44-api)
+   - 4.5 [Legal / Ethical](#45-legal--ethical)
+5. [Adverserial AI — CyberKimi + CyberGLM (Correction)](#5-adverserial-ai--cyberkimi--cyberglm-correction)
+   - 5.1 [Identity](#51-identity)
+   - 5.2 [Models & Functionalities](#52-models--functionalities)
+   - 5.3 [Benchmarks & Evidence](#53-benchmarks--evidence)
+   - 5.4 [Pricing](#54-pricing)
+   - 5.5 [API](#55-api)
+   - 5.6 [Legal / Privacy](#56-legal--privacy)
+   - 5.7 [Context: Defensive AI Scanners](#57-context-defensive-ai-scanners)
 6. [Comparison Matrix](#6-comparison-matrix)
 7. [Legal Workflow: How to Use Each in Client Engagements](#7-legal-workflow-how-to-use-each-in-client-engagements)
+   - 7.1 [OrcaRouter in Workflow](#71-orcarouter-in-workflow)
+   - 7.2 [Abliteration in Workflow](#72-abliteration-in-workflow)
+   - 7.3 [Adverserial in Workflow](#73-adverserial-in-workflow)
 8. [Reviews Synthesis](#8-reviews-synthesis)
 9. [Recommendation: Best Cost-Effective Method & Model](#9-recommendation-best-cost-effective-method--model)
+   - 9.1 [Winner for Offensive Generation](#91-winner-for-offensive-generation)
+   - 9.2 [Revised Best Cost-Effective Method](#92-revised-best-cost-effective-method)
+   - 9.3 [Concrete Starter Stack](#93-concrete-starter-stack)
 10. [Installation & Integration Guides](#10-installation--integration-guides)
+    - 10.1 [OrcaRouter](#101-orcarouter-5-min)
+    - 10.2 [Abliteration](#102-abliteration-5-min)
+    - 10.3 [Adverserial](#103-adverserial-5-min)
 11. [Risks, Caveats & What Not to Do](#11-risks-caveats--what-not-to-do)
-12. [Sources](#12-sources)
-13. [DreadNode — Agent Infrastructure Explained + Cost Verdict (2026-09-28 addition)](#13-dreadnode--agent-infrastructure-explained--cost-verdict-2026-09-28-addition)
-14. [OpenAI & Anthropic Cyber Models vs Poor Man's Stack — Comparison & Techniques (2026-09-28 addition)](#14-openai--anthropic-cyber-models-vs-poor-mans-stack--comparison--techniques-2026-09-28-addition)
+12. [DreadNode — Agent Infrastructure Explained + Cost Verdict](#12-dreadnode--agent-infrastructure-explained--cost-verdict)
+    - 12.1 [What Is It Exactly?](#121-what-is-it-exactly-plain-english--technical)
+    - 12.2 [What It Does](#122-what-it-does-capabilities-you-would-actually-run)
+    - 12.3 [How to Use It](#123-how-to-use-it-consultancy-runbook)
+    - 12.4 [Is It Cost-Effective?](#124-is-it-cost-effective-numbers)
+13. [OpenAI & Anthropic Cyber Models vs Poor Man's Stack — Comparison & Techniques](#13-openai--anthropic-cyber-models-vs-poor-mans-stack--comparison--techniques)
+    - 13.1 [The Frontier Cyber Models](#131-the-frontier-cyber-models-what-youre-up-against)
+    - 13.2 [The Comparison — Frontier vs Your Stack](#132-the-comparison--frontier-vs-your-stack)
+    - 13.3 [The "Secret Techniques" — How to Match Frontier with Cheap Models](#133-the-secret-techniques--how-to-match-frontier-with-cheap-models)
+    - 13.4 [The Cost Analysis — What Frontier Buys You](#134-the-cost-analysis--what-frontier-buys-you)
+    - 13.5 [The Practical Workflow — Matching Frontier Output](#135-the-practical-workflow--matching-frontier-output)
+    - 13.6 [When You Actually Need Frontier](#136-when-you-actually-need-frontier)
+    - 13.7 [The Verdict](#137-the-verdict)
+14. [Sources](#14-sources)
+    - 14.1 [Primary (Vendor Docs)](#141-primary-vendor-docs-fetch-as-truth)
+    - 14.2 [Code / Model Hubs](#142-code--model-hubs)
+    - 14.3 [Press / Third-Party / Reviews](#143-press--third-party--reviews)
+    - 14.4 [DreadNode Sources](#144-dreadnode-sources)
+    - 14.5 [OpenAI / Anthropic Comparison Sources](#145-openai--anthropic-comparison-sources)
+    - 14.6 [Techniques Research](#146-techniques-research)
+    - 14.7 [Local Reports](#147-local-reports)
 
 ---
 
@@ -52,7 +96,7 @@ You run a red-team / cyber consultancy and noted specialized AI models:
 
 This report follows your folder convention: executive summary, per-alternative deep dive, comparison matrix, recommendation, install guides, sources.
 
-Terminology fix for client proposals: all three vendors here sell **Offensive-capable AI for authorized work** (LLM generates attack analysis under written auth), distinct from **AI red-team scanners** (Lakera/Mindgard/Cisco test client AI apps — not covered here except §5.6 context).
+Terminology fix for client proposals: all three vendors here sell **Offensive-capable AI for authorized work** (LLM generates attack analysis under written auth), distinct from **AI red-team scanners** (Lakera/Mindgard/Cisco test client AI apps — not covered here except §5.7 context).
 
 ---
 
@@ -66,7 +110,7 @@ Terminology fix for client proposals: all three vendors here sell **Offensive-ca
 - **Footprint:** GitHub `Continuum-AI-Corp/OrcaRouter-Lite` (1.7k stars, 270 forks, MIT, 403 tests), HuggingFace `orcarouter` (#10 across 3M+ models claim, 1.5M downloads/30d), Ollama `orcarouter`, X `@OrcaRouter`, Discord, LinkedIn 1.6k followers, arXiv RouterArena 75.54% #2.
 - **Scale (vendor-reported):** 203 models per LLMScape Sep 28 2026, max 1.1M ctx, 162 text/multimodal, 179 with pricing.
 
-### 3.2 Cyber models (confirms >1)
+### 3.2 Cyber Models (Confirms >1)
 
 **A. `orca/orcacyber-zero-1.0` — native offensive, GATED closed beta**
 - Page: `https://www.orcarouter.ai/models/orca/orcacyber-zero-1.0`
@@ -88,7 +132,7 @@ Terminology fix for client proposals: all three vendors here sell **Offensive-ca
 
 **E. NOT callable via OrcaRouter (do not misclaim):** `Gemini 3.8 Flash Cyber` (Google Fairwind-gated, CyberGym 86.2%), `GPT-5.6-Cyber` (OpenAI Daybreak Red-gated, 95.0% Advanced Cyber Completion), `MAI-Cyber-1-Flash`, `Gemini 3.5 Flash Cyber`, `Claude Mythos 5` — discussed on Orca blog for comparison only.
 
-### 3.3 Pricing & plans
+### 3.3 Pricing & Plans
 
 - Model: Zero markup — pay provider published rate. Live prices refresh every 60s.
 - Plans: Hacker **Free forever** (200+ models, auto-failover, basic dashboard, 10 keys, 0% markup). Team **Custom** on live page (10 seats, compliance enforcement/reports, unlimited keys, priority support) — meta description still says $49/mo (flag as stale). Enterprise **Custom** (unlimited seats, beta, dedicated infra, 99.99% SLA). Prepaid top-ups + Stripe subs, per-token deduction, **non-refundable**, cancel end-of-period.
@@ -107,7 +151,7 @@ r = client.chat.completions.create(model="orca/orcacyber-zero-1.0",
   messages=[{"role":"user","content":"Analyze this diff for RCE, authorized test ID ..."}])
 ```
 
-### 3.5 Legal / guardrails
+### 3.5 Legal / Guardrails
 
 - ToS §5 bans violating law, CSAM, IP theft, **"create malware, stalkerware, or other software designed to harm"**, harassment, impersonation, limit circumvention, scraping. **Upstream AUPs also bind you** (OpenAI, Anthropic, Google); violation upstream = violation OrcaRouter; abuse metadata may be shared upstream. Unauthorized offense prohibited; authorized testing via gated cyber is allowed path.
 - Cyber gating = guardrail: closed beta, per-use-case approval, engagement+passkey+terms.
@@ -126,7 +170,7 @@ r = client.chat.completions.create(model="orca/orcacyber-zero-1.0",
 - **Corp:** Founded 2025, incorp March 2026, HQ Palo Alto CA 94306, Delaware corp, Delaware law. Size 2-10, unfunded/bootstrapped on revenue, Convertible Note, LAUNCH funded. NVIDIA Inception member, LAUNCH alum, Microsoft for Startups collab. Cloud deals per co-founder Devon (last name withheld, remains employed elsewhere). Early customers claim: UK/EU red-team startups, banks, airlines, critical infra.
 - **Technique:** abliteration = refusal-vector ablation — "finds directions in activations that produce refusals and removes them from weights" while preserving reasoning/tool-use.
 
-### 4.2 Models & functionalities
+### 4.2 Models & Functionalities
 
 | Model ID | Base | Ctx / Max out | Modalities | Notes |
 |---|---|---|---|---|
@@ -170,8 +214,8 @@ Hosted-only; EU residency option in-region (zero-retention). Quickstart:
 ```sh
 export ABLIT_KEY=ak_YOUR_API_KEY
 curl https://api.abliteration.ai/v1/chat/completions \
- -H "Authorization: Bearer $ABLIT_KEY" -H "Content-Type: application/json" \
- -d '{"model":"abliterated-model-large-v2","messages":[{"role":"user","content":"Hello"}]}'
+  -H "Authorization: Bearer $ABLIT_KEY" -H "Content-Type: application/json" \
+  -d '{"model":"abliterated-model-large-v2","messages":[{"role":"user","content":"Hello"}]}'
 ```
 
 Python `OpenAI(base_url="https://api.abliteration.ai/v1", api_key=os.environ["ABLIT_KEY"])`, Node same, key prefix `ak_...`. Must include `/v1`, exact `model`, `messages`; 401 bad key, 404 missing /v1, 400 bad shape, 429 backoff.
@@ -180,7 +224,7 @@ Endpoints: `POST /v1/chat/completions`, `/v1/responses`, `/v1/messages` (Anthrop
 
 Integrations: LangChain (`ChatOpenAI` baseURL swap), LlamaIndex (`OpenAILike`), Vercel AI SDK (`@abliterationai/ai-sdk-provider`), Cloudflare Workers, Claude Code (2 env vars), Codex CLI, Pi agent, CC Switch, CLIProxyAPI, OpenCode built-in provider, CyberStrike fork, Strix pentest, Hermes Agent, OpenClaw plugin, Promptfoo built-in provider for eval/red-team, Giskard scanner backend, Mastra router (`ABLIT_KEY`). Examples `abliterationai/abliteration-examples` (6★). Policy Gateway `POST /policy/chat/completions` with `policy_id, policy_user, project ID`; connectors Splunk HEC, Datadog, Elastic/OpenSearch, Azure Monitor, S3/Blob/GCS/B2/R2, webhook, OTel. Rate limits tier = max(sub plan, lifetime-spend tier).
 
-### 4.5 Legal / ethical
+### 4.5 Legal / Ethical
 
 - Terms (2026-01-08): 18+, accurate registration, safeguard `ak_` keys, comply laws/export/third-party terms, credits non-refundable/non-transferable, **Acceptable Use: "No illegal, harmful, or high-risk activities (including anything that may harm people or infrastructure). No evasion/probing/disruption. May investigate/suspend."** Payload transient, no default storage; telemetry (counts/timestamps/endpoints/codes) for billing. As-is, no warranty, liability capped greater of $100 or prior 3mo fees, Delaware venue. Termination via help@.
 - Data (2026-05-29): Zero retention by default (vs ~30d elsewhere); prompts/completions/images in-memory then discarded, never for training, redacted from error logs; retained token counts/timestamps/status/model/billing (lifetime + hold). Exceptions: web search/fetch sends query/URL to third-party (their retention, zero-retention void if enabled); training-data generator stores datasets you generate (deletable, never trains vendor); Policy Gateway stores rules + content-free metadata only. EU residency in-region, EKM enterprise.
@@ -189,7 +233,7 @@ Integrations: LangChain (`ChatOpenAI` baseURL swap), LlamaIndex (`OpenAILike`), 
 
 ---
 
-## 5. Adverserial AI — CyberKimi + CyberGLM (correction)
+## 5. Adverserial AI — CyberKimi + CyberGLM (Correction)
 
 > **Correction:** v1 covered Lakera/Mindgard/Cisco/`adversarial.com`. The correct site is **`https://adverserial.ai/` (ADVERSERIAL with E), Adverserial AI LLC, Jersey City NJ**. Two cybersecurity-fine-tuned models: **CyberKimi** (`lordx64/cyberkimi`) and **CyberGLM** (`cyberglm`), plus **CyberSeek** coming soon. Direct fetch 2026-09-28 of `/`, `/docs.html`, `/founder.html` below; benchmarks at `github.com/lordx64/cyberkimi-benchmarks`.
 
@@ -202,7 +246,7 @@ Integrations: LangChain (`ChatOpenAI` baseURL swap), LlamaIndex (`OpenAILike`), 
 - **NVIDIA Inception:** Homepage footer shows "PROGRAM MEMBER / NVIDIA Inception" badge, but no NVIDIA listing found; only founder post "applied ... forcing AWS quota now on NVIDIA Inception compute". Treat as **claimed-applied, unverified** until NVIDIA directory confirms.
 - **Positioning:** "Intelligence. Engineered for cyber." / "ENGINEERED FOR CYBER." / "For authorized security work." Two models fine-tuned for cybersecurity, red team + blue team, "Understand the adversary. Build a stronger defense."
 
-### 5.2 Models & functionalities (both fine-tuned for cyber)
+### 5.2 Models & Functionalities
 
 | Model | Base | Params / Active | Ctx | Model ID | Status |
 |---|---|---|---|---|---|
@@ -218,14 +262,14 @@ Sources: homepage specs, `https://adverserial.ai/docs.html` FAQ ("builds on Kimi
 
 **Caps:** OpenAI-compat Chat Completions + Anthropic-dialect shim (sanitizes thinking blocks), streaming with `reasoning_content`/`reasoning` + `content`, prompt caching (reported in `usage.prompt_tokens_details.cached_tokens` / `cache_read_input_tokens`), tool calling via Kimi Code/Claude Code/Codex/OpenCode/Hermes configs (see §10.3). No weight download; Enterprise private-weight deployment on request.
 
-### 5.3 Benchmarks & evidence (vendor-published, mixed independent scrutiny)
+### 5.3 Benchmarks & Evidence
 
 - **CyberGym vuln reproduction:** 86.7% (78/90, 65.6% first-attempt) — homepage. LinkedIn stratified 100-task subset 0.860 beating GLM-5.3 0.845, DeepSeek-V4-Pro 0.833, Gemini 3.5 Flash Cyber 0.832, Claude Mythos Preview 0.831, GPT-5.5 0.818, 2× stock Kimi K2.5 0.413, server-verified crashes, transcripts on request. Note 78/90 vs 100-task discrepancy = different runs/subsets — flag in proposals. Repo: `https://github.com/lordx64/cyberkimi-benchmarks` (14★, 3 forks, 0 watchers as of Sep 28).
 - **ExploitBench V8 CVE-2024-6100:** Methodology-assisted 10/16, Unassisted 8/16, Kimi K3 stock 4/16; single-seed; "not a universal ranking". Method: bench-v8, 400-turn, seed 1, vLLM private node, stock CLI, per-episode transcripts — `.../blob/main/CVE-2024-6100.md`, leaderboard `https://exploitbench.ai/env/v8-cve-2024-6100/` (Mythos 16.0 / GPT-5.5-Codex-AutoNudge 15.0 above assisted run).
 - **Related founder repos:** cyberkimi-pvp (129 commits, live CyberKimi vs models), phantom-kv (34 commits), pentestkit ("104/104 XBOW validation" claim), models.dev PR adding Adverserial as OpenAI-compat provider.
-- **Skepticism to disclose:** OffSeq Threat Radar Sep 5 ("No official CVE ... independent verification lacking ... launched with --no-sandbox"); Kobaran Sep 5 ("not independently verified ... sandbox explicitly disabled ... No firm/Chrome corroboration"); D. Kucinic Aug 13 ("0 refusals, ever ... $149/mo ... No ID verification ... writes exploits as readily as detection rules" vs OpenAI Daybreak gates); Phying aggregator "16/16 ACE" conflicts with repo's own 8-10/16 — treat aggregator as unreliable.
+- **Skepticism to disclose:** OffSeq Threat Radar Sep 5 ("No official CVE ... independent verification lacking ... launched with --no-sandbox"); Kobaran Sep 5 ("not independently verified ... sandbox explicitly disabled ... No firm/Chrome corroboration"); D. Kucinic Aug 13 ("0 refusals, ever ... $149/mo ... No ID verification ... writes exploits as readily as detection rules" vs Daybreak gates); Phying aggregator "16/16 ACE" conflicts with repo's own 8-10/16 — treat aggregator as unreliable.
 
-### 5.4 Pricing (verified current Sep 28 — PAYG wallet only)
+### 5.4 Pricing
 
 | Item | CyberKimi | CyberGLM |
 |---|---|---|
@@ -238,7 +282,7 @@ Sources: homepage + `https://adverserial.ai/docs.html` pricing table. 1 credit =
 
 **Membership history (do not quote as current without qualifier):** V1 Foothold $29/mo (12 credits/wk ≈$52 PAYG/mo, 10/day, 30K out/day, 100K/wk, 1 concurrent) / Hacker Manifesto $149/mo (60/wk ≈$260, 20/day, 150K/day, 600K/wk) / G0DM0D3 $349/mo (140/wk ≈$607, 40/day, 350K/day, 1.5M/wk, 2 parallel), ~42-44% off PAYG when fully used, weekly reset no rollover, memberships covered CyberKimi only. Docs now: "Memberships — Gone — legacy converted to wallet credit at full value". Waitlist page: "stopping v1 ... v1 beta concluded", Priority Slot $149 one-time, Free $0, Enterprise trial — `https://adverserial.ai/waitlist.html`.
 
-### 5.5 API (OpenAI-compat + Anthropic shim)
+### 5.5 API
 
 - Base `https://api.adverserial.ai/v1`, Chat `POST /v1/chat/completions`, Models `GET /v1/models`, IDs `lordx64/cyberkimi` + `cyberglm`, Auth `Bearer sk-...`. Keys in billing dashboard, multi named keys (`burp`, `ci-runner`), independent revocation, wallet preflight; chat-platform API rejects end-user keys by design. Never embed in client-side/public repos. Errors: 401 revoked, 403 wrong endpoint, 402 empty wallet (`/topup`), `finish_reason=length` → raise budget, 503 retry w/ backoff.
 - Client budgets (conservative, not server cap): CyberKimi 750K (OpenCode example 65,536/8,192), CyberGLM 131,072. "Setting 1,048,576 does not increase server capacity." Documented integrations: Claude Code/Cline (Anthropic shim `https://api.adverserial.ai`, 750K override), Kimi Code (`~/.kimi/config.toml`), Codex CLI ≥0.134 (Responses shim, provider+profile, 750K/700K compact), Codex desktop (key-file auth), OpenCode (`@ai-sdk/openai-compatible`, `cyberkimi/lordx64/cyberkimi`), Hermes (verified Sep 13; `AWS_EC2_METADATA_DISABLED=true` on non-AWS).
@@ -252,13 +296,13 @@ resp = client.chat.completions.create(model="lordx64/cyberkimi",
   max_tokens=2048)
 ```
 
-### 5.6 Legal / privacy (strongest auth wording of the three — read with nuance)
+### 5.6 Legal / Privacy
 
 - **Terms (`/terms`):** "Use only for lawful activity, with rights/authorizations required." "Authorization comes first" — written auth (assets/techniques/windows/data-handling), stay in scope, bounty terms control. Permitted: lawful research, authorized red/blue, defensive engineering, RE, education, controlled testing. Prohibited: unauthorized access, malware/ransomware deployment, extortion/fraud/phishing outside engagement, disruption/sabotage, unlawful surveillance, IP theft, sanctions/export evasion, metering attacks. "Research label doesn't legalize." Human review mandatory before execution, isolated testing, allowlists/gates, no sole-AI life-safety decisions. "Do not assume guardrails capable of preventing unlawful activity. Response ≠ lawful. Capability never supplies permission." Dual-use explicitly includes exploit analysis, vuln research, offensive techniques, malware analysis. Input rights retained (limited processing license, not to sell/train); Output assigned to customer where transferable; no weight ownership. AS-IS, $100-or-12mo-fees cap, indemnity, suspension, abuse contact@.
 - **Privacy (`/privacy` + docs FAQ + homepage):** "Privacy first: no inference/chat session logs, prompts not used to train." "Your evidence stays yours. No GPU request logs." Nuance: billing/usage retained (wallet, ledger, model, request ID, in/cached/out tokens — "not anonymous", Stripe); "Temporary chat ... not to save to history ≠ immediate erasure ... runtime buffers and GPU prefix/KV caches remain until eviction"; metric samples 30-day cleanup; account/usage/payment do NOT share expiry; providers Heroku (app), RunPod (GPU), Stripe, Google sign-in; 30-day billing cookie; DPA/region/air-gap only by explicit agreement.
 - **Net for consultancy:** best contractual fit for authorized work (explicit auth-first + dual-use disclosure), but verify no-logging scope in writing for regulated clients (billing + KV-cache retention remains) and get DPA/region terms via Enterprise if needed.
 
-### 5.7 Context: defensive AI scanners (v1's mistaken section, kept as one-liner)
+### 5.7 Context: Defensive AI Scanners
 
 Lakera (Check Point), Mindgard, Cisco AI Defense, Adversarial.com are **defensive AI-app testing/guardrail platforms**, not offensive LLMs — out of scope for this report's three-generator comparison. Use only if client needs AI-app audit pass-through ($100k+ enterprise); otherwise rely on §7 open-source regression (Garak/PyRIT/Promptfoo).
 
@@ -287,21 +331,24 @@ Lakera (Check Point), Mindgard, Cisco AI Defense, Adversarial.com are **defensiv
 
 All three require **explicit written authorization** per target, scope-of-work, dates, IP ranges, accounts, forbidden actions (prod data exfiltration, persistence, lateral movement beyond scope), data handling, retest window. No authorization = ToS violation + criminal exposure. Mirror vendor disclaimers in your MSA.
 
-**A. OrcaRouter in workflow**
+### 7.1 OrcaRouter in Workflow
+
 1. Pre-engagement: apply for `orca/orcacyber-zero-1.0` with engagement letter (component, vuln class, quarter). Do not script around refusal/failover to evade vetting.
 2. Scoping: create workspace per client, keys scoped to `orca/orcacyber-zero-1.0` + named dual-use bases (`openai/gpt-5.5`, `anthropic/claude-opus-4.8` for report writing — Zero's vendors note cyber models write reports worse), spending caps, `orcarouter/auto` disabled for scope control.
 3. Execution: vuln triage/repro across large repos (1M ctx), root-cause, red-team tooling gen, patch validation. Log every call (Requests + `x-orca-resolved-model` receipts). Enforce 'evaluation before reliance' (Terms §6).
 4. Deliverable: attach token receipts, resolved-model IDs, cache HIT/MISS, guardrail triggers for audit defensibility. Use `orcaverify-text1.0` to check AI-assisted phishing samples if relevant.
 5. Post: revoke keys, retain logs per retention policy, invoice pass-through $3/$5 + Team overhead.
 
-**B. Abliteration in workflow**
+### 7.2 Abliteration in Workflow
+
 1. Pre-engagement: Developer $20 key for lab, Growth $50 for team audit logs, Scale $200 ($200 credit included) for heavy ExploitGym runs. Do NOT use anon free-tier for client data (1 call, images only).
 2. Scoping: per-client projects, scoped `ak_` keys, per-user/project quotas, independent revocation, SIEM via Policy Gateway (Enterprise — budget this if client requires EU Act evidence; otherwise export token counts/timestamps/model IDs manually).
 3. Execution: CVE repro, exploit dev, malware *analysis* (not delivery), jailbreak/prompt-injection suites (direct PDF/email RAG exfiltration, tool-misuse coercion), synthetic phishing/harassment datasets for detector tuning (paid 3-row preview → HF/S3 export). Use `abliterated-model-large-v2` max reasoning for Exploits, `abliterated-model` base for multimodal (screenshots). Disable web search/fetch for client-confidential prompts (third-party retention voids zero-retention).
 4. Deliverable: include authorization ID, model ID (`large-v2` GLM-5.3 FP8), reasoning mode, `flagged_categories`, policy decision/reason if Gateway used, plus human validation statement (vendor outputs may be inaccurate).
 5. Post: delete generated training datasets if client requires, retain billing metadata only, suspend keys. Note ToS gap to client: vendor allows authorized testing but bans illegal/harmful/high-risk — your letter is the shield.
 
-**C. Adverserial in workflow**
+### 7.3 Adverserial in Workflow
+
 1. Pre-engagement: top up wallet ($25-50 reserve, Monero option if needed), create named keys per tool in billing dashboard; note V2 waitlist for chat, API is wallet-direct.
 2. Scoping: per-client keys, independent revocation, wallet preflight ($0 = stop). Map to OWASP / ATLAS for report structure. Get written auth per Terms S04.
 3. Execution: hard vuln repro, V8/CVE analysis (cite public transcripts as precedent), Sigma/YARA/KQL, IR timeline, threat-hunt hypotheses. CyberKimi for depth, CyberGLM for cheaper drafts. Streaming + reasoning fields for audit trail; isolated testing + human review before execution.
@@ -322,7 +369,7 @@ All three require **explicit written authorization** per target, scope-of-work, 
 
 ## 9. Recommendation: Best Cost-Effective Method & Model
 
-### 9.1 Winner for offensive generation: Abliteration `abliterated-model-large-v2` + OrcaRouter gateway (revised with Adverserial pricing)
+### 9.1 Winner for Offensive Generation
 
 **Why this pair still wins on cost per useful finding:**
 
@@ -338,14 +385,14 @@ All three require **explicit written authorization** per target, scope-of-work, 
 - Use **Adverserial CyberKimi** when you need specialist depth + evidence you can show a client (public CyberGym/ExploitBench transcripts, Sigma/YARA/KQL + IR workflow, 1M ctx, privacy-first claim). Best proof-per-engagement despite $8/$30. Use **CyberGLM $4/$15** for cheaper mid-tier drafts while in development.
 - Self-host community abliterated weights (`dealignai/GLM-5.3-ABLITERATED-NVFP4`, `huihui BaronLLM`) + vLLM when you have GPU and need $0 marginal cost for lab fuzzing — but add your own logging (no vendor receipts).
 
-### 9.2 Revised best cost-effective method (with Adverserial in the mix)
+### 9.2 Revised Best Cost-Effective Method
 
 - **Daily driver (volume): Abliteration + OrcaRouter.** Start every engagement with Qwen-free triage → Abliteration large-v2 for bulk exploit/jailbreak/injection work → OrcaRouter Zero for gated repro needing receipts. Keeps you under $100/mo.
 - **Specialist reserve (proof): Adverserial PAYG $25-50 top-up.** Invoke CyberKimi only for hard cases: V8-style repro requiring transcript-backed methodology, 1M-ctx log/code hunts, Sigma/YARA/KQL + IR deliverables where you need to cite public benchmarks (86.7% CyberGym, 10/16 assisted V8) and auth-first ToS. Bill through as disbursement + your $15-50k human audit + 15-25% compliance uplift. Never use $30/M output for bulk fuzzing — use $5/M large-v2 or $0.33/M Qwen instead.
-- ** math:** 1M input + 200K output on Kimi = $8 + $6 = $14 per deep case; same on large-v2 = $5 + $1 = $6; on Qwen triage = <$1. Route accordingly: triage cheap, prove expensive.
+- **Math:** 1M input + 200K output on Kimi = $8 + $6 = $14 per deep case; same on large-v2 = $5 + $1 = $6; on Qwen triage = <$1. Route accordingly: triage cheap, prove expensive.
 - If client mandates no-logging + DPA/region/air-gap, quote Adverserial Enterprise (dedicated capacity, private weights, SSO) as pass-through — same pattern as Abliteration Enterprise Gateway / OrcaRouter Team.
 
-### 9.3 Concrete starter stack (copy-paste budget)
+### 9.3 Concrete Starter Stack
 
 1. Abliteration Developer $20/mo (large-v2 for exploits, base for multimodal) — scoped `ak_` per client.
 2. OrcaRouter Hacker $0 + $30 top-up (Zero for gated repro, Qwen-free for triage, Verify $2/M for AI-content checks) — scoped `sk-orca-*` per workspace, caps on.
@@ -387,8 +434,8 @@ MCP: `Continuum-AI-Corp/orcarouter-mcp-server` for Claude Desktop/Cursor/Windsur
 # 1. Sign up https://abliteration.ai/console → ak_...
 export ABLIT_KEY=ak_YOUR_KEY
 curl https://api.abliteration.ai/v1/chat/completions \
- -H "Authorization: Bearer $ABLIT_KEY" -H "Content-Type: application/json" \
- -d '{"model":"abliterated-model-large-v2","messages":[{"role":"user","content":"Hello"}]}'
+  -H "Authorization: Bearer $ABLIT_KEY" -H "Content-Type: application/json" \
+  -d '{"model":"abliterated-model-large-v2","messages":[{"role":"user","content":"Hello"}]}'
 # OpenAPI https://api.abliteration.ai/openapi.json
 # Models https://api.abliteration.ai/v1/models ; Balance GET /credits/balance
 ```
@@ -432,33 +479,11 @@ Open-source regression between audits: `promptfoo redteam run`, `garak`, `pyrit`
 
 ---
 
-## 12. Sources
-
-### Primary (vendor docs, fetch as truth)
-- `https://www.orcarouter.ai/`, `/models`, `/models/orca/orcacyber-zero-1.0`, `/models/orca/orcaverify-text1.0`, `/models/google/gemini-3.8-flash`, `/pricing`, `/offers`, `/support`, `/terms.html`, `/trust`, `https://docs.orcarouter.ai/introduction`, `https://www.orcarouter.ai/blog/orcarouter-omacom-foundation-corporate-patron`, `.../gemini-3-8-flash-cyber-release`, `.../gpt-5-6-cyber-vs-gpt-5-5-cyber`, `.../gpt-5-6-cyber-vs-mai-cyber-1-flash`, `.../blog/gpt-5-6-cyber-vs-gpt-5-5-cyber`
-- `https://abliteration.ai/`, `/platform`, `/pricing`, `/security-testing`, `/use-cases/ai-red-teaming`, `/use-cases/cybersecurity`, `/training-data`, `/data-handling`, `/terms-of-service`, `/press`, `/models/abliterated-model`, `/blog/introducing-abliterated-model-large`, `/blog/introducing-abliterated-model-large-v2`, `https://docs.abliteration.ai/models.md`, `/pricing`, `/quickstart.md`, `/llms.txt`, `/api/introduction.md`, `/capabilities/streaming.md`, `https://api.abliteration.ai/openapi.json`
-- `https://adverserial.ai/`, `/docs.html`, `/founder.html`, `/terms`, `/privacy`, `/waitlist.html`, `https://chat.adverserial.ai/`, `https://billing.adverserial.ai/`, `https://api.adverserial.ai/v1`, `https://github.com/lordx64/cyberkimi-benchmarks`, `.../blob/main/CVE-2024-6100.md`, `https://github.com/lordx64`, `https://huggingface.co/lordx64`, `https://x.com/lordx64`, `https://www.linkedin.com/in/tahakarim/`, `https://exploitbench.ai/env/v8-cve-2024-6100/`
-
-### Code / model hubs
-- `https://github.com/Continuum-AI-Corp/OrcaRouter-Lite`, `https://github.com/continuum-ai-corp`, `https://github.com/abliteration-ai`, `https://github.com/abliterationai/abliteration-examples`, `https://github.com/abliteration-ai/ai-sdk-provider`, `https://huggingface.co/orcarouter`, `https://huggingface.co/abliterationaiorg`, `https://huggingface.co/dealignai/GLM-5.3-ABLITERATED-NVFP4`, `https://huggingface.co/Securelayer7/Qwen3.8-27B-Uncensored-Abliterated`, `https://huggingface.co/huihui-ai/BaronLLM_Offensive_Security-abliterated-GGUF`, `https://ollama.com/orcarouter`, `https://mastra.ai/models/providers/orcarouter`, `https://mastra.ai/models/providers/abliteration-ai`, `https://www.promptfoo.dev/docs/providers/orcarouter/`, `https://docs.privategpt.dev/providers/orcarouter`
-- OpenRouter appendix (name-confusion only): `https://openrouter.ai/models`, `/pricing`, `/terms`, `https://openrouter.ai/cognitivecomputations/dolphin-mistral-24b-venice-edition:free`
-
-### Press / third-party / reviews
-- `https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/`, `https://tech.yahoo.com/ai/deals/articles/abliteration-ai-making-business-removing-183757546.html`, `https://blog.codercops.com/blog/abliteration-ai-uncensored-models-enterprise-risk-2026`, `https://magica.com/news/abliteration-ai-hosted-guardrail-removed-models`, `https://www.explainx.ai/blog/abliteration-ai-glm-5-3-hosted-uncensored-cyber-model-2026`, `https://www.lesswrong.com/posts/BShGBvtxGoaZvCqBk/abliterated-models-are-now-served-cheaply-and-conveniently-1`, `https://www.chosun.com/english/industry-en/2026/09/10/RUI2WFD76VETHJSGFFP7QFKK6Q/`
-- `https://www.reddit.com/r/opencodeCLI/comments/1vr1uuz/has_anyone_tried_orcarouter/`, `https://www.reddit.com/r/LocalLLaMA/comments/1f07b4b/abliteration_fails_to_uncensor_models_while_it`, `https://www.reddit.com/r/ArtificialIntelligence/comments/1vjtx7a/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/LocalLLM/comments/1vjuhp7/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/ollama/comments/1vjuksn/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/LocalLLM/comments/1wrytrx/introducing_cyberpvp_cyberkimi_vs_altar1_on_100/`, `https://x.com/OrcaRouter`, `https://x.com/abliteration_ai/status/2094458081451393287`, `https://x.com/lordx64`, `https://x.com/k2sbhai/status/2089358084627955921`
-- `https://radar.offseq.com/threat/ai-model-cyberkimi-claims-it-turned-a-3-day-old-v8-patch-into-a-live-chrome-exploit-in-under-24-hours-edec50aa81421de5`, `https://www.kobaran.com/cyberkimi-ai-claims-it-weaponized-a-chrome-v8-patch-in-under-a-day/`, `https://www.linkedin.com/posts/dkucinic_expanding-daybreak-as-the-cyber-defense-window-activity-7493633709191991296-QLz6`, `https://securitywall.co/blog/llm-security-audit-cost`
-- Funding/acquisition: `https://www.prnewswire.com/news-releases/orcarouter-launches-the-open-llm-api-router--zero-markup-mit-licensed-100-models-302766356.html`
-
-### Local
-- `W/report/ai-security-vulnerabilities-2026-09-27.md`, `W/report/omo-alternatives-opencode-v2-2026-09-28.md`, `W/report/multi-agentic-workflows-2026-09-28.md`
-
----
-
-## 13. DreadNode — Agent Infrastructure Explained + Cost Verdict (2026-09-28 addition)
+## 12. DreadNode — Agent Infrastructure Explained + Cost Verdict
 
 > **One-line answer:** DreadNode (`https://dreadnode.io/`) is **not another LLM** like CyberKimi or Abliteration. It is the **operating system around the LLM** — sandboxed hacker agents + evals + evidence trail + self-hosting — that lets you run *any* model (including the three above) against authorized targets and prove what happened. Pricing is **Pro $0/mo pay-as-you-go (1 credit = $0.01, 1,000 credits per $1 inference) + Enterprise custom (annual fee + credits)**. Verdict: **yes, cost-effective as force-multiplier, no as bulk token provider** — keep Abliteration/OrcaRouter for cheap tokens, add DreadNode Pro with $25-50 credits for agentic engagements.
 
-### 13.1 What is it exactly? (plain English + technical)
+### 12.1 What Is It Exactly? (Plain English + Technical)
 
 **For a non-technical client:** a supervised lab for an AI junior pentester that works at machine speed. Isolated computers (sandboxes), a rulebook for what it may touch (Scope → Approve → Judge → Record → Govern), a judge watching it (LLM judges for scope/cheating), and a camera recording everything (traces, tool calls, policy decisions). You supply written authorization; every finding ships with request/response evidence for your report.
 
@@ -474,7 +499,7 @@ Open-source regression between audits: `promptfoo redteam run`, `garak`, `pyrit`
 
 **Name warning:** DreadNode product is **Strikes (with k)** — evals SDK. **Strix (`usestrix/strix`, `strix.ai`) is a separate open-source AI pentester, NOT DreadNode.** Do not conflate. Old trio Strikes/Spyglass/**Crucible** (65+ free CTF challenges, used by CISA/PwC/Target/Intel/Bishop Fox) was **sunset Mar 23-24 2026** after 2.5 years; successor is Resource Hub (~1,600 tasks) + capabilities registry.
 
-### 13.2 What it does (capabilities you would actually run)
+### 12.2 What It Does (Capabilities You Would Actually Run)
 
 - **AI Red Teaming:** any modality/target, algorithmic probing, safety + agentic + multilingual + multimodal — `https://docs.dreadnode.io/ai-red-teaming/`.
 - **Web Security:** autonomous OODA-loop pentester, headless browser, **~70-84 skills** (83 playbooks homepage / 84 skills platform / 70+ quickstart — version drift): req-smuggling, cache poisoning, SSRF, SSTI, DOM, OAuth, GraphQL, auth-matrix, blind SQLi, traversal, JS analysis, Pacu AWS. Leads → findings only with evidence.
@@ -482,7 +507,7 @@ Open-source regression between audits: `promptfoo redteam run`, `garak`, `pyrit`
 - **Hosted Evals + DreadIndex:** BYO envs/scorers, 76 tasks/10 cats leaderboard (Sep 2026: Claude Opus 4.7 #1 67.1, DeepSeek-V4-Pro best value 52.2 @ $0.58/1M) — `https://dreadnode.io/research/dreadindex/`. Research pipeline into product: ScopeJudge (8 judges/4,897 calls, best human-range but **missed 1-in-10 violations**), Every Model Cheats (23 tasks/1,518 traces), AIRTBench, Worlds (synthetic net-gen, 8B to Domain Admin on synthetic only).
 - **Guardrail chain:** Scope (restrict + check) → Approve (allow/block/approval) → Judge (drift/cheating flags) → Record (every decision + reason) → Govern (org/workspace roles). Policy Aug 2026 argues open-weights + air-gapped sandboxes + standardized telemetry + safe harbor — use to justify isolated-lab methodology.
 
-### 13.3 How to use it (consultancy runbook)
+### 12.3 How to Use It (Consultancy Runbook)
 
 1. **Sign up:** `https://app.dreadnode.io/?mode=register` (browser, no install) or book demo. No OpenCode plugin — interop via MCP/CLI/webhook.
 2. **Install (60s):** `curl -fsSL https://dreadnode.io/install.sh | bash` → `dn` → 1 browser login / 2 API key → `dn capability install dreadnode/web-security` → `/agent web-security` → `> test /api/v1/auth on https://target.example — full scope`. TUI: Ctrl+P capabilities, Ctrl+A agents, /thinking, Ctrl+O/T/B traces/sessions. Python: `pip install -U dreadnode` (Strikes SDK).
@@ -493,7 +518,7 @@ Open-source regression between audits: `promptfoo redteam run`, `garak`, `pyrit`
 
 SOW clause: "All agentic testing limited to written-authorized hosts in Appendix A, from isolated DreadNode sandboxes/runtimes with scope policies + human approval for exploit/write actions; full traces retained; no client data used for training."
 
-### 13.4 Is it cost-effective? (numbers)
+### 12.4 Is It Cost-Effective? (Numbers)
 
 Source of truth `https://dreadnode.io/pricing/` + `https://docs.dreadnode.io/platform/credits/` (both fetched Sep 28):
 
@@ -512,28 +537,11 @@ Source of truth `https://dreadnode.io/pricing/` + `https://docs.dreadnode.io/pla
 
 ---
 
-## 12b. Sources — DreadNode addition (2026-09-28)
-
-### Primary (fetched)
-- `https://dreadnode.io/`, `/platform/`, `/pricing/`, `/company/about/`, `/company/policy/`, `/company/newsroom/series-a/`, `/company/newsroom/dreadnode-v2-security-agent-infrastructure-platform/`, `https://docs.dreadnode.io`, `/getting-started/quickstart/`, `/getting-started/authentication/`, `/platform/credits/`, `/ai-red-teaming/`, `/integrations/`, `/guides/building-a-capability/`, `https://app.dreadnode.io/?mode=register`, `https://app.dreadnode.io/terms`, `https://app.dreadnode.io/privacy`, `https://trust.dreadnode.io/`, `https://status.dreadnode.io`, `https://dreadnode.io/research/dreadindex/`
-
-### Code / research
-- `https://github.com/dreadnode`, `https://github.com/dreadnode/rigging`, `https://github.com/dreadnode/sdk`, `https://github.com/dreadnode/burpference`, `https://github.com/dreadnode/ares`, `https://pypi.org/project/dreadnode/`, `https://arxiv.org/html/2504.19855v2`, `https://x.com/dreadnode/status/2036164368304578640`, `https://www.decibel.vc/articles/dreadnode-why-great-offense-drives-defense-in-ai-security`, `https://www.securityweek.com/offensive-ai-startup-dreadnode-secures-14m-to-stress-test-ai-systems/`, `https://cybersectools.com/tools/dreadnode-crucible`, `https://boschko.ca/adversarial-ml/`
-
-### Local
-- `W/report/ai-security-vulnerabilities-2026-09-27.md`, `W/report/omo-alternatives-opencode-v2-2026-09-28.md`, `W/report/multi-agentic-workflows-2026-09-28.md`
-
----
-
-*Report v3: 2026-09-28 — added §13 DreadNode. Method: homepage/platform/pricing fetch + subagent deep research (TinyFish/Exa/You.com) + docs review. Re-check live credit rates in UI before proposals. Authorized testing only.*
-
----
-
-## 14. OpenAI & Anthropic Cyber Models vs Poor Man's Stack — Comparison & Techniques (2026-09-28 addition)
+## 13. OpenAI & Anthropic Cyber Models vs Poor Man's Stack — Comparison & Techniques
 
 > **One-line answer:** OpenAI's GPT-5.6 Cyber ($12.50/$75 per 1M) and Anthropic's Claude Mythos 5.1 (Glasswing-only) are the most capable cyber models ever built — but they are **15-25× more expensive** than your stack and **gated behind enterprise vetting**. You cannot match them dollar-for-dollar, but you *can* match their **output quality** on most real-world tasks using the techniques below. The secret is: **the moat is the system, not the model.**
 
-### 14.1 The Frontier Cyber Models (what you're up against)
+### 13.1 The Frontier Cyber Models (What You're Up Against)
 
 #### OpenAI GPT-5.6 Cyber (`gpt-5.6-cyber`)
 
@@ -605,7 +613,7 @@ Sources: `https://www.anthropic.com/claude/fable`, `https://www.anthropic.com/ne
 
 Sources: `https://platform.claude.com/docs/en/models/overview`
 
-### 14.2 The Comparison — Frontier vs Your Stack
+### 13.2 The Comparison — Frontier vs Your Stack
 
 | Dimension | GPT-5.6 Cyber | Claude Mythos 5.1 | Claude Fable 5.1 | Claude Opus 5.5 | **Your Stack (Abliteration + Orca + Adverserial)** |
 |---|---|---|---|---|---|
@@ -621,7 +629,7 @@ Sources: `https://platform.claude.com/docs/en/models/overview`
 
 **Key insight:** Your stack matches or exceeds frontier models on CyberGym (Abliteration 84.5%, Orca Zero 98.07%, Adverserial 86.7%) at **1/10th to 1/20th the cost**. The frontier advantage is in **novel exploit construction** (95% vs ~84%) and **multi-step attack chaining** (32-step range completion) — not in raw vuln reproduction.
 
-### 14.3 The "Secret Techniques" — How to Match Frontier with Cheap Models
+### 13.3 The "Secret Techniques" — How to Match Frontier with Cheap Models
 
 The research reveals a **"jagged frontier"** in AI cybersecurity: capability does not scale smoothly with model size, and the moat is the **system** (scaffold, orchestration, context engineering), not the model itself. Key finding from AISLE (April 2026): *"Eight out of eight models detected Mythos's flagship FreeBSD exploit, including one with only 3.6 billion active parameters costing $0.11 per million tokens."*
 
@@ -777,7 +785,7 @@ Sources: `https://arxiv.org/html/2402.17230v1`, `https://aclanthology.org/2025.r
 
 Sources: `https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier`
 
-### 14.4 The Cost Analysis — What Frontier Buys You
+### 13.4 The Cost Analysis — What Frontier Buys You
 
 | What you get with frontier | What you get with your stack | Gap |
 |---|---|---|
@@ -790,7 +798,7 @@ Sources: `https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-fronti
 
 **The honest truth:** Frontier models are better at **novel exploit construction** and **multi-step attack chaining** — the "creative" parts of offensive security. But for **vulnerability reproduction, detection engineering, report writing, and compliance auditing**, your stack matches or exceeds frontier capability.
 
-### 14.5 The Practical Workflow — Matching Frontier Output
+### 13.5 The Practical Workflow — Matching Frontier Output
 
 Here's how to structure a client engagement to match frontier quality with your stack:
 
@@ -828,7 +836,7 @@ Phase 6: Verification (Ensemble — all models)
 
 **Cost per engagement:** ~$50-150 in API calls vs $500-2000 with frontier models. Charge client $6k-45k. **Margin: 97-99%.**
 
-### 14.6 When You Actually Need Frontier
+### 13.6 When You Actually Need Frontier
 
 There are legitimate cases where frontier models are worth the cost:
 
@@ -840,7 +848,7 @@ There are legitimate cases where frontier models are worth the cost:
 
 **Strategy:** Maintain a small OpenAI Daybreak Red or Anthropic Glasswing relationship for these cases. Use your stack for 90% of work, frontier for the 10% that truly needs it. Bill frontier usage as pass-through + premium.
 
-### 14.7 The Verdict
+### 13.7 The Verdict
 
 | Question | Answer |
 |---|---|
@@ -855,9 +863,34 @@ There are legitimate cases where frontier models are worth the cost:
 
 ---
 
-## 14b. Sources — OpenAI/Anthropic comparison (2026-09-28)
+## 14. Sources
 
-### OpenAI cyber models
+### 14.1 Primary (Vendor Docs, Fetch as Truth)
+
+- `https://www.orcarouter.ai/`, `/models`, `/models/orca/orcacyber-zero-1.0`, `/models/orca/orcaverify-text1.0`, `/models/google/gemini-3.8-flash`, `/pricing`, `/offers`, `/support`, `/terms.html`, `/trust`, `https://docs.orcarouter.ai/introduction`, `https://www.orcarouter.ai/blog/orcarouter-omacom-foundation-corporate-patron`, `.../gemini-3-8-flash-cyber-release`, `.../gpt-5-6-cyber-vs-gpt-5-5-cyber`, `.../gpt-5-6-cyber-vs-mai-cyber-1-flash`, `.../blog/gpt-5-6-cyber-vs-gpt-5-5-cyber`
+- `https://abliteration.ai/`, `/platform`, `/pricing`, `/security-testing`, `/use-cases/ai-red-teaming`, `/use-cases/cybersecurity`, `/training-data`, `/data-handling`, `/terms-of-service`, `/press`, `/models/abliterated-model`, `/blog/introducing-abliterated-model-large`, `/blog/introducing-abliterated-model-large-v2`, `https://docs.abliteration.ai/models.md`, `/pricing`, `/quickstart.md`, `/llms.txt`, `/api/introduction.md`, `/capabilities/streaming.md`, `https://api.abliteration.ai/openapi.json`
+- `https://adverserial.ai/`, `/docs.html`, `/founder.html`, `/terms`, `/privacy`, `/waitlist.html`, `https://chat.adverserial.ai/`, `https://billing.adverserial.ai/`, `https://api.adverserial.ai/v1`, `https://github.com/lordx64/cyberkimi-benchmarks`, `.../blob/main/CVE-2024-6100.md`, `https://github.com/lordx64`, `https://huggingface.co/lordx64`, `https://x.com/lordx64`, `https://www.linkedin.com/in/tahakarim/`, `https://exploitbench.ai/env/v8-cve-2024-6100/`
+
+### 14.2 Code / Model Hubs
+
+- `https://github.com/Continuum-AI-Corp/OrcaRouter-Lite`, `https://github.com/continuum-ai-corp`, `https://github.com/abliteration-ai`, `https://github.com/abliterationai/abliteration-examples`, `https://github.com/abliteration-ai/ai-sdk-provider`, `https://huggingface.co/orcarouter`, `https://huggingface.co/abliterationaiorg`, `https://huggingface.co/dealignai/GLM-5.3-ABLITERATED-NVFP4`, `https://huggingface.co/Securelayer7/Qwen3.8-27B-Uncensored-Abliterated`, `https://huggingface.co/huihui-ai/BaronLLM_Offensive_Security-abliterated-GGUF`, `https://ollama.com/orcarouter`, `https://mastra.ai/models/providers/orcarouter`, `https://mastra.ai/models/providers/abliteration-ai`, `https://www.promptfoo.dev/docs/providers/orcarouter/`, `https://docs.privategpt.dev/providers/orcarouter`
+- OpenRouter appendix (name-confusion only): `https://openrouter.ai/models`, `/pricing`, `/terms`, `https://openrouter.ai/cognitivecomputations/dolphin-mistral-24b-venice-edition:free`
+
+### 14.3 Press / Third-Party / Reviews
+
+- `https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/`, `https://tech.yahoo.com/ai/deals/articles/abliteration-ai-making-business-removing-183757546.html`, `https://blog.codercops.com/blog/abliteration-ai-uncensored-models-enterprise-risk-2026`, `https://magica.com/news/abliteration-ai-hosted-guardrail-removed-models`, `https://www.explainx.ai/blog/abliteration-ai-glm-5-3-hosted-uncensored-cyber-model-2026`, `https://www.lesswrong.com/posts/BShGBvtxGoaZvCqBk/abliterated-models-are-now-served-cheaply-and-conveniently-1`, `https://www.chosun.com/english/industry-en/2026/09/10/RUI2WFD76VETHJSGFFP7QFKK6Q/`
+- `https://www.reddit.com/r/opencodeCLI/comments/1vr1uuz/has_anyone_tried_orcarouter/`, `https://www.reddit.com/r/LocalLLaMA/comments/1f07b4b/abliteration_fails_to_uncensor_models_while_it`, `https://www.reddit.com/r/ArtificialIntelligence/comments/1vjtx7a/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/LocalLLM/comments/1vjuhp7/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/ollama/comments/1vjuksn/cyberkimi_just_dropped_strong_results_on_one_of/`, `https://www.reddit.com/r/LocalLLM/comments/1wrytrx/introducing_cyberpvp_cyberkimi_vs_altar1_on_100/`, `https://x.com/OrcaRouter`, `https://x.com/abliteration_ai/status/2094458081451393287`, `https://x.com/lordx64`, `https://x.com/k2sbhai/status/2089358084627955921`
+- `https://radar.offseq.com/threat/ai-model-cyberkimi-claims-it-turned-a-3-day-old-v8-patch-into-a-live-chrome-exploit-in-under-24-hours-edec50aa81421de5`, `https://www.kobaran.com/cyberkimi-ai-claims-it-weaponized-a-chrome-v8-patch-in-under-a-day/`, `https://www.linkedin.com/posts/dkucinic_expanding-daybreak-as-the-cyber-defense-window-activity-7493633709191991296-QLz6`, `https://securitywall.co/blog/llm-security-audit-cost`
+- Funding/acquisition: `https://www.prnewswire.com/news-releases/orcarouter-launches-the-open-llm-api-router--zero-markup-mit-licensed-100-models-302766356.html`
+
+### 14.4 DreadNode Sources
+
+- `https://dreadnode.io/`, `/platform/`, `/pricing/`, `/company/about/`, `/company/policy/`, `/company/newsroom/series-a/`, `/company/newsroom/dreadnode-v2-security-agent-infrastructure-platform/`, `https://docs.dreadnode.io`, `/getting-started/quickstart/`, `/getting-started/authentication/`, `/platform/credits/`, `/ai-red-teaming/`, `/integrations/`, `/guides/building-a-capability/`, `https://app.dreadnode.io/?mode=register`, `https://app.dreadnode.io/terms`, `https://app.dreadnode.io/privacy`, `https://trust.dreadnode.io/`, `https://status.dreadnode.io`, `https://dreadnode.io/research/dreadindex/`
+- `https://github.com/dreadnode`, `https://github.com/dreadnode/rigging`, `https://github.com/dreadnode/sdk`, `https://github.com/dreadnode/burpference`, `https://github.com/dreadnode/ares`, `https://pypi.org/project/dreadnode/`, `https://arxiv.org/html/2504.19855v2`, `https://x.com/dreadnode/status/2036164368304578640`, `https://www.decibel.vc/articles/dreadnode-why-great-offense-drives-defense-in-ai-security`, `https://www.securityweek.com/offensive-ai-startup-dreadnode-secures-14m-to-stress-test-ai-systems/`, `https://cybersectools.com/tools/dreadnode-crucible`, `https://boschko.ca/adversarial-ml/`
+
+### 14.5 OpenAI / Anthropic Comparison Sources
+
+**OpenAI cyber models:**
 - `https://developers.openai.com/api/docs/models/gpt-5.6-cyber`
 - `https://www.securityweek.com/openai-unveils-new-cybersecurity-model-gpt-5-6-cyber`
 - `https://www.csoonline.com/article/4207896/openai-launches-gpt-5-6-cyber-as-ai-narrows-vulnerability-response-window.html`
@@ -867,7 +900,7 @@ There are legitimate cases where frontier models are worth the cost:
 - `https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/`
 - `https://openai.com/index/daybreak-securing-the-world`
 
-### Anthropic cyber models
+**Anthropic cyber models:**
 - `https://www.anthropic.com/glasswing`
 - `https://www.anthropic.com/claude/mythos`
 - `https://www.anthropic.com/claude/fable`
@@ -876,7 +909,8 @@ There are legitimate cases where frontier models are worth the cost:
 - `https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities`
 - `https://platform.claude.com/docs/en/models/overview`
 
-### Techniques research
+### 14.6 Techniques Research
+
 - `https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier`
 - `https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents`
 - `https://arxiv.org/html/2402.17230v1`
@@ -893,6 +927,12 @@ There are legitimate cases where frontier models are worth the cost:
 - `https://kth.diva-portal.org/smash/get/diva2:2060365/FULLTEXT01.pdf`
 - `https://www.reddit.com/r/LocalLLaMA/comments/1u6qw5b/we_trained_a_cybersecurityfocused_mythos_like_llm/`
 
+### 14.7 Local Reports
+
+- `W/report/ai-security-vulnerabilities-2026-09-27.md`
+- `W/report/omo-alternatives-opencode-v2-2026-09-28.md`
+- `W/report/multi-agentic-workflows-2026-09-28.md`
+
 ---
 
-*Report v4: 2026-09-28 — added §14 OpenAI/Anthropic cyber models vs poor man's stack. Method: 3 parallel subagent deep research (OpenAI cyber, Anthropic cyber, techniques) + synthesis. All benchmarks vendor-reported unless noted. Re-check live pricing before proposals. Authorized testing only.*
+*Report v4: 2026-09-28 — reformatted with proper numbering for all sections and TOC. Added §12 DreadNode, §13 OpenAI/Anthropic comparison, §14 Sources. Method: multi-agent parallel deep research (5 subagents total) + TinyFish/Exa/You.com/Firecrawl + direct vendor docs fetch + ToS/privacy review. All benchmarks vendor-reported unless noted. Re-check live pricing before proposals. Authorized testing only.*
