@@ -1,49 +1,115 @@
-# Starlight Starter Kit: Basics
+# AI Security Sentinel — field manual
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+An Astro + [Starlight](https://starlight.astro.build/) documentation site and installable PWA built from
+two research reports:
+
+- **Part I** — Top 10 Security Vulnerabilities Faced by AI Systems (OWASP LLM Top 10, 2026 revision).
+- **Part II** — Offensive & Adversarial AI Models for Legal Red-Teaming (OrcaRouter, Abliteration AI,
+  Adverserial AI, DreadNode, frontier comparison).
+
+Deployment target is Cloudflare (Wrangler is configured), but nothing is deployed from this repo state —
+`bun run build` only produces `dist/client`.
+
+## Content model
 
 ```
-bun create astro@latest -- --template starlight
+src/content/docs/
+├── index.mdx                              # landing page (splash) with numbered jump links
+├── part-1-ai-security-vulnerabilities/    # Part I — sections 1–10 + summary/frameworks/sources
+└── part-2-offensive-ai-models/            # Part II — sections 1–14
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Every page is numbered: page titles carry the section number (`3. OrcaRouter`), headings carry the
+subsection number (`3.1 Identity`, `13.3.7 Technique 7`), so the left nav and the right-hand table of
+contents are numbered and jump to the matching anchors. Sidebar entries come from
+`autogenerate` directories, which Starlight sorts by filename — hence the `01-…` filename prefixes.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```bash
+bun install
+bun run dev        # local dev server on :4321 (service worker registration is disabled here)
+bun run build      # static build into dist/ (also builds the Pagefind search index)
+bun run preview    # build + preview
+bun run assets     # regenerate favicon/icon/OG PNGs from scripts/generate-assets.mjs
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Design
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+- **Theme** — bluish-green synthwave on near-black surfaces (`--sent-ink: hsl(200 74% 3%)`), defined
+  in `src/custom.css` together with the mint/teal accents and the heading glow. Custom CSS is
+  unlayered, which Starlight documents as overriding its own cascade layers.
+- **Typography** — Space Grotesk (display/headings, with a soft glow), Inter (body), JetBrains Mono
+  (code). Loaded as Fontsource CSS files through Starlight's documented `customCss` + `--sl-font`
+  pattern, so all fonts are self-hosted and the PWA works offline.
+- **Reading layout** — `--sl-sidebar-width: 16rem` (Starlight default 18.75rem) narrows the left nav and
+  `--sl-content-width: 52rem` (default 45rem) widens the reading pane; both are documented Starlight
+  custom properties. Starlight sizes *both* side columns from `--sl-sidebar-width`, so the right-hand
+  column is re-sized separately: `--sent-toc-width: 11rem`, with the reading pane taking the difference.
+  The TOC is a jump list, so it also gets tighter padding, smaller type and no wasted `--sl-container`
+  width.
+- **Numbered TOC on every page** — headings carry their section numbers (`3.1 Identity`, `13.3.7 Technique 7`)
+  and the TOC renders h2–h3 on all 28 content pages, including the landing page (which is why it is not
+  `template: splash`: Starlight disables the TOC for splash pages). Starlight's unnumbered page-title
+  entry is hidden, so every entry is a numbered section.
+- **Wide content** — tables are `display: block` + `overflow-x: auto` with a minimum cell width so wide
+  comparison matrices scroll sideways instead of stretching the page; code blocks and inline code wrap or
+  scroll on their own axes. `body { overflow-x: clip }` keeps page-level scrolling intact on mobile.
+- **Code blocks** — Starlight's `expressiveCode` uses a dark + light theme pair (`synthwave-84`,
+  `github-light`), as Starlight requires for its theme switch to stay in sync, with
+  `useStarlightUiThemeColors: true` so code block chrome follows the site palette.
+- **Links** — every off-site URL opens in a new tab (`target="_blank"` + `rel="noopener noreferrer"`)
+  with an `↗` marker, added by a Sätteri hast plugin in `plugins/external-links.mjs`. Astro 7 renders
+  Markdown with Sätteri, so this is a processor plugin rather than `markdown.rehypePlugins` (those
+  legacy options need `@astrojs/markdown-remark` installed). URLs written in inline code or code blocks
+  stay literal text, and same-site links still navigate in place.
+- **PWA** — `public/manifest.webmanifest`, `public/sw.js` (network-first for documents, cache-first for
+  hashed assets, offline fallback to `public/offline.html`) and `public/register-sw.js` (skips the dev
+  server). Icons, Apple touch icon, OG card and favicon are generated by `scripts/generate-assets.mjs`
+  using `sharp`. Astro has no official PWA guide, so this follows the web-standard manifest + service
+  worker approach; `@vite-pwa/astro` is the community integration if you later want Workbox.
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Cloudflare adapter settings
 
-## 🧞 Commands
+The adapter is attached for `astro build` / `astro preview` only. `astro dev` runs in plain Node.
 
-All commands are run from the root of the project, from a terminal:
+- **Why dev has no adapter** — every route here is prerendered, so dev needs nothing from the adapter.
+  Attach it and the adapter's prerender middleware takes over prerendered pages, rendering them through
+  Astro's production environment (`productionEnvironment.resolve`), which cannot resolve Starlight's
+  Search client script and logs this on every page load:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+  ```
+  Unable to resolve [.../starlight/dist/components/Search.astro?astro&type=script&index=0&lang.ts]
+  ```
 
-## 👀 Want to learn more?
+  Astro has no command-conditional `adapter` option: it cannot be a function (only `server` supports
+  that) and an integration that adds an adapter from `astro:config:setup` never gets that adapter's own
+  hooks run — Astro unshifts `config.adapter` into the integration list before the hook loop starts. So
+  `astro.config.mjs` reads the CLI command from argv.
+- **`prerenderEnvironment: 'node'`** (build) — Starlight's heading components use the `satteri` Markdown
+  engine, whose native Node binding is not loadable in workerd. The adapter docs say to set this option
+  to `'node'` when prerendered pages depend on packages that workerd can't run. Without it, both
+  `astro build` and `astro dev` fail on `Cannot find module '@bruits/satteri-wasm32-wasi'`.
+- **`session: false`** — this site has no session usage, so opting out stops the adapter from configuring
+  its default KV session driver. No `SESSION` namespace is provisioned on deploy and the session runtime
+  stays out of the Worker bundle.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+`astro build` writes the deployable site to `dist/client` (plus an adapter-generated
+`dist/client/wrangler.json`), and `.wrangler/deploy/config.json` redirects Wrangler to it — so the
+`wrangler.jsonc` in the repo only needs the project name and any bindings. `dist/` and `.wrangler/` are
+both gitignored. This is a static build: the adapter reports `assetsOnly`, so no Worker bundle is emitted.
+
+### Known warnings
+
+- `[content] The collection "i18n" does not exist or is empty.` — Starlight always probes the optional
+  `i18n` collection for custom UI translations (`@astrojs/starlight/dist/utils/translations.js`). It is
+  harmless; it goes away if you add `src/content/i18n/<lang>.json` and register `i18nLoader` /
+  `i18nSchema` in `src/content.config.ts`.
+
+`site` in `astro.config.mjs` is currently a placeholder origin used for canonical and Open Graph URLs —
+set it to the real deployment URL before publishing.
+
+## Attribution
+
+Report content is compiled from public vendor documentation, OWASP/NIST/MITRE frameworks and third-party
+reporting; Part II is intended for authorized security testing only.

@@ -1,0 +1,453 @@
+/* ============================================================================
+   AI Security Sentinel — synthwave bluish-green theme
+   Fonts are loaded from @fontsource-variable packages (see astro.config.mjs).
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- palette */
+:root {
+  /* Core brand ramp — the surfaces are deliberately near-black with a blue cast,
+     so the mint/teal accents and heading glow carry the synthwave feel. */
+  --sent-ink: hsl(200 74% 3%);
+  --sent-ink-2: hsl(199 66% 5.5%);
+  --sent-ink-3: hsl(198 56% 9%);
+  --sent-mint: hsl(163 100% 68%);
+  --sent-teal: hsl(176 85% 50%);
+  --sent-cyan: hsl(207 100% 58%);
+  --sent-text: hsl(180 26% 88%);
+
+  --sent-glow: 0 0 0.6em hsl(172 95% 52% / 0.4), 0 0 1.9em hsl(190 95% 55% / 0.18);
+
+  /* ---- Typography ------------------------------------------------------ */
+  --sl-font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --sl-font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+  --sent-font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Inter Variable', system-ui,
+    sans-serif;
+
+  /* ---- Reading layout: narrow-ish side columns, wider reading pane ------ */
+  --sl-sidebar-width: 16rem; /* default 18.75rem — left nav */
+  --sl-content-width: 52rem; /* default 45rem — central reading pane */
+  --sent-toc-width: 11rem; /* the right-hand "on this page" column, kept very narrow */
+  --sl-content-pad-x: 1.5rem;
+  --sl-line-height: 1.75;
+
+  /* Heading rhythm */
+  --sent-heading-color: hsl(168 65% 94%);
+}
+
+/* ------------------------------------------------------------- dark mode */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --sl-color-white: hsl(170 62% 97%);
+  --sl-color-gray-1: hsl(178 28% 92%);
+  --sl-color-gray-2: hsl(183 22% 81%);
+  --sl-color-gray-3: hsl(188 18% 65%);
+  --sl-color-gray-4: hsl(193 18% 46%);
+  --sl-color-gray-5: hsl(198 34% 18%);
+  --sl-color-gray-6: hsl(199 48% 9.5%);
+  --sl-color-black: var(--sent-ink);
+
+  --sl-color-accent-low: hsl(184 70% 13%);
+  --sl-color-accent: hsl(172 90% 47%);
+  --sl-color-accent-high: hsl(166 100% 81%);
+
+  --sl-color-text: var(--sent-text);
+  --sl-color-text-accent: hsl(168 100% 82%);
+  --sl-color-text-invert: hsl(200 70% 5%);
+  --sl-color-bg: var(--sent-ink);
+  --sl-color-bg-nav: hsl(199 70% 4% / 0.86);
+  --sl-color-bg-sidebar: hsl(199 66% 4.4%);
+  --sl-color-bg-inline-code: hsl(195 52% 10%);
+  --sl-color-bg-accent: hsl(168 100% 82%);
+  --sl-color-hairline-light: hsl(192 40% 16%);
+  --sl-color-hairline: hsl(196 48% 10%);
+  --sl-color-hairline-shade: hsl(200 74% 3%);
+  --sl-color-backdrop-overlay: hsl(200 74% 2% / 0.8);
+
+  /* Semantic colours re-tinted for the theme */
+  --sl-hue-green: 160;
+  --sl-hue-blue: 195;
+  --sl-hue-purple: 258;
+  --sl-hue-orange: 32;
+  --sl-hue-red: 345;
+}
+
+/* ------------------------------------------------------------ light mode */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --sl-color-white: hsl(199 70% 8%);
+  --sl-color-gray-1: hsl(200 40% 14%);
+  --sl-color-gray-2: hsl(201 30% 24%);
+  --sl-color-gray-3: hsl(202 22% 40%);
+  --sl-color-gray-4: hsl(203 18% 56%);
+  --sl-color-gray-5: hsl(186 26% 82%);
+  --sl-color-gray-6: hsl(180 34% 92%);
+  --sl-color-black: hsl(172 42% 98%);
+
+  --sl-color-accent-low: hsl(173 60% 87%);
+  --sl-color-accent: hsl(174 74% 32%);
+  --sl-color-accent-high: hsl(178 78% 20%);
+
+  --sl-color-text: hsl(201 34% 20%);
+  --sl-color-text-accent: hsl(176 80% 24%);
+  --sl-color-text-invert: hsl(172 60% 97%);
+  --sl-color-bg: hsl(172 42% 98%);
+  --sl-color-bg-nav: hsl(174 40% 96% / 0.85);
+  --sl-color-bg-sidebar: hsl(178 32% 95%);
+  --sl-color-bg-inline-code: hsl(174 44% 90%);
+  --sl-color-bg-accent: hsl(178 78% 20%);
+  --sl-color-hairline-light: hsl(180 22% 80%);
+  --sl-color-hairline: hsl(180 26% 86%);
+  --sl-color-hairline-shade: hsl(180 30% 90%);
+  --sl-color-backdrop-overlay: hsl(190 40% 20% / 0.4);
+
+  --sent-heading-color: hsl(190 60% 14%);
+  --sent-glow: 0 0 0.55em hsl(176 70% 40% / 0.18);
+}
+
+/* ------------------------------------------------------------- base layer */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip; /* never let wide content scroll the whole page sideways */
+  /* Synthwave bloom over the near-black base */
+  background-image:
+    radial-gradient(70rem 32rem at 50% -16rem, hsl(178 92% 42% / 0.2), transparent 70%),
+    radial-gradient(55rem 26rem at 112% 6rem, hsl(207 95% 58% / 0.12), transparent 72%),
+    radial-gradient(45rem 22rem at -12% 30rem, hsl(190 92% 45% / 0.08), transparent 70%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Display headings get the futuristic face + a subtle glow */
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6),
+.hero h1,
+.site-title,
+.right-sidebar h2,
+#starlight__sidebar .group-label > span,
+.sl-markdown-content :is(h1, h2, h3) {
+  font-family: var(--sent-font-display);
+  letter-spacing: -0.01em;
+  color: var(--sent-heading-color);
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+  text-shadow: var(--sent-glow);
+}
+
+.sl-markdown-content h3,
+.sl-markdown-content h4 {
+  text-shadow: 0 0 0.45em hsl(176 90% 52% / 0.2);
+}
+
+/* ------------------------------------------------------------- chrome glow */
+.site-title {
+  text-shadow: var(--sent-glow);
+}
+
+.header {
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border-bottom: 1px solid hsl(184 60% 30% / 0.35);
+}
+
+/* Accent for inline links + hover affordances */
+.sl-markdown-content a:not(.sl-link-button),
+.sl-markdown-content a:not(.sl-link-button):visited {
+  color: var(--sl-color-text-accent);
+  text-decoration-color: hsl(172 82% 50% / 0.4);
+  text-underline-offset: 0.2em;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-accent-high);
+  text-decoration-color: currentColor;
+}
+
+/* External links open in a new tab (see plugins/external-links.mjs). The marker is
+   both the new-window cue and the accessibility hint, so keep it quiet. */
+.sl-markdown-content a[target='_blank'] > span[aria-hidden='true'] {
+  font-size: 0.85em;
+  color: var(--sl-color-gray-4);
+  white-space: nowrap;
+}
+
+.sl-markdown-content a[target='_blank']:hover > span[aria-hidden='true'] {
+  color: var(--sl-color-accent);
+}
+
+::selection {
+  background: hsl(172 82% 44% / 0.32);
+  color: var(--sl-color-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Slim synthwave scrollbars where supported */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(184 60% 34%) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(176 70% 40%), hsl(203 80% 46%));
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* ------------------------------------------------------------- sidebars */
+#starlight__sidebar {
+  border-inline-end: 1px solid hsl(192 48% 13%);
+}
+
+.right-sidebar {
+  border-inline-start: 1px solid hsl(192 48% 13%);
+}
+
+/* -------------------------------------------------- narrow right column */
+/* Starlight sizes both side columns from one variable (`--sl-sidebar-width`).
+   The "on this page" column is a jump list, not a reading column, so it gets
+   its own much smaller width and the reading pane takes back the difference.
+   Custom CSS is unlayered, so these win over Starlight's layered rules. */
+@media (min-width: 72rem) {
+  [data-has-sidebar][data-has-toc] .right-sidebar-container {
+    width: var(--sent-toc-width);
+  }
+
+  [data-has-sidebar][data-has-toc] .main-pane {
+    width: calc(100% - var(--sl-sidebar-width) - var(--sent-toc-width));
+  }
+}
+
+/* Tighten the padding/typography so long numbered headings still read in 11rem */
+.right-sidebar-panel {
+  padding: 1rem 0.6rem;
+}
+
+.right-sidebar-panel .sl-container {
+  width: 100%;
+  max-width: none;
+}
+
+.right-sidebar-panel :is(a, span, h2) {
+  overflow-wrap: anywhere;
+}
+
+.right-sidebar-panel nav > h2 {
+  font-size: var(--sl-text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-3);
+  margin-bottom: 0.4rem;
+}
+
+.right-sidebar-panel nav a {
+  --pad-inline: 0.35rem;
+  font-size: var(--sl-text-2xs);
+  line-height: 1.3;
+  hyphens: auto;
+  padding-block: 0.2rem;
+  padding-inline: calc(0.55rem * var(--depth, 0) + var(--pad-inline)) var(--pad-inline);
+}
+
+/* The nested (h3) entries indent less, which matters more the narrower it gets */
+.right-sidebar-panel nav ul ul a {
+  font-size: 0.72rem;
+}
+
+/* Starlight lists the page title first as an unnumbered "Overview" link. Drop it
+   (desktop panel + mobile drawer) so every entry in the TOC is a numbered section. */
+:is(.right-sidebar-panel, mobile-starlight-toc) li:has(> a[href='#_top']) {
+  display: none;
+}
+
+/* ------------------------------------------------- wide content handling */
+.sl-markdown-content {
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+/* Tables: keep narrow tables pretty, let genuinely wide ones scroll sideways */
+.sl-markdown-content table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+}
+
+.sl-markdown-content :is(th, td) {
+  min-width: 5.5rem;
+  vertical-align: top;
+}
+
+.sl-markdown-content th {
+  white-space: nowrap;
+}
+
+/* Code blocks scroll on their own axis (Expressive Code already allows this) */
+.sl-markdown-content pre,
+.sl-markdown-content .expressive-code pre,
+.sl-markdown-content .expressive-code .frame {
+  max-width: 100%;
+}
+
+.sl-markdown-content .expressive-code pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Inline code holds long identifiers / URLs without blowing out the page */
+.sl-markdown-content :not(pre) > code {
+  overflow-wrap: anywhere;
+}
+
+.sl-markdown-content img,
+.sl-markdown-content video {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  border-inline-start: 3px solid var(--sl-color-accent);
+  background: hsl(186 45% 14% / 0.45);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* ------------------------------------------------------- landing extras */
+.sent-hero-art {
+  border-radius: 1.25rem;
+  box-shadow: 0 0 0 1px hsl(184 60% 40% / 0.35), 0 18px 60px hsl(196 90% 30% / 0.35);
+}
+
+.sent-jump {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.85rem;
+  margin: 1.25rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sent-jump > li {
+  margin: 0;
+}
+
+.sent-jump a {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  height: 100%;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid hsl(184 55% 32% / 0.5);
+  border-radius: 0.85rem;
+  background: linear-gradient(140deg, hsl(190 45% 13% / 0.85), hsl(200 45% 10% / 0.6));
+  color: var(--sl-color-text);
+  text-decoration: none;
+  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.sent-jump a:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px hsl(190 90% 25% / 0.45);
+}
+
+.sent-jump .num {
+  flex: none;
+  font-family: var(--sl-font-mono);
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--sl-color-accent-high);
+  text-shadow: 0 0 0.6em hsl(176 90% 52% / 0.5);
+}
+
+.sent-jump .label {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sent-jump .desc {
+  display: block;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-3);
+  font-weight: 400;
+  margin-top: 0.15rem;
+}
+
+.sent-part-title {
+  margin-top: 2.75rem;
+}
+
+/* ------------------------------------------------------------- mobile/PWA */
+@media (max-width: 49.99rem) {
+  :root {
+    --sl-content-pad-x: 1.1rem;
+  }
+
+  /* Keep long headings and table cells from forcing page-level scroll */
+  .sl-markdown-content :is(h1, h2, h3) {
+    overflow-wrap: anywhere;
+  }
+
+  .sl-markdown-content :is(th, td) {
+    min-width: 4.5rem;
+  }
+
+  .right-sidebar {
+    border-inline-start: 0;
+  }
+}
+
+/* Standalone (installed PWA) ergonomics: respect notches and kill pull-to-refresh */
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  .header {
+    padding-inline-start: max(var(--sl-nav-pad-x), env(safe-area-inset-left));
+    padding-inline-end: max(var(--sl-nav-pad-x), env(safe-area-inset-right));
+  }
+
+  main {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Slightly larger tap targets inside the mobile nav drawer */
+@media (max-width: 71.99rem) {
+  #starlight__sidebar a {
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+  }
+}

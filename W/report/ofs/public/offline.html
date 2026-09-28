@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Offline · AI Security Sentinel</title>
+    <meta name="theme-color" content="#04121b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #04121b;
+        --ink-2: #071f22;
+        --mint: #5cffd0;
+        --teal: #19d3d8;
+        --text: #cfe9e6;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        display: grid;
+        place-items: center;
+        padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+        background:
+          radial-gradient(60% 50% at 50% 0%, rgba(25, 211, 216, 0.18), transparent 70%),
+          linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+        color: var(--text);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        text-align: center;
+        overflow-x: hidden;
+      }
+      .card {
+        width: min(34rem, 100%);
+        padding: 2.25rem 1.75rem;
+        border: 1px solid rgba(92, 255, 208, 0.28);
+        border-radius: 1.25rem;
+        background: rgba(7, 31, 34, 0.72);
+        box-shadow: 0 0 0 1px rgba(25, 211, 216, 0.08), 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+      img { width: 72px; height: 72px; border-radius: 1rem; }
+      h1 {
+        margin: 1rem 0 0.5rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        color: #eafffb;
+        text-shadow: 0 0 0.75rem rgba(25, 211, 216, 0.45);
+      }
+      p { margin: 0 0 1.5rem; line-height: 1.65; }
+      .actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+      a.btn {
+        display: inline-block;
+        padding: 0.7rem 1.15rem;
+        border-radius: 999px;
+        border: 1px solid rgba(92, 255, 208, 0.45);
+        background: linear-gradient(120deg, rgba(92, 255, 208, 0.18), rgba(43, 140, 255, 0.18));
+        color: #eafffb;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      a.btn.ghost { background: none; border-color: rgba(207, 233, 230, 0.3); }
+      small { display: block; margin-top: 1.5rem; opacity: 0.7; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <img src="/icons/icon-192.png" alt="" width="72" height="72" />
+      <h1>You&rsquo;re offline</h1>
+      <p>
+        This page isn&rsquo;t cached yet. Reconnect to load it, or jump back to a page you have
+        already visited &mdash; the field manual keeps working offline once read.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/">Back to start</a>
+        <a class="btn ghost" href="/part-1-ai-security-vulnerabilities/">Part I</a>
+        <a class="btn ghost" href="/part-2-offensive-ai-models/">Part II</a>
+      </div>
+      <small>AI Security Sentinel &middot; authorized security testing only</small>
+    </main>
+  </body>
+</html>

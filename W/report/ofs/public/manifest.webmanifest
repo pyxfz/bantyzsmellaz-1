@@ -1,0 +1,62 @@
+{
+  "name": "AI Security Sentinel — Field Manual",
+  "short_name": "AI Sentinel",
+  "description": "Synthwave field manual for AI security: the OWASP LLM Top 10 vulnerabilities and offensive/adversarial AI models for authorized red-teaming.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "background_color": "#04121b",
+  "theme_color": "#04121b",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "security", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Part I — AI Vulnerabilities",
+      "short_name": "Vulnerabilities",
+      "description": "OWASP LLM Top 10 for AI systems",
+      "url": "/part-1-ai-security-vulnerabilities/"
+    },
+    {
+      "name": "Part II — Offensive AI Models",
+      "short_name": "Offensive AI",
+      "description": "Offensive & adversarial AI models for red-teaming",
+      "url": "/part-2-offensive-ai-models/"
+    }
+  ]
+}

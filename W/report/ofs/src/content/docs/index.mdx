@@ -1,40 +1,222 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: AI Security Sentinel
+description: Synthwave field manual for AI security — the OWASP LLM Top 10 vulnerabilities facing AI systems, plus offensive and adversarial AI models for authorized red-teaming.
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: A synthwave field manual for AI security — the OWASP LLM Top 10 vulnerabilities facing AI systems, plus the offensive and adversarial model stack for authorized red-teaming.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Start with Part I — Vulnerabilities
+      link: /part-1-ai-security-vulnerabilities/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Part II — Offensive AI Models
+      link: /part-2-offensive-ai-models/
+      icon: open-book
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, Aside } from '@astrojs/starlight/components';
 
-## Next steps
+Two source reports, one numbered manual. **Part I** breaks down the ten most critical
+vulnerabilities facing AI systems (OWASP LLM Top 10, 2026 revision) with real-world incidents
+and mitigations. **Part II** evaluates the offensive, guardrail-removed, and specialist cyber
+models a red-team practice can legally field — capabilities, pricing, benchmarks, workflow
+integration, and the cheap-model techniques that close the gap to frontier labs.
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Part I · Top 10 AI Vulnerabilities" icon="warning">
+    Prompt injection, data poisoning, excessive agency and the rest of the OWASP LLM Top 10 —
+    described, evidenced and mitigated. **11 numbered sections.**
+    [Open Part I →](/part-1-ai-security-vulnerabilities/)
+  </Card>
+  <Card title="Part II · Offensive AI Models" icon="rocket">
+    OrcaRouter, Abliteration AI, Adverserial AI, DreadNode and the frontier comparison —
+    costs, benchmarks, legal workflow and a concrete starter stack. **14 numbered sections.**
+    [Open Part II →](/part-2-offensive-ai-models/)
+  </Card>
 </CardGrid>
+
+## 1. Contents
+
+### 1.1 Part I · Top 10 security vulnerabilities faced by AI systems
+
+<ul className="sent-jump">
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/">
+      <span className="num">0</span>
+      <span className="label">Overview &amp; contents<span className="desc">Scope, severity legend and reading order</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/01-prompt-injection/">
+      <span className="num">1</span>
+      <span className="label">Prompt Injection<span className="desc">OWASP LLM01 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/02-sensitive-information-disclosure/">
+      <span className="num">2</span>
+      <span className="label">Sensitive Information Disclosure<span className="desc">OWASP LLM02 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/03-supply-chain-vulnerabilities/">
+      <span className="num">3</span>
+      <span className="label">Supply Chain Vulnerabilities<span className="desc">OWASP LLM03 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/04-data-and-model-poisoning/">
+      <span className="num">4</span>
+      <span className="label">Data and Model Poisoning<span className="desc">OWASP LLM04 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/05-improper-output-handling/">
+      <span className="num">5</span>
+      <span className="label">Improper Output Handling<span className="desc">OWASP LLM05 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/06-excessive-agency/">
+      <span className="num">6</span>
+      <span className="label">Excessive Agency<span className="desc">OWASP LLM06 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/07-system-prompt-leakage/">
+      <span className="num">7</span>
+      <span className="label">System Prompt Leakage<span className="desc">OWASP LLM07 · Medium-High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/08-vector-and-embedding-weaknesses/">
+      <span className="num">8</span>
+      <span className="label">Vector &amp; Embedding Weaknesses<span className="desc">OWASP LLM08 · Medium-High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/09-misinformation-and-hallucination/">
+      <span className="num">9</span>
+      <span className="label">Misinformation &amp; Hallucination<span className="desc">OWASP LLM09 · Medium</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/10-unbounded-consumption/">
+      <span className="num">10</span>
+      <span className="label">Unbounded Consumption<span className="desc">OWASP LLM10 · Medium</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-1-ai-security-vulnerabilities/11-summary-frameworks-and-sources/">
+      <span className="num">11</span>
+      <span className="label">Summary Table, Frameworks &amp; Sources<span className="desc">Severity matrix and references</span></span>
+    </a>
+  </li>
+</ul>
+
+### 1.2 Part II · Offensive &amp; adversarial AI models for legal red-teaming
+
+<ul className="sent-jump">
+  <li>
+    <a href="/part-2-offensive-ai-models/">
+      <span className="num">0</span>
+      <span className="label">Overview &amp; contents<span className="desc">Method, correction note and reading order</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/01-executive-summary/">
+      <span className="num">1</span>
+      <span className="label">Executive Summary<span className="desc">TL;DR and vendor comparison table</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/02-background/">
+      <span className="num">2</span>
+      <span className="label">Background<span className="desc">What was asked for and terminology fixes</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/03-orcarouter/">
+      <span className="num">3</span>
+      <span className="label">OrcaRouter — Native Cyber Models<span className="desc">Gateway, gated models, pricing, API, guardrails</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/04-abliteration-ai/">
+      <span className="num">4</span>
+      <span className="label">Abliteration AI — Guardrail-Removed Models<span className="desc">Hosted abliterated models, tiers, legal gap</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/05-adverserial-ai/">
+      <span className="num">5</span>
+      <span className="label">Adverserial AI — CyberKimi + CyberGLM<span className="desc">Specialist lab, benchmarks, privacy claims</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/06-comparison-matrix/">
+      <span className="num">6</span>
+      <span className="label">Comparison Matrix<span className="desc">All three vendors side by side</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/07-legal-workflow/">
+      <span className="num">7</span>
+      <span className="label">Legal Workflow for Client Engagements<span className="desc">Per-vendor engagement runbooks</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/08-reviews-synthesis/">
+      <span className="num">8</span>
+      <span className="label">Reviews Synthesis<span className="desc">What third parties and skeptics actually say</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/09-recommendation/">
+      <span className="num">9</span>
+      <span className="label">Recommendation — Best Cost-Effective Stack<span className="desc">Winner, math and starter stack</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/10-installation-and-integration/">
+      <span className="num">10</span>
+      <span className="label">Installation &amp; Integration Guides<span className="desc">5-minute setups for each vendor</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/11-risks-and-caveats/">
+      <span className="num">11</span>
+      <span className="label">Risks, Caveats &amp; What Not to Do<span className="desc">Name confusion, claims to avoid, pricing drift</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/12-dreadnode/">
+      <span className="num">12</span>
+      <span className="label">DreadNode — Agent Infrastructure<span className="desc">Sandboxed agents, evals and cost verdict</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/13-frontier-vs-poor-mans-stack/">
+      <span className="num">13</span>
+      <span className="label">Frontier Models vs the Poor Man&rsquo;s Stack<span className="desc">Gap analysis and ten techniques to close it</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-2-offensive-ai-models/14-sources/">
+      <span className="num">14</span>
+      <span className="label">Sources<span className="desc">Vendor docs, code hubs, press and research</span></span>
+    </a>
+  </li>
+</ul>
+
+## 2. Works like an app
+
+This manual is an installable PWA: add it to your home screen and previously visited sections keep
+working offline — including syntax-highlighted code blocks and wide comparison tables, which scroll
+sideways instead of breaking the layout on phones.
+
+<Aside type="caution" title="Authorized security testing only">
+  Part II documents offensive-capable AI tooling for professional red-team, blue-team and defensive
+  research under explicit written authorization. It is not advice to attack systems you do not own or
+  have permission to test. Every vendor covered here requires authorization first — capability never
+  supplies permission.
+</Aside>
