@@ -6,6 +6,25 @@
 
 ---
 
+## Table of contents
+
+1. [Where the money actually goes](#1-where-the-money-actually-goes)
+2. [Tier 1 — One-time `opencode.jsonc` (drop in, never touch again)](#2-tier-1--one-time-opencodejsonc-drop-in-never-touch-again)
+   1. [Why each line matters](#why-each-line-matters)
+3. [Tier 2 — Architecture that does the work for you (defined once)](#3-tier-2--architecture-that-does-the-work-for-you-defined-once)
+   1. [3.1 Research fan-out with subagents (fresh context per source-batch)](#31-research-fan-out-with-subagents-fresh-context-per-source-batch)
+   2. [3.2 Force Code Mode for fan-out](#32-force-code-mode-for-fan-out)
+   3. [3.3 Move standing context out of always-loaded instructions](#33-move-standing-context-out-of-always-loaded-instructions)
+   4. [3.4 Give your primary agent a lean tool set](#34-give-your-primary-agent-a-lean-tool-set)
+4. [Tier 3 — Plugins (installed once, run forever)](#4-tier-3--plugins-installed-once-run-forever)
+5. [The set-and-forget plugin I'd write for you (optional, ~60 lines)](#5-the-set-and-forget-plugin-id-write-for-you-optional-60-lines)
+6. [Expected stack → 4x](#6-expected-stack--4x)
+7. [Verification without babysitting](#7-verification-without-babysitting)
+8. [Ranked action list](#8-ranked-action-list)
+9. [Sources](#sources)
+
+---
+
 ## 1. Where the money actually goes
 
 In an MCP-heavy research session, spend is dominated by **replayed input**, not by the model's
