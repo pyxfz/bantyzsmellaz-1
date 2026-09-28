@@ -1,0 +1,180 @@
+---
+/**
+ * Numbered "Contents" list for narrow viewports.
+ *
+ * A numbered "Contents" box directly under the page title, on every page and at every width: the
+ * page's own sections, in order, each one a link that jumps to it. Starlight's table of contents is
+ * a narrow off-canvas column (desktop only, and easy to miss); below 72rem it is behind a collapsed
+ * bar under the header, so the page reads as having no table of contents at all. This list is part of
+ * the page, open by default, and is collapsed/expanded with the native `details` element.
+ *
+ * Mounted by the PageTitle override in ./PageTitle.astro. Every entry is a plain `#slug`
+ * anchor, so jumping to a section works with no JavaScript.
+ */
+type TocItem = { depth: number; slug: string; text: string; children?: TocItem[] };
+
+const toc = Astro.locals.starlightRoute.toc;
+
+/**
+ * Depth-first flatten. Starlight lists the page title itself first (slug `_top`, labelled
+ * "Overview"), which is not a numbered section — same entry the TOC column hides in custom.css.
+ */
+function flatten(items: TocItem[], out: TocItem[] = []): TocItem[] {
+  for (const item of items) {
+    if (item.depth >= 2 && item.slug !== '_top') out.push(item);
+    if (item.children?.length) flatten(item.children, out);
+  }
+  return out;
+}
+
+const entries = toc ? flatten((toc.items ?? []) as TocItem[]) : [];
+const count = entries.length;
+
+/** Split the leading section number so it can be tinted separately from the title. */
+function split(text: string) {
+  const match = text.match(/^(\d+(?:\.\d+)*\.?)\s+(.*)$/);
+  return match ? { number: match[1], label: match[2] } : { number: null, label: text };
+}
+---
+
+{
+  count > 0 && (
+    <details class="sent-contents" open>
+      <summary>
+        <span class="sent-contents__title">Contents</span>
+        <span class="sent-contents__count">
+          {count} numbered {count === 1 ? 'section' : 'sections'}
+        </span>
+        <span class="sent-contents__caret" aria-hidden="true">
+          ▾
+        </span>
+      </summary>
+      <nav aria-label="Page contents">
+        <ol class="sent-contents__list">
+          {entries.map((entry) => {
+            const { number, label } = split(entry.text);
+            return (
+              <li class="sent-contents__item" data-depth={entry.depth}>
+                <a href={`#${entry.slug}`}>
+                  {number && <span class="sent-contents__num">{number}</span>}
+                  <span>{label}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+    </details>
+  )
+}
+
+<style>
+  /* Unlayered on purpose, so these win over Starlight's cascade layers. */
+  .sent-contents {
+    margin: 1.1rem 0 1.75rem;
+    border: 1px solid var(--sent-hairline);
+    border-radius: 0.75rem;
+    background: var(--sl-color-black);
+  }
+
+  summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.65rem 0.9rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sent-contents__title {
+    font-family: var(--sent-font-display);
+    font-size: var(--sl-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--sl-color-accent-high);
+  }
+
+  .sent-contents__count {
+    font-size: var(--sl-text-2xs);
+    color: var(--sl-color-gray-3);
+  }
+
+  .sent-contents__caret {
+    margin-inline-start: auto;
+    color: var(--sl-color-gray-3);
+    transition: transform 140ms ease;
+  }
+
+  .sent-contents[open] .sent-contents__caret {
+    transform: rotate(180deg);
+  }
+
+  .sent-contents__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 0 1.25rem;
+    margin: 0;
+    padding: 0.35rem 0 0.5rem;
+    list-style: none;
+    border-top: 1px solid var(--sent-hairline);
+  }
+
+  .sent-contents__item {
+    margin: 0;
+    break-inside: avoid;
+  }
+
+  .sent-contents__item a {
+    display: flex;
+    gap: 0.45rem;
+    align-items: baseline;
+    padding: 0.32rem 0.9rem;
+    font-size: var(--sl-text-sm);
+    line-height: 1.35;
+    color: var(--sl-color-text);
+    text-decoration: none;
+    border-radius: 0.35rem;
+  }
+
+  .sent-contents__item a:hover {
+    color: var(--sl-color-white);
+    background: hsl(192 70% 7% / 0.75);
+  }
+
+  .sent-contents__item[data-depth='3'] a {
+    padding-inline-start: 1.75rem;
+  }
+
+  .sent-contents__item[data-depth='4'] a {
+    padding-inline-start: 2.5rem;
+  }
+
+  .sent-contents__num {
+    flex: none;
+    min-width: 2.6rem;
+    font-family: var(--sl-font-mono);
+    font-size: 0.82em;
+    color: var(--sl-color-accent);
+    text-shadow: 0 0 0.5em hsl(176 100% 55% / 0.45);
+  }
+
+  .sent-contents__item[data-depth='3'] .sent-contents__num,
+  .sent-contents__item[data-depth='4'] .sent-contents__num {
+    min-width: 3.2rem;
+    color: var(--sl-color-gray-3);
+    text-shadow: none;
+  }
+
+  @media (max-width: 29.99rem) {
+    .sent-contents__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

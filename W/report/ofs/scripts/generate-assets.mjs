@@ -21,8 +21,8 @@ const src = (p) => resolve(root, 'src', p);
  * Brand palette (synthwave / bluish-green)
  * ------------------------------------------------------------------ */
 const C = {
-  ink: '#04121b',
-  ink2: '#071f22',
+  ink: '#000000', /* AMOLED true black */
+  ink2: '#031417', /* the only raise in the brand ramp */
   mint: '#5cffd0',
   teal: '#19d3d8',
   cyan: '#2b8cff',

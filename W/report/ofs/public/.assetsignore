@@ -1,2 +1,5 @@
 _worker.js
 _routes.json
+# Wrangler's generated config (written into dist/client by the Cloudflare adapter).
+# It is not part of the site and contains absolute build paths, so never publish it.
+wrangler.json

@@ -63,6 +63,9 @@ export default defineConfig({
         },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
+      // Adds the numbered "Contents" list that stands in for the TOC column below 72rem,
+      // where Starlight otherwise hides the list behind a collapsed bar. See the component.
+      components: { PageTitle: './src/components/PageTitle.astro' },
       // Variable fonts, self-hosted so the PWA works offline.
       customCss: [
         '@fontsource-variable/inter',
@@ -85,7 +88,7 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             name: 'theme-color',
-            content: '#04121b',
+            content: '#000000', /* AMOLED: the OS chrome blends into a true-black page */
             media: '(prefers-color-scheme: dark)',
           },
         },

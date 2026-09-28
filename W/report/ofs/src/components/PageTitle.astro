@@ -1,0 +1,32 @@
+---
+/**
+ * Starlight `PageTitle` override.
+ *
+ * Copy of Starlight's default implementation (same markup and scoped style, so nothing about the
+ * page heading changes) plus `SentinelToc`, which renders a numbered "Contents" list for viewports
+ * below Starlight's 72rem three-column breakpoint — the widths where Starlight otherwise keeps the
+ * table of contents behind a collapsed bar under the header.
+ *
+ * Registered as `components: { PageTitle: './src/components/PageTitle.astro' }` in astro.config.mjs.
+ */
+import SentinelToc from './SentinelToc.astro';
+
+// Mirrors Starlight's PAGE_TITLE_ID constant.
+const PAGE_TITLE_ID = '_top';
+---
+
+<h1 id={PAGE_TITLE_ID}>{Astro.locals.starlightRoute.entry.data.title}</h1>
+
+<SentinelToc />
+
+<style>
+  @layer starlight.core {
+    h1 {
+      margin-top: 1rem;
+      font-size: var(--sl-text-h1);
+      line-height: var(--sl-line-height-headings);
+      font-weight: 600;
+      color: var(--sl-color-white);
+    }
+  }
+</style>

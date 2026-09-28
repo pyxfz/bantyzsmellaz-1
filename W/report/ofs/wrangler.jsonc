@@ -5,8 +5,14 @@
 	"name": "ofs",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
+		// The adapter writes the deployable site to dist/client (with an adapter-generated
+		// wrangler.json that Wrangler redirects to — see .wrangler/deploy/config.json), so
+		// `wrangler deploy` reads its assets from there, not from ./dist.
 		"directory": "./dist",
-		"binding": "ASSETS"
+		"binding": "ASSETS",
+		// Serve the prerendered 404.html for unmatched paths instead of a bare 404.
+		// https://docs.astro.build/en/guides/deploy/cloudflare/#404-behavior
+		"not_found_handling": "404-page"
 	},
 	"observability": {
 		"enabled": true

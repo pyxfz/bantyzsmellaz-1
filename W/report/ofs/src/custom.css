@@ -1,21 +1,25 @@
 /* ============================================================================
-   AI Security Sentinel — synthwave bluish-green theme
+   AI Security Sentinel — AMOLED synthwave theme
+   True-black surfaces in the spirit of the VS Code "AMOLED" themes: every
+   region sits on #000 so OLED pixels switch off, separated only by thin
+   low-contrast hairlines and the bluish-green glow of the accents.
    Fonts are loaded from @fontsource-variable packages (see astro.config.mjs).
    ========================================================================== */
 
 /* ---------------------------------------------------------------- palette */
 :root {
-  /* Core brand ramp — the surfaces are deliberately near-black with a blue cast,
-     so the mint/teal accents and heading glow carry the synthwave feel. */
-  --sent-ink: hsl(200 74% 3%);
-  --sent-ink-2: hsl(199 66% 5.5%);
-  --sent-ink-3: hsl(198 56% 9%);
+  /* Core brand ramp — surfaces are pure black; the mint/teal/cyan accents and
+     their glow are the only light on the page. */
+  --sent-ink: #000; /* AMOLED base — the page, nav and sidebar all sit on this */
+  --sent-ink-2: hsl(195 90% 3.5%); /* barely-raised panel */
+  --sent-ink-3: hsl(196 70% 6%); /* raised surface (cards, code frames) */
   --sent-mint: hsl(163 100% 68%);
   --sent-teal: hsl(176 85% 50%);
   --sent-cyan: hsl(207 100% 58%);
-  --sent-text: hsl(180 26% 88%);
+  --sent-text: hsl(178 30% 93%); /* high contrast against true black */
 
-  --sent-glow: 0 0 0.6em hsl(172 95% 52% / 0.4), 0 0 1.9em hsl(190 95% 55% / 0.18);
+  --sent-glow: 0 0 0.6em hsl(170 100% 55% / 0.5), 0 0 2em hsl(190 100% 55% / 0.22);
+  --sent-hairline: hsl(192 70% 11%); /* the one seam AMOLED keeps between regions */
 
   /* ---- Typography ------------------------------------------------------ */
   --sl-font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
@@ -25,10 +29,13 @@
   --sent-font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Inter Variable', system-ui,
     sans-serif;
 
-  /* ---- Reading layout: narrow-ish side columns, wider reading pane ------ */
+  /* ---- Reading layout: equal side columns, widest reading pane ---------- */
   --sl-sidebar-width: 16rem; /* default 18.75rem — left nav */
-  --sl-content-width: 52rem; /* default 45rem — central reading pane */
-  --sent-toc-width: 11rem; /* the right-hand "on this page" column, kept very narrow */
+  --sl-content-width: 60rem; /* default 45rem — the central reading pane, deliberately the widest column */
+  /* The right-hand "on this page" column mirrors the left nav so the two side columns
+     read as a pair and the reading pane sits between equal gutters. Point this at a
+     length (e.g. 10rem) to let the two columns differ again. */
+  --sent-toc-width: var(--sl-sidebar-width);
   --sl-content-pad-x: 1.5rem;
   --sl-line-height: 1.75;
 
@@ -41,31 +48,34 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --sl-color-white: hsl(170 62% 97%);
-  --sl-color-gray-1: hsl(178 28% 92%);
-  --sl-color-gray-2: hsl(183 22% 81%);
-  --sl-color-gray-3: hsl(188 18% 65%);
-  --sl-color-gray-4: hsl(193 18% 46%);
-  --sl-color-gray-5: hsl(198 34% 18%);
-  --sl-color-gray-6: hsl(199 48% 9.5%);
+  --sl-color-white: hsl(170 55% 99%);
+  --sl-color-gray-1: hsl(176 30% 94%);
+  --sl-color-gray-2: hsl(180 20% 80%);
+  --sl-color-gray-3: hsl(186 16% 63%);
+  --sl-color-gray-4: hsl(190 15% 42%);
+  --sl-color-gray-5: hsl(194 42% 14%);
+  /* Starlight maps the Expressive Code frame + card backgrounds to gray-6 in
+     dark mode, so this is the one deliberately non-black surface. */
+  --sl-color-gray-6: var(--sent-ink-3);
+  --sl-color-gray-7: var(--sent-ink-2);
   --sl-color-black: var(--sent-ink);
 
-  --sl-color-accent-low: hsl(184 70% 13%);
-  --sl-color-accent: hsl(172 90% 47%);
-  --sl-color-accent-high: hsl(166 100% 81%);
+  --sl-color-accent-low: hsl(184 85% 10%);
+  --sl-color-accent: hsl(172 95% 48%);
+  --sl-color-accent-high: hsl(165 100% 82%);
 
   --sl-color-text: var(--sent-text);
   --sl-color-text-accent: hsl(168 100% 82%);
-  --sl-color-text-invert: hsl(200 70% 5%);
+  --sl-color-text-invert: hsl(197 85% 3%);
   --sl-color-bg: var(--sent-ink);
-  --sl-color-bg-nav: hsl(199 70% 4% / 0.86);
-  --sl-color-bg-sidebar: hsl(199 66% 4.4%);
-  --sl-color-bg-inline-code: hsl(195 52% 10%);
+  --sl-color-bg-nav: hsl(196 85% 2% / 0.9);
+  --sl-color-bg-sidebar: var(--sent-ink);
+  --sl-color-bg-inline-code: hsl(194 65% 8%);
   --sl-color-bg-accent: hsl(168 100% 82%);
-  --sl-color-hairline-light: hsl(192 40% 16%);
-  --sl-color-hairline: hsl(196 48% 10%);
-  --sl-color-hairline-shade: hsl(200 74% 3%);
-  --sl-color-backdrop-overlay: hsl(200 74% 2% / 0.8);
+  --sl-color-hairline-light: hsl(190 45% 16%);
+  --sl-color-hairline: var(--sent-hairline);
+  --sl-color-hairline-shade: var(--sent-ink-2);
+  --sl-color-backdrop-overlay: hsl(0 0% 0% / 0.82);
 
   /* Semantic colours re-tinted for the theme */
   --sl-hue-green: 160;
@@ -118,11 +128,12 @@ html {
 
 body {
   overflow-x: clip; /* never let wide content scroll the whole page sideways */
-  /* Synthwave bloom over the near-black base */
+  /* Synthwave bloom over the true-black base. Kept faint on purpose: on an
+     AMOLED panel the black should read as black, with the glow only tinting it. */
   background-image:
-    radial-gradient(70rem 32rem at 50% -16rem, hsl(178 92% 42% / 0.2), transparent 70%),
-    radial-gradient(55rem 26rem at 112% 6rem, hsl(207 95% 58% / 0.12), transparent 72%),
-    radial-gradient(45rem 22rem at -12% 30rem, hsl(190 92% 45% / 0.08), transparent 70%);
+    radial-gradient(70rem 32rem at 50% -16rem, hsl(174 100% 45% / 0.18), transparent 70%),
+    radial-gradient(55rem 26rem at 112% 6rem, hsl(207 100% 58% / 0.12), transparent 72%),
+    radial-gradient(45rem 22rem at -12% 30rem, hsl(190 100% 45% / 0.07), transparent 70%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -163,7 +174,7 @@ body {
 .header {
   backdrop-filter: blur(14px) saturate(150%);
   -webkit-backdrop-filter: blur(14px) saturate(150%);
-  border-bottom: 1px solid hsl(184 60% 30% / 0.35);
+  border-bottom: 1px solid hsl(184 75% 34% / 0.45);
 }
 
 /* Accent for inline links + hover affordances */
@@ -189,6 +200,21 @@ body {
 
 .sl-markdown-content a[target='_blank']:hover > span[aria-hidden='true'] {
   color: var(--sl-color-accent);
+}
+
+/* URLs the reports write as inline code are wrapped in a link by the same plugin, so a
+   tap opens them. The code span keeps its own colour, which is why the underline (and
+   the hover state) has to be styled on the `code`, not on the anchor. */
+.sl-markdown-content a[target='_blank'] > code {
+  text-decoration: underline;
+  text-decoration-color: hsl(172 82% 50% / 0.45);
+  text-underline-offset: 0.2em;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
+}
+
+.sl-markdown-content a[target='_blank']:hover > code {
+  color: var(--sl-color-accent-high);
+  text-decoration-color: currentColor;
 }
 
 ::selection {
@@ -222,31 +248,48 @@ body {
 
 /* ------------------------------------------------------------- sidebars */
 #starlight__sidebar {
-  border-inline-end: 1px solid hsl(192 48% 13%);
+  border-inline-end: 1px solid var(--sent-hairline);
 }
 
 .right-sidebar {
-  border-inline-start: 1px solid hsl(192 48% 13%);
+  border-inline-start: 1px solid var(--sent-hairline);
 }
 
-/* -------------------------------------------------- narrow right column */
-/* Starlight sizes both side columns from one variable (`--sl-sidebar-width`).
-   The "on this page" column is a jump list, not a reading column, so it gets
-   its own much smaller width and the reading pane takes back the difference.
-   Custom CSS is unlayered, so these win over Starlight's layered rules. */
+/* -------------------------------------------------- side column widths */
+/* Starlight sizes both side columns from one variable (`--sl-sidebar-width`), and the
+   right-hand column is given the same width on purpose (see `--sent-toc-width`), so the
+   nav and the "on this page" list frame the prose symmetrically. Custom CSS is
+   unlayered, so these win over Starlight's layered rules. */
 @media (min-width: 72rem) {
   [data-has-sidebar][data-has-toc] .right-sidebar-container {
     width: var(--sent-toc-width);
   }
 
+  /* Starlight's `.right-sidebar` is `position: fixed; width: 100%`, so it spans the
+     whole viewport and is kept in check only by its inner `.sl-container`
+     (18.75rem wide). Sizing it to the column means the entries wrap inside it
+     instead of running past its edge. */
+  .right-sidebar {
+    width: var(--sent-toc-width);
+  }
+
+  /* Starlight gives `.main-pane` and `.right-sidebar-container` widths from one
+     formula that adds up to exactly 100% of the row. Pinning only the TOC column
+     leaves a hole on the right, so the reading pane takes everything that is left.
+     The prose inside is capped by `--sl-content-width` and centered in what remains
+     (`--sl-content-margin-inline: auto`, against Starlight's `auto 0`): the leftover
+     then splits evenly between the nav side and the TOC side, instead of all of it
+     landing as a wide margin on one side. */
   [data-has-sidebar][data-has-toc] .main-pane {
-    width: calc(100% - var(--sl-sidebar-width) - var(--sent-toc-width));
+    --sl-content-margin-inline: auto;
+    width: calc(100% - var(--sent-toc-width));
   }
 }
 
-/* Tighten the padding/typography so long numbered headings still read in 11rem */
+/* Fill the column instead of Starlight's 18.75rem-wide container, with the same inner
+   padding the nav uses, so both columns align to the same gutter. */
 .right-sidebar-panel {
-  padding: 1rem 0.6rem;
+  padding: 1rem var(--sl-sidebar-pad-x);
 }
 
 .right-sidebar-panel .sl-container {
@@ -259,7 +302,7 @@ body {
 }
 
 .right-sidebar-panel nav > h2 {
-  font-size: var(--sl-text-2xs);
+  font-size: var(--sl-text-xs);
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -267,18 +310,21 @@ body {
   margin-bottom: 0.4rem;
 }
 
+/* Type sizes match the left nav (`--sl-text-sm` links) so the two equal-width columns
+   read as a pair rather than as a nav and a footnote. Widening the column to the nav's
+   width freed the room for this. */
 .right-sidebar-panel nav a {
   --pad-inline: 0.35rem;
-  font-size: var(--sl-text-2xs);
-  line-height: 1.3;
+  font-size: var(--sl-text-sm);
+  line-height: 1.35;
   hyphens: auto;
-  padding-block: 0.2rem;
+  padding-block: 0.25rem;
   padding-inline: calc(0.55rem * var(--depth, 0) + var(--pad-inline)) var(--pad-inline);
 }
 
-/* The nested (h3) entries indent less, which matters more the narrower it gets */
+/* Nested (h3) entries step down one size and indent under their section */
 .right-sidebar-panel nav ul ul a {
-  font-size: 0.72rem;
+  font-size: var(--sl-text-xs);
 }
 
 /* Starlight lists the page title first as an unnumbered "Overview" link. Drop it
@@ -291,6 +337,18 @@ body {
 .sl-markdown-content {
   overflow-wrap: break-word;
   min-width: 0;
+}
+
+/* Headings land below the sticky header (and the mobile table-of-contents bar)
+   when a section link is followed, at every width. */
+.sl-markdown-content :is(h2, h3, h4, h5, h6) {
+  scroll-margin-top: calc(var(--sl-nav-height) + 1.25rem);
+}
+
+@media (max-width: 71.99rem) {
+  .sl-markdown-content :is(h2, h3, h4, h5, h6) {
+    scroll-margin-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + 1.25rem);
+  }
 }
 
 /* Tables: keep narrow tables pretty, let genuinely wide ones scroll sideways */
@@ -311,6 +369,14 @@ body {
 
 .sl-markdown-content th {
   white-space: nowrap;
+}
+
+/* Expressive Code sets `frameBoxShadowCssValue: none` when it adopts Starlight's UI
+   colours, and on a true-black page its `--sl-color-gray-6` surface is only a
+   hair off the background — so give every code block its own seam, plus a faint
+   bloom that ties it to the accents. */
+.sl-markdown-content .expressive-code :is(.frame, pre) {
+  box-shadow: 0 0 0 1px var(--sent-hairline), 0 0 24px hsl(190 100% 45% / 0.06);
 }
 
 /* Code blocks scroll on their own axis (Expressive Code already allows this) */
@@ -338,7 +404,7 @@ body {
 
 blockquote {
   border-inline-start: 3px solid var(--sl-color-accent);
-  background: hsl(186 45% 14% / 0.45);
+  background: hsl(188 70% 7% / 0.65);
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
@@ -367,9 +433,9 @@ blockquote {
   align-items: baseline;
   height: 100%;
   padding: 0.8rem 0.95rem;
-  border: 1px solid hsl(184 55% 32% / 0.5);
+  border: 1px solid hsl(184 70% 34% / 0.5);
   border-radius: 0.85rem;
-  background: linear-gradient(140deg, hsl(190 45% 13% / 0.85), hsl(200 45% 10% / 0.6));
+  background: linear-gradient(140deg, hsl(192 70% 7% / 0.9), hsl(200 80% 3% / 0.85));
   color: var(--sl-color-text);
   text-decoration: none;
   transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;

@@ -11,7 +11,7 @@
     "assets": "node scripts/generate-assets.mjs",
     "generate-types": "wrangler types",
     "deploy": "astro build && wrangler deploy",
-    "panty": "wrangler types && astro build && wrangler pages deploy ./dist --project-name=your-project-name",
+    "panty": "wrangler types && astro build && wrangler pages deploy ./dist/client --project-name=aizas",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
