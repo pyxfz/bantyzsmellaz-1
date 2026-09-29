@@ -1,10 +1,10 @@
 ---
 title: AI Security Sentinel
-description: Synthwave field manual for AI security — the OWASP LLM Top 10 vulnerabilities facing AI systems, plus offensive and adversarial AI models for authorized red-teaming.
+description: Synthwave field manual for AI security — the OWASP LLM Top 10 and the Top 20 vulnerabilities facing AI systems, plus offensive and adversarial AI models for authorized red-teaming.
 # The home page is its own splash landing page: no docs sidebar, no right-hand TOC.
 template: splash
 hero:
-  tagline: A synthwave field manual for AI security — the OWASP LLM Top 10 vulnerabilities facing AI systems, plus the offensive and adversarial model stack for authorized red-teaming.
+  tagline: A synthwave field manual for AI security — the OWASP LLM Top 10 and the Top 20 vulnerabilities facing AI systems, plus the offensive and adversarial model stack for authorized red-teaming.
   actions:
     - text: Start with Part I — Vulnerabilities
       link: /part-1-ai-security-vulnerabilities/
@@ -13,15 +13,21 @@ hero:
       link: /part-2-offensive-ai-models/
       icon: open-book
       variant: minimal
+    - text: Part III — Top 20 Vulnerabilities
+      link: /part-3-top-20-ai-security-vulnerabilities/
+      icon: warning
+      variant: minimal
 ---
 
 import { Card, CardGrid, Aside } from '@astrojs/starlight/components';
 
-Two source reports, one numbered manual. **Part I** breaks down the ten most critical
+Three source reports, one numbered manual. **Part I** breaks down the ten most critical
 vulnerabilities facing AI systems (OWASP LLM Top 10, 2026 revision) with real-world incidents
 and mitigations. **Part II** evaluates the offensive, guardrail-removed, and specialist cyber
 models a red-team practice can legally field — capabilities, pricing, benchmarks, workflow
-integration, and the cheap-model techniques that close the gap to frontier labs.
+integration, and the cheap-model techniques that close the gap to frontier labs. **Part III**
+widens the lens to the twenty AI and agentic risks of 2026 — each with framework IDs, real
+incidents, mitigations, continuous-monitoring rules, a severity matrix and a 90-day roadmap.
 
 <CardGrid stagger>
   <Card title="Part I · Top 10 AI Vulnerabilities" icon="warning">
@@ -33,6 +39,11 @@ integration, and the cheap-model techniques that close the gap to frontier labs.
     OrcaRouter, Abliteration AI, Adverserial AI, DreadNode and the frontier comparison —
     costs, benchmarks, legal workflow and a concrete starter stack. **14 numbered sections.**
     [Open Part II →](/part-2-offensive-ai-models/)
+  </Card>
+  <Card title="Part III · Top 20 AI Vulnerabilities" icon="padlock">
+    Prompt injection through deepfake fraud and shadow AI — framework-mapped risks with
+    monitoring rules, the 12 SIEM use cases and a 30-60-90 day programme. **26 numbered sections.**
+    [Open Part III →](/part-3-top-20-ai-security-vulnerabilities/)
   </Card>
 </CardGrid>
 
@@ -206,6 +217,173 @@ integration, and the cheap-model techniques that close the gap to frontier labs.
     <a href="/part-2-offensive-ai-models/14-sources/">
       <span className="num">14</span>
       <span className="label">Sources<span className="desc">Vendor docs, code hubs, press and research</span></span>
+    </a>
+  </li>
+</ul>
+
+### 1.3 Part III · Top 20 AI security vulnerabilities
+
+<ul className="sent-jump">
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/">
+      <span className="num">0</span>
+      <span className="label">Overview &amp; contents<span className="desc">Executive framing, severity legend and reading order</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/01-prompt-injection/">
+      <span className="num">1</span>
+      <span className="label">Prompt Injection<span className="desc">OWASP LLM01:2026 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/02-agent-goal-hijack-and-tool-misuse/">
+      <span className="num">2</span>
+      <span className="label">Agent Goal Hijack &amp; Tool Misuse<span className="desc">OWASP ASI01/ASI02 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/03-memory-and-context-poisoning/">
+      <span className="num">3</span>
+      <span className="label">Memory &amp; Context Poisoning<span className="desc">OWASP ASI06 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/04-identity-and-privilege-abuse/">
+      <span className="num">4</span>
+      <span className="label">Identity &amp; Privilege Abuse<span className="desc">OWASP ASI03 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/05-excessive-agency-and-unbounded-autonomy/">
+      <span className="num">5</span>
+      <span className="label">Excessive Agency &amp; Unbounded Autonomy<span className="desc">OWASP LLM03:2026 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/06-unexpected-code-execution/">
+      <span className="num">6</span>
+      <span className="label">Unexpected Code Execution<span className="desc">OWASP ASI05 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/07-human-agent-trust-exploitation/">
+      <span className="num">7</span>
+      <span className="label">Human-Agent Trust Exploitation<span className="desc">OWASP ASI09 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/08-ai-supply-chain/">
+      <span className="num">8</span>
+      <span className="label">AI Supply Chain Vulnerabilities<span className="desc">OWASP LLM04:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/09-agentic-supply-chain-and-mcp-poisoning/">
+      <span className="num">9</span>
+      <span className="label">MCP Tool Poisoning<span className="desc">OWASP ASI04 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/10-data-and-model-poisoning/">
+      <span className="num">10</span>
+      <span className="label">Data &amp; Model Poisoning<span className="desc">OWASP LLM05:2026 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/11-training-data-extraction-and-inference/">
+      <span className="num">11</span>
+      <span className="label">Training-Data Extraction &amp; MIA<span className="desc">OWASP LLM02:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/12-rag-vector-and-embedding-weaknesses/">
+      <span className="num">12</span>
+      <span className="label">RAG &amp; Embedding Weaknesses<span className="desc">OWASP LLM09:2026 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/13-sensitive-information-disclosure/">
+      <span className="num">13</span>
+      <span className="label">Disclosure via Prompts &amp; Logs<span className="desc">OWASP LLM02:2026 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/14-improper-output-handling/">
+      <span className="num">14</span>
+      <span className="label">Improper Output Handling<span className="desc">OWASP LLM10:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/15-hidden-context-exposure/">
+      <span className="num">15</span>
+      <span className="label">Hidden Context Exposure<span className="desc">OWASP LLM08:2026 · Medium-High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/16-misinformation-and-confabulation/">
+      <span className="num">16</span>
+      <span className="label">Misinformation &amp; Confabulation<span className="desc">OWASP LLM07:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/17-unbounded-consumption/">
+      <span className="num">17</span>
+      <span className="label">Unbounded Consumption<span className="desc">OWASP LLM06:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/18-model-theft-and-extraction/">
+      <span className="num">18</span>
+      <span className="label">Model Theft &amp; Extraction<span className="desc">OWASP LLM04:2026 · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/19-ai-social-engineering-and-deepfakes/">
+      <span className="num">19</span>
+      <span className="label">Social Engineering &amp; Deepfake Fraud<span className="desc">MITRE ATLAS AML.T0073 · Critical</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/20-shadow-ai-and-governance/">
+      <span className="num">20</span>
+      <span className="label">Shadow AI &amp; Governance Gaps<span className="desc">NIST AI RMF GOVERN · High</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/21-verification-problem/">
+      <span className="num">21</span>
+      <span className="label">The Verification Problem<span className="desc">Why published defence numbers cannot be trusted</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/22-summary-matrix-and-roadmap/">
+      <span className="num">22</span>
+      <span className="label">Summary Matrix &amp; 30-60-90 Roadmap<span className="desc">Severity, blast radius and the 90-day programme</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/23-log-schema-detection-and-response/">
+      <span className="num">23</span>
+      <span className="label">Log Schema, Detection &amp; Response<span className="desc">14 fields, 12 SIEM use cases, 4 playbooks</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/24-tooling-and-compliance/">
+      <span className="num">24</span>
+      <span className="label">Tooling &amp; Compliance<span className="desc">Named tools and the regulatory regimes</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/25-frameworks-sources-and-verification/">
+      <span className="num">25</span>
+      <span className="label">Frameworks, Sources &amp; Verification<span className="desc">89 sources and the corrected claims</span></span>
+    </a>
+  </li>
+  <li>
+    <a href="/part-3-top-20-ai-security-vulnerabilities/26-method-and-cost-appendix/">
+      <span className="num">26</span>
+      <span className="label">Method &amp; Cost Appendix<span className="desc">Agent topology, tokens, tooling and cost</span></span>
     </a>
   </li>
 </ul>

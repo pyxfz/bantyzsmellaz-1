@@ -4,7 +4,7 @@
  */
 // Bump on every deploy: `activate` deletes every cache that does not end in the current version,
 // which is what stops a returning visitor from being served the previous build's shell.
-const VERSION = 'v2';
+const VERSION = 'v3';
 const PRECACHE = `sentinel-precache-${VERSION}`;
 const ASSETS = `sentinel-assets-${VERSION}`;
 const PAGES = `sentinel-pages-${VERSION}`;

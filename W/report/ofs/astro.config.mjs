@@ -61,6 +61,10 @@ export default defineConfig({
           label: 'Part II · Offensive AI Models',
           items: [{ autogenerate: { directory: 'part-2-offensive-ai-models' } }],
         },
+        {
+          label: 'Part III · Top 20 Vulnerabilities',
+          items: [{ autogenerate: { directory: 'part-3-top-20-ai-security-vulnerabilities' } }],
+        },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
       // Adds the numbered "Contents" list that stands in for the TOC column below 72rem,

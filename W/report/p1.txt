@@ -14,3 +14,12 @@ DD - Destination Project - ofs/
 8. Ensure layout doesnt break in mobile mode, scrolling doesnt break layout, content that is wide should be scrollable sideways, take care especially in mobie PWA mode
 8. Theme is synthwave bluishGreen, futuristic but highly readable font ,headings have slight glow
 9. Make a nice landing page with jumpable links to section
+
+Project 2 
+--- 
+S1 - Source File - r1/top-20-ai-security-vulnerabilities-2026-09-29.md
+DD - Destination Project - ofs/
+
+1. Add the contents of S1 to DD following the layout and styles of DD , add S1 as a new section and break it down Logically
+so overall doc flow is logical, also add that info to the front page also. 
+2. Ensure pwa and layout doesnt brea

@@ -1,11 +1,14 @@
 # AI Security Sentinel — field manual
 
 An Astro + [Starlight](https://starlight.astro.build/) documentation site and installable PWA built from
-two research reports:
+three research reports:
 
 - **Part I** — Top 10 Security Vulnerabilities Faced by AI Systems (OWASP LLM Top 10, 2026 revision).
 - **Part II** — Offensive & Adversarial AI Models for Legal Red-Teaming (OrcaRouter, Abliteration AI,
   Adverserial AI, DreadNode, frontier comparison).
+- **Part III** — Top 20 AI Security Vulnerabilities (the 2026 OWASP/agentic risk register, with framework
+  mapping, mitigations, continuous-monitoring rules, a severity matrix, a 30-60-90 day roadmap, a log
+  schema, 12 SIEM use cases and incident-response playbooks).
 
 Deployment target is Cloudflare (Wrangler is configured), but nothing is deployed from this repo state —
 `bun run build` only produces `dist/client`.
@@ -16,7 +19,8 @@ Deployment target is Cloudflare (Wrangler is configured), but nothing is deploye
 src/content/docs/
 ├── index.mdx                              # landing page (splash) with numbered jump links
 ├── part-1-ai-security-vulnerabilities/    # Part I — sections 1–10 + summary/frameworks/sources
-└── part-2-offensive-ai-models/            # Part II — sections 1–14
+├── part-2-offensive-ai-models/            # Part II — sections 1–14
+└── part-3-top-20-ai-security-vulnerabilities/  # Part III — sections 1–20 + cross-cutting 21–26
 ```
 
 Every page is numbered: page titles carry the section number (`3. OrcaRouter`), headings carry the
