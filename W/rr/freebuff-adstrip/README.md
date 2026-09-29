@@ -1,0 +1,275 @@
+# freebuff-adstrip
+
+Remove the sponsored text ads from a locally installed [Freebuff](https://freebuff.com) CLI.
+
+Freebuff's chat view serves contextual text ads into the transcript. This tool
+disables them by rewriting a single byte in the installed executable, with a
+hash-verified backup and automatic rollback.
+
+```
+$ freebuff-adstrip status
+
+Found 1 Freebuff installation(s).
+
+  [PATCHED] /home/you/.config/manicode/freebuff
+      version : 0.1.6 (linux-x64)
+      size    : 129.7 MiB
+      sha256  : 5ff3376091
+      found by: default home
+      owner   : you
+      gate    : returns false at 99234101
+
+Result: ads disabled in all installs.
+```
+
+## Why not just set `adsEnabled: false`?
+
+Because Freebuff ignores it. The CLI exposes an `adsEnabled` setting in
+`settings.json` and registers an `/ads:disable` command, but the gate that
+reads it is unreachable:
+
+```js
+OP = () => { if (RA) return !0; return Jv().adsEnabled ?? !1 }
+```
+
+`RA` is the "is this the Freebuff build" flag, computed as
+`Z$().FREEBUFF_MODE === "true"`. The binary's own environment shim `Z$()`
+hard-codes `FREEBUFF_MODE:"true"` as a **string literal** — it never reads
+`process.env.FREEBUFF_MODE` — so `RA` is a compile-time constant `true` and the
+settings lookup on the second line can never execute.
+
+Flipping the literal `!0` to `!1` short-circuits the gate to a constant
+`false`. See [THEORY.md](THEORY.md) for the full analysis.
+
+## Install
+
+```bash
+# from a checkout
+make
+sudo make install          # -> /usr/local/bin/freebuff-adstrip
+
+# or run it in place, no install required
+./freebuff-adstrip status
+```
+
+The binary is statically linked against the Go standard library and has no
+runtime dependencies. It runs on any Linux x86-64 or arm64 host.
+
+## Usage
+
+```
+freebuff-adstrip [command] [flags]
+```
+
+| Command | Effect |
+|---|---|
+| `status` | Report every discovered install and whether it is patched. **Default.** |
+| `patch` | Back up each binary and rewrite its ad gate. Idempotent. |
+| `rollback` | Restore a binary from a backup (newest, or `--backup`). |
+| `doctor` | Report whether the patch is still in place and flag risks. |
+| `version` | Print the tool version. |
+| `help` | Usage. |
+
+| Flag | Effect |
+|---|---|
+| `--path <p>` | Operate on a specific binary instead of auto-discovery. Repeatable. |
+| `--backup <f>` | Backup to roll back from. Default: newest. |
+| `--home <d>` | Override the home directory used for discovery. |
+| `-n`, `--dry-run` | Report what would change without writing anything. |
+| `--keep <N>` | Backups to retain per directory. Default 5. |
+| `--json` | Emit a single JSON document. |
+| `-v`, `--verbose` | Debug logging on stderr. |
+| `--quiet` | Suppress non-error output. |
+
+| Exit code | Meaning |
+|---|---|
+| `0` | Success, or `status` found every install patched. |
+| `1` | Patch/rollback failed, an install is unpatched, or `doctor` found a problem. |
+| `2` | Usage error. |
+
+### Typical workflow
+
+```bash
+# 1. See what's there.
+freebuff-adstrip status
+
+# 2. Preview.
+freebuff-adstrip patch --dry-run
+
+# 3. Apply.
+freebuff-adstrip patch
+
+# 4. Confirm.
+freebuff-adstrip doctor
+
+# 5. Changed your mind.
+freebuff-adstrip rollback
+```
+
+### Multiple installs
+
+A box can legitimately have several: a `FREEBUFF_CONFIG_DIR` override, a
+second Unix account, an XDG relocation. The tool finds all of them:
+
+```bash
+$ freebuff-adstrip status
+Found 2 Freebuff installation(s).
+
+  [PATCHED] /home/alice/.config/manicode/freebuff
+      found by: default home
+      owner   : alice
+
+  [ADS ON]  /home/bob/.config/manicode/freebuff
+      found by: other account
+      owner   : bob
+
+Result: ads disabled in all installs.   # <- actually reports per-install state
+```
+
+`patch` fixes every one it finds. To restrict to specific files:
+
+```bash
+freebuff-adstrip patch --path /opt/freebuff/freebuff --path /srv/ci/freebuff
+```
+
+### Scripting and CI
+
+`status` exits non-zero when any install is unpatched, so it works as a gate:
+
+```bash
+#!/bin/bash
+# Re-apply the patch after every Freebuff update, then verify.
+freebuff-adstrip patch --quiet || exit 1
+freebuff-adstrip status --quiet || {
+  echo "Freebuff ads reappeared; run: freebuff-adstrip patch" >&2
+  exit 1
+}
+```
+
+```yaml
+# GitHub Actions
+- name: Keep Freebuff ad-free
+  run: |
+    curl -fsSL -o /tmp/adstrip https://github.com/you/freebuff-adstrip/releases/latest/download/freebuff-adstrip
+    chmod +x /tmp/adstrip
+    /tmp/adstrip patch
+    /tmp/adstrip doctor
+```
+
+JSON output for dashboards:
+
+```bash
+freebuff-adstrip status --json | jq '.installs[] | {path, state: .report.state}'
+```
+
+## Safety model
+
+| Property | How it is guaranteed |
+|---|---|
+| **Reversible** | A hash-verified backup is created and confirmed *before* any write. |
+| **Length-preserving** | `!0` → `!1` is a one-byte in-place `WriteAt`. No truncation, no temp file, no offset shift. |
+| **Non-destructive on doubt** | If the gate signature is absent, the file is reported `UNKNOWN` and left untouched. |
+| **Idempotent** | Patching an already-patched binary is a no-op. |
+| **Verified** | After writing, the file is re-scanned: size unchanged, gate now reads `false`, all sites converted. |
+| **Crash-safe** | The write is `fsync`ed; a failure part-way leaves a restorable backup. |
+
+Backups are named so that a directory listing is self-explanatory:
+
+```
+freebuff.adstrip-backup.20260929T142652Z.c65016728a.bak
+          └── UTC timestamp ──┘ └── first 10 hex of the original sha256 ──┘
+```
+
+The fixed-width UTC timestamp means lexical order is chronological order, so
+"newest backup" needs no reliance on mtime.
+
+## Verification
+
+The rewrite is provably minimal. On a real 0.1.6 install:
+
+```console
+$ cmp -l freebuff.adstrip-backup.20260929T142652Z.c65016728a.bak freebuff
+ 99234123  60  61          # octal 60='0' -> 61='1'; exactly one byte
+
+$ stat -c%s freebuff      ->  136046720   # unchanged
+$ stat -c%s <backup>      ->  136046720
+
+$ dd if=freebuff bs=1 skip=99234101 count=48
+wP=()=>{if(GA)return!1;return Tv().adsEnabled??!
+                              ^ the only difference
+
+$ freebuff --version
+0.1.6                      # still runs
+```
+
+## Tests
+
+```bash
+make check         # gofmt check + go vet + go test
+make test -v       # verbose
+make race          # race detector
+make cover         # coverage summary
+```
+
+The suite builds synthetic fixtures and never touches a real installation:
+
+| Test | What it pins down |
+|---|---|
+| `TestGateDetection` | Detection across the real 0.1.0 and 0.1.6 identifier sets, plus extreme name lengths. |
+| `TestPatchOffsetIndependentOfIdentifierLength` | Regression: the rewrite offset is derived from the matched text, not a fixed distance. This bug shipped once and corrupted a real binary. |
+| `TestNonFreebuffFileUntouched` | A file merely containing `adsEnabled` is never touched. |
+| `TestSmallFileRejected` | The plausibility floor spares tiny files a full scan. |
+| `TestMultipleGateSitesAllReported` | Every gate site is found, so none is left live. |
+| `TestAlreadyPatchedDetected` | Idempotency at the detection layer. |
+| `TestRewriteIsLengthPreserving` | The core safety invariant. |
+| `TestPatchThenRollbackRestoresExactBytes` | Round-trip fidelity. |
+| `TestDryRunWritesNothing` | Preview safety. |
+| `TestUnknownBuildSkipped` | Unknown builds are refused. |
+| `TestBackupPruning` | Retention, and that the newest backup is never pruned. |
+| `TestNewestBackupOrdering` | Newest-backup selection. |
+| `TestGateAcrossChunkBoundary` | A gate straddling the 8 MiB scan boundary is still found. |
+
+## Known limitations
+
+**Self-updates revert the patch.** Freebuff's launcher checksums the downloaded
+archive only at download time; it does not re-verify the extracted binary on
+subsequent runs. A self-update or a `bun i -g freebuff` therefore silently
+restores the ads. `doctor` warns when it sees a launcher package, and the
+workaround is the script in [Scripting](#scripting-and-ci) above.
+
+**Restructured gate → no patch.** The tool matches the gate's *shape*
+(`NAME=()=>{if(FLAG)return!0;return SETTINGS().adsEnabled??!1}`), not its exact
+bytes, so it survives the minifier renaming identifiers on every build. If
+Codebuff ever rewrites the gate's logic, the file is reported `UNKNOWN` and
+left alone rather than guessed at. Update the regex in `patch.go` in that case.
+
+**Linux only.** Discovery assumes the launcher's POSIX layout
+(`~/.config/manicode`). The binary itself is portable Go; only the discovery
+and binary-name resolution are platform-specific. The patch logic is
+architecture-independent and works on arm64 builds unchanged.
+
+**`adsEnabled` left in settings.** The tool does not edit `settings.json`
+(`adsEnabled` is inert under the patch, so it is harmless either way). If you
+want it off for a non-Freebuff build too, set it yourself.
+
+## Layout
+
+```
+freebuff-adstrip/
+├── main.go         CLI surface, subcommand dispatch, output rendering
+├── patch.go        Anchor detection, scanning, patching, verification
+├── discover.go     Locating installs; launcher and settings discovery
+├── backup.go       Backup creation, pruning, verification
+├── options.go      Flags, logger, formatting helpers
+├── usage.go        Help text
+├── patch_test.go   Test suite
+├── Makefile
+├── README.md
+└── THEORY.md       How the ads work and why the patch is shaped this way
+```
+
+## License
+
+MIT. Provided for personal use and research. You are responsible for complying
+with the Freebuff/Codebuff terms of service; this tool exists because the
+product ships no working opt-out.
