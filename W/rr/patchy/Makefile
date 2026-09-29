@@ -47,14 +47,22 @@ fmt-check:
 
 lint: fmt-check vet
 
-# `install` needs root to write /usr/local/bin. sudo does not inherit PATH, so
-# a `sudo make install` that tries to re-run `go build` would fail with
-# "go: not found". The binary is therefore built as the invoking user and only
-# the copy is escalated. Override with `make install SUDO= install` to skip
-# privilege escalation when BINDIR is already writable.
+# Install needs root to write /usr/local/bin.
+#
+# Run `make install` (NOT `sudo make install`). sudo does not inherit PATH, so
+# under `sudo make` the `build` prerequisite would try to run `go` and fail with
+# "go: not found" (exit 127). Here make itself runs unprivileged, `go build`
+# works normally, and only the two `install` commands are escalated.
+#
+# On a host where sudo needs a password, either run `make install` and type it
+# at the two prompts, or cache credentials first and use:
+#     make install SUDO="sudo -n"
+#
+# If BINDIR is already writable, skip escalation entirely:
+#     make install SUDO=
 SUDO ?= sudo
 install: build
-	install -d $(DESTDIR)$(BINDIR)
+	$(SUDO) install -d $(DESTDIR)$(BINDIR)
 	$(SUDO) install -m 0755 $(BINARY) $(DESTDIR)$(BINDIR)/$(BINARY)
 	@echo "installed $(DESTDIR)$(BINDIR)/$(BINARY)"
 

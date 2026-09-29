@@ -356,6 +356,54 @@ What survives minification is not the names but the structure: a zero-arg
 arrow, a short-circuit on a build flag, and a fallback that reads
 `adsEnabled`. That sequence *is* the bug, so it is the right thing to match.
 
+### 7.4 A single exact pattern is still a single point of failure
+
+The regexp above survives renaming but not *restructuring* — and a restructure
+is exactly what a future release would produce if anyone touched this code. So
+detection became a **staged ladder** rather than one pattern, with a
+confidence label per rung and a cross-check on top:
+
+| Phase | Confidence | Rationale |
+|---|---|---|
+| `1-exact` | certain | the known shape |
+| `2-relaxed` | high | same arrow, body reordered or extended, either operand order |
+| `3-hoisted` | high | `function NAME(){` instead of an arrow |
+| `4-heuristic` | heuristic | `return!0` near an `adsEnabled` read, no function identified |
+| `5-fixed` | certain | the opt-out is fixed upstream; use the setting, do not patch |
+| `6-absent` | — | nothing matched; never touch the file |
+
+The **flag cross-check** is the strongest single piece of evidence available.
+`buildFlagRe` extracts the symbol the bundle assigns from `FREEBUFF_MODE`
+(`GA=z().FREEBUFF_MODE`), and that is compared against the flag captured from
+the gate. When they agree, the matched function is demonstrably the ad gate:
+
+```console
+ident   : gate=wP flag=GA  [flag confirmed = FREEBUFF_MODE symbol]
+```
+
+On a synthetic gate that tests an unrelated flag, the check correctly reports
+`flagCrossChecked=false` — it discriminates rather than passing vacuously
+(`TestCrossCheckRejectsUnrelatedFlag`).
+
+**Phase 5 is the one that matters for the long run.** If Codebuff ever fixes the
+opt-out, the short-circuit disappears and the setting starts working. Patching
+a byte would then be wrong, so the tool detects that shape, refuses to patch,
+and tells the user to set `adsEnabled:false` instead.
+
+**When nothing matches**, the outcome is safe by construction: the file is left
+untouched and `explain` prints the raw text around every `adsEnabled`
+reference, which is the material needed to add a phase. That turns a future
+"the tool broke" into a two-minute edit.
+
+Verified on the real 136 MB binary across four simulated future refactors:
+
+```text
+rename       -> phase=1-exact      state=unpatched          size preserved
+reorder      -> phase=2-relaxed    state=unpatched          size preserved
+funcdecl     -> phase=3-hoisted    state=unpatched          size preserved
+opt-out fixed-> phase=5-fixed      state=setting-respected  size preserved
+```
+
 ### 7.2 Offsets must come from the matched text
 
 The second version computed the rewrite offset from a fixed sample string:
@@ -397,12 +445,14 @@ func rewriteOffsetInGate(matched []byte) (int, error) {
 
 Correct for any identifier length, on any build.
 
-### 7.3 Two smaller performance/correctness fixes
+### 7.3 Three smaller performance/correctness fixes
 
 **A raw regexp scan over 130 MB took 19.5 s.** Adding a rare-literal
-prefilter (`.adsEnabled??!1}`, which occurs a handful of times) and evaluating
+prefilter (`.adsEnabled`, which occurs a handful of times) and evaluating
 the regexp only near those hits brought it to **0.6 s**, a 32× improvement,
-with no change in results.
+with no change in results. `TestEveryPhaseHasPrefilter` guards the property,
+including the subtler requirement that the prefilter actually appears in the
+phase's own pattern.
 
 **The chunk-boundary de-duplication was wrong.** The scanner reads in 8 MiB
 chunks with a carry window, and matches were de-duplicated with
@@ -412,6 +462,44 @@ handle. Such a match was never reported by the previous iteration, because that
 iteration's window ended before the match was complete. The fix de-duplicates
 by absolute start offset in a set instead, and
 `TestGateAcrossChunkBoundary` pins it.
+
+**A stray space in phase 1's regex disabled the whole rung.** Rewriting the
+ladder by hand-editing escaped Go raw strings introduced `if\( (GA)` instead of
+`if\((GA)`. Every real build still classified correctly — but as *phase 2*,
+"high" confidence, instead of phase 1, "certain", and the flag cross-check
+silently stopped firing. Nothing was incorrect; the tool was just less certain
+than it should have been, which is the hardest kind of regression to notice by
+using it. `TestPhase1Exact` and `TestLadderMatrix` now assert the phase, so the
+next stray space fails the build rather than quietly downgrading confidence.
+
+**A too-narrow prefilter window broke the cross-check.** The build-flag matcher's
+back window was 16 bytes, which only clears a flag name of about ten
+characters. Longer names produced no match, so the cross-check returned false
+for large synthetic names. The window is now 256 bytes.
+
+**The phase-2 body matcher excluded `;` as well as braces.** Minified bodies are
+dense with `return!1;` statements, so excluding the semicolon meant the
+relaxed phase could never traverse a real body. Excluding only `{` and `}`
+stops the match at a nested block while still running through statement
+separators.
+
+### 7.5 Heuristic matching is allowed, acting on it is not
+
+Phase 4 will match a file that merely has an unconditional `return!0` near an
+`adsEnabled` read, with no enclosing function identified. That is a genuine
+false-positive risk, and the resolution is not to forbid the rung but to gate
+acting on it:
+
+- the match is labelled `heuristic`, never `certain`
+- `status` prints the phase and confidence so it is never invisible
+- `--strict` refuses to write, and the refusal lives in `applyPatchWith`, not
+  only in the CLI, so no caller can bypass it by accident
+  (`TestNonFreebuffFileRefusedByStrict`)
+
+An old test asserted such a file would be reported `unknown`. That encoded the
+pre-ladder contract, where any non-exact file was unrecognised. Under a ladder
+the honest expectation is: classified as heuristic, reported as such, and
+refused. The test was updated to pin that contract instead.
 
 ---
 

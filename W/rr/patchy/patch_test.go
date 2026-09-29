@@ -113,18 +113,66 @@ func TestAlreadyPatchedDetected(t *testing.T) {
 	}
 }
 
-// TestNonFreebuffFileUntouched is the most important safety test: a file that
-// merely contains the word "adsEnabled" must not be classified as patchable.
-func TestNonFreebuffFileUntouched(t *testing.T) {
+// TestNonFreebuffFileRefusedByStrict is the most important safety test.
+//
+// A file that merely mentions `adsEnabled` will legitimately trip phase 4, the
+// heuristic rung, because an unconditional `return!0` sits shortly before an
+// `adsEnabled` read. That is exactly what phase 4 exists to catch, and it is
+// why the rung is labelled heuristic rather than certain.
+//
+// The safety guarantee is not "never match" — it is "never act on a
+// heuristic match without the user opting in". This test pins that contract:
+// the file is classified, reported as heuristic, and then refused.
+func TestNonFreebuffFileRefusedByStrict(t *testing.T) {
 	body := "var settings={adsEnabled:true};function adsEnabled(){return 1}" +
 		strings.Repeat("x", 64) + "return!0;return something().adsEnabled??!1}"
+	path, _, _ := writeFixture(t, body)
+	before, _ := os.ReadFile(path)
+
+	rep, err := inspectFile(path, "", "")
+	if err != nil {
+		t.Fatalf("inspect: %v", err)
+	}
+	// The exact phases must not claim it; only the heuristic rung may.
+	if rep.Phase != "4-heuristic" {
+		t.Fatalf("phase = %s, want 4-heuristic", rep.Phase)
+	}
+	if rep.Confidence != ConfHeuristic {
+		t.Fatalf("confidence = %s, want %s", rep.Confidence, ConfHeuristic)
+	}
+	// A heuristic match must be self-describing, so the user is never left
+	// wondering why a file was acted on.
+	if rep.PhaseDescription == "" {
+		t.Fatal("a heuristic match must carry a phase description")
+	}
+
+	// Strict mode must refuse to write.
+	res, err := applyPatchStrict(path, false, 3, discardLogger{})
+	if err != nil {
+		t.Fatalf("applyPatchStrict: %v", err)
+	}
+	if res.Applied {
+		t.Fatal("strict mode patched a heuristic match")
+	}
+	after, _ := os.ReadFile(path)
+	if string(before) != string(after) {
+		t.Fatal("strict mode modified a file it refused")
+	}
+}
+
+// TestGenuinelyUnrelatedFileIsUnknown confirms that a file with no
+// adsEnabled-plus-`return!0` association is reported unknown outright, so the
+// ladder does not simply match everything.
+func TestGenuinelyUnrelatedFileIsUnknown(t *testing.T) {
+	body := "var settings={adsEnabled:true};function unrelated(){return 1}" +
+		strings.Repeat("x", 64) + "return!0;" // no adsEnabled read after the true
 	path, _, _ := writeFixture(t, body)
 	rep, err := inspectFile(path, "", "")
 	if err != nil {
 		t.Fatalf("inspect: %v", err)
 	}
 	if rep.State != StateUnknown {
-		t.Fatalf("state = %s, want %s (file must not be touched)", rep.State, StateUnknown)
+		t.Fatalf("state = %s, want %s", rep.State, StateUnknown)
 	}
 	if rep.PatchOffset != 0 {
 		t.Fatal("unknown file must not advertise a patch offset")

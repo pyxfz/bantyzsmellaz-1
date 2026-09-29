@@ -45,6 +45,10 @@ type options struct {
 	Quiet bool
 	// KeepBackups is how many backups to retain per install directory.
 	KeepBackups int
+	// Strict refuses to act on a match that came only from the heuristic
+	// rung of the ladder, so a user who wants certainty declines to patch on
+	// an association rather than a structural identification.
+	Strict bool
 }
 
 // parseFlags builds and runs the flag set for the given arguments.
@@ -61,6 +65,8 @@ func parseFlags(args []string) (*options, error) {
 	fs.BoolVar(&o.Verbose, "v", false, "alias for --verbose")
 	fs.BoolVar(&o.Quiet, "quiet", false, "suppress non-error output")
 	fs.IntVar(&o.KeepBackups, "keep", 5, "backups to retain per directory")
+	fs.BoolVar(&o.Strict, "strict", false,
+		"refuse heuristic matches; only act on structurally certain ones")
 	// Silence the flag package's own usage dump; printUsage is custom.
 	fs.SetOutput(io.Discard)
 	if err := fs.Parse(args); err != nil {

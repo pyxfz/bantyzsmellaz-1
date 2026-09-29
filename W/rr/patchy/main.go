@@ -81,6 +81,8 @@ func main() {
 		os.Exit(runRollback(opts, log))
 	case "doctor":
 		os.Exit(runDoctor(opts, log))
+	case "explain":
+		os.Exit(runExplain(opts, log))
 	case "help", "-h", "--help":
 		printUsage()
 		os.Exit(0)
@@ -130,7 +132,7 @@ func runStatus(o *options, log Logger) int {
 			log.Println("")
 		}
 		renderInstall(log, inst)
-		if inst.Report.State == StateUnpatched {
+		if inst.Report.State == StateUnpatched || inst.Report.State == StateUnknown {
 			anyUnpatched = true
 		}
 	}
@@ -167,15 +169,40 @@ func runPatch(o *options, log Logger) int {
 	wouldChange := 0
 
 	for _, inst := range installs {
-		if inst.Report.State == StateUnknown {
-			log.Warn("skip %s: ad-gate signature not found (not a recognised build)", inst.Path)
+		switch inst.Report.State {
+
+		case StateSettingRespected:
+			// A fixed opt-out: patching a byte would be wrong, and the
+			// supported switch now works.
+			log.Infof("%s: gate respects the setting; no patch needed.", inst.Path)
+			log.Infof("  set \"adsEnabled\": false in %s", settingsPath(inst.ConfigDir))
+			results = append(results, PatchResult{
+				Path: inst.Path, Skipped: true,
+				Reason: "gate respects the setting; use adsEnabled:false instead of a byte patch",
+				Notes:  inst.Report.Notes,
+			})
+			continue
+
+		case StateUnknown:
+			log.Warn("skip %s: no ladder phase matched (not a recognised build)", inst.Path)
+			log.Warn("  run 'freebuff-adstrip explain' to see the raw gate text")
 			results = append(results, PatchResult{
 				Path: inst.Path, Skipped: true,
 				Reason: "unrecognised build; left untouched",
 				Notes:  inst.Report.Notes,
 			})
 			continue
+
+		case StateUnpatched:
+			// Refusing a heuristic match is enforced inside applyPatchWith, so
+			// the policy cannot be bypassed by a caller. The warning here is
+			// purely so the user is told why nothing happened.
+			if o.Strict && inst.Report.Confidence == ConfHeuristic {
+				log.Warn("skip %s: matched only by the heuristic phase %s and --strict is set",
+					inst.Path, inst.Report.Phase)
+			}
 		}
+
 		if inst.Report.State == StatePatched {
 			log.Infof("already patched: %s", inst.Path)
 			results = append(results, PatchResult{
@@ -192,7 +219,7 @@ func runPatch(o *options, log Logger) int {
 				inst.Report.PatchOffset)
 		}
 
-		res, err := applyPatch(inst.Path, o.DryRun, o.KeepBackups, log)
+		res, err := applyPatchWith(inst.Path, o.DryRun, o.KeepBackups, o.Strict, log)
 		if err != nil {
 			log.Errorf("patch %s: %v", inst.Path, err)
 			failures++
@@ -324,8 +351,14 @@ func runDoctor(o *options, log Logger) int {
 	for _, inst := range installs {
 		state := inst.Report.State
 		status := "OK"
-		if state != StatePatched {
-			status = "ADS ENABLED"
+		switch state {
+		case StatePatched, StateSettingRespected:
+			// ads are off either way
+		case StateUnknown:
+			status = "UNRECOGNISED"
+			healthy = false
+		default:
+			status = "ADS ON"
 			healthy = false
 		}
 		if !o.JSON {
@@ -383,11 +416,18 @@ func runDoctor(o *options, log Logger) int {
 	return 1
 }
 
-// statusExitCode returns 0 when every install is patched, 1 otherwise, so
+// statusExitCode returns 0 when ads are off in every install, 1 otherwise, so
 // status can gate CI.
+//
+// Both StatePatched and StateSettingRespected count as "ads off": in the first
+// the gate was forced false, in the second the opt-out works and the user is
+// told to use the setting. Only StateUnpatched and StateUnknown are failures.
 func statusExitCode(installs []Install) int {
 	for _, inst := range installs {
-		if inst.Report.State != StatePatched {
+		switch inst.Report.State {
+		case StatePatched, StateSettingRespected:
+			continue
+		default:
 			return 1
 		}
 	}
@@ -419,10 +459,98 @@ func renderInstall(log Logger, inst Install) {
 	case StateUnpatched:
 		log.Printf("      gate    : returns true at %s (byte to flip: %d)",
 			formatSpans(r.Spans), r.PatchOffset)
+	case StateSettingRespected:
+		log.Printf("      gate    : respects the setting — no byte patch needed")
+	}
+	if r.Phase != "" {
+		log.Printf("      phase   : %s (%s)", r.Phase, r.Confidence)
+	}
+	if r.GateName != "" {
+		line := fmt.Sprintf("      ident   : gate=%s", r.GateName)
+		if r.FlagName != "" {
+			line += fmt.Sprintf(" flag=%s", r.FlagName)
+		}
+		if r.FlagCrossChecked {
+			line += "  [flag confirmed = FREEBUFF_MODE symbol]"
+		}
+		log.Printf("%s", line)
 	}
 	for _, n := range r.Notes {
 		log.Printf("      note    : %s", n)
 	}
+}
+
+// runExplain is the diagnostic escape hatch. When a future build defeats every
+// phase of the ladder, this command prints the raw text around each
+// `adsEnabled` reference so the ladder can be updated in minutes instead of
+// reverse-engineering the binary by hand.
+//
+// It never writes anything.
+func runExplain(o *options, log Logger) int {
+	installs, err := discoverInspections(o.paths, o.home, log)
+	if err != nil {
+		log.Errorf("discovery failed: %v", err)
+		return 1
+	}
+	if len(installs) == 0 {
+		log.Println("No Freebuff installations found.")
+		return 0
+	}
+
+	for _, inst := range installs {
+		r := inst.Report
+		log.Printf("=== %s ===", inst.Path)
+		if inst.Version != "" {
+			log.Printf("version %s  target %s  size %s", inst.Version, inst.Target, humanBytes(r.Size))
+		}
+		log.Printf("state=%s  phase=%s  confidence=%s", r.State, orDash(r.Phase), r.Confidence)
+		if r.GateName != "" {
+			log.Printf("gate=%s flag=%s crossChecked=%v", r.GateName, orDash(r.FlagName), r.FlagCrossChecked)
+		}
+		for _, n := range r.Notes {
+			log.Printf("note: %s", n)
+		}
+
+		// Print every adsEnabled reference with surrounding context. This is
+		// the raw material for extending the ladder.
+		log.Println("")
+		log.Println("adsEnabled references with context:")
+		for _, s := range r.Spans {
+			lo := s.Start - 60
+			if lo < 0 {
+				lo = 0
+			}
+			ctx, cerr := readGateBytes(inst.Path, lo, s.End-lo+40)
+			if cerr != nil {
+				log.Printf("  @%d  <unreadable: %v>", s.Start, cerr)
+				continue
+			}
+			log.Printf("  @%d .. %d", s.Start, s.End)
+			log.Printf("    %s", ctx)
+		}
+
+		log.Println("")
+		log.Println("Ladder phases, in order:")
+		for _, p := range ladder {
+			log.Printf("  %-12s %-10s %s", p.id, p.confidence, p.description)
+		}
+		log.Printf("  %-12s %-10s %s", "5-fixed", ConfCertain,
+			"gate reads the setting with no unconditional true (opt-out works upstream)")
+		log.Printf("  %-12s %-10s %s", "6-absent", "-", "nothing matched; file left untouched")
+		log.Println("")
+		log.Println("If the gate no longer looks like any phase above, add a pattern to")
+		log.Println("`ladder` in patch.go. The invariant to preserve: the pattern must")
+		log.Println("contain `.adsEnabled` so the prefilter keeps the scan fast.")
+	}
+	return 0
+}
+
+// orDash renders an empty string as a dash for aligned output.
+func orDash(s string) string {
+	if s == "" {
+		return "-"
+	}
+	return s
 }
 
 // execCommand runs a command and returns trimmed stdout, used for

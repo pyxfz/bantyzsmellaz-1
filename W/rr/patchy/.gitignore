@@ -1,0 +1,6 @@
+# Build artifacts
+freebuff-adstrip
+coverage.out
+
+# Backup files this tool creates next to a Freebuff binary
+*.adstrip-backup.*

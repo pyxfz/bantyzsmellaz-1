@@ -20,6 +20,9 @@ COMMANDS
   patch        Back up each binary and rewrite its ad gate so ads are off.
   rollback     Restore a binary from a backup (newest, or --backup).
   doctor       Report whether the patch is still in place and flag risks.
+  explain      Diagnostic: print the raw ad-gate text and the detection
+               ladder. Use this when a future build defeats every phase;
+               it is what you need to extend the ladder in seconds.
   version      Print the tool version.
   help         Show this message.
 
@@ -30,6 +33,8 @@ FLAGS
   --home <d>       Override the home directory used for discovery.
   -n, --dry-run    Report what would change without writing anything.
   --keep <N>       Backups to retain per directory (default 5).
+  --strict         Refuse heuristic matches; only act when the gate was
+                   identified structurally, not by association.
   --json           Emit a single JSON document instead of text.
   -v, --verbose    Enable debug logging on stderr.
       --quiet      Suppress non-error output.
