@@ -6,28 +6,22 @@
 # Supports: Debian/Ubuntu, Arch, Fedora/RHEL
 # Usage:    chmod +x install-re-tools.sh && sudo ./install-re-tools.sh
 #
-# Design notes:
-#  - Script must be run with sudo (for system packages).
-#  - User-space tools (Radare2) are installed as the invoking user (SUDO_USER),
-#    NOT as root, to respect their security model and avoid permission issues.
-#  - Ghidra requires JDK 21; JAVA_HOME is set persistently via /etc/profile.d.
-#  - The 'ht' tool was removed: its upstream repo no longer exists.
+# Author:  (you)
+# License: MIT
 #
 
 set -uo pipefail
-# NOTE: intentionally NOT using `set -e`; each module tracks its own status.
+# NOTE: we intentionally do NOT use `set -e` so one failed tool
+# doesn't abort the whole run. Each module tracks its own status.
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
-SCRIPT_VERSION="1.1.0"
+SCRIPT_VERSION="1.0.0"
 REPORT_DIR="${REPORT_DIR:-/var/log/re-toolkit}"
 TOOL_PREFIX="/usr/local/bin"
 OPT_PREFIX="/opt"
-
-GHIDRA_VER="11.2.1"
-GHIDRA_DATE="20241105"
 
 # =============================================================================
 # COLORS & LOGGING
@@ -78,29 +72,6 @@ detect_distro() {
 DISTRO="$(detect_distro)"
 
 # =============================================================================
-# USER CONTEXT
-# =============================================================================
-# We must distinguish between the root user (running this script) and the
-# real user (SUDO_USER) whose home we install user-space tools into.
-
-REAL_USER="${SUDO_USER:-}"
-if [[ -z "$REAL_USER" || "$REAL_USER" == "root" ]]; then
-    REAL_USER="root"
-    REAL_HOME="/root"
-else
-    REAL_HOME="$(getent passwd "$REAL_USER" | cut -d: -f6)"
-fi
-
-# Helper: run a command as the real user (when we're root)
-as_user() {
-    if [[ "$REAL_USER" == "root" ]]; then
-        "$@"
-    else
-        sudo -u "$REAL_USER" -H "$@"
-    fi
-}
-
-# =============================================================================
 # PACKAGE MANAGER ABSTRACTION
 # =============================================================================
 
@@ -143,7 +114,6 @@ preflight() {
     fi
 
     log "Distribution detected: ${DISTRO}"
-    log "Real user (for user-space tools): ${REAL_USER} (home: ${REAL_HOME})"
 
     case "$DISTRO" in
         ubuntu|debian|linuxmint|pop|kali|arch|manjaro|endeavouros|fedora|rhel|centos|rocky|almalinux)
@@ -155,62 +125,37 @@ preflight() {
             ;;
     esac
 
-    if [[ "$REAL_USER" == "root" ]]; then
-        warn "No SUDO_USER detected; user-space tools will install to /root."
-        warn "Consider running as: sudo -u <youruser> ...  (or via sudo from your shell)."
-    fi
-
     mkdir -p "$REPORT_DIR"
 }
 
 # =============================================================================
-# MODULE: Base dependencies (incl. JDK 21 for Ghidra)
+# MODULE: Base dependencies
 # =============================================================================
 
 install_base_deps() {
-    header "Module: base dependencies (incl. JDK 21)"
+    header "Module: base dependencies"
 
     pkg_update || { err "pkg_update failed"; return 1; }
 
-    local jdk_pkg
     case "$DISTRO" in
         ubuntu|debian|linuxmint|pop|kali)
-            jdk_pkg="openjdk-21-jdk"
-            # Fall back to 17 if 21 isn't available on this release
-            if ! pkg_available "$jdk_pkg"; then
-                warn "openjdk-21-jdk not available; falling back to openjdk-17-jdk."
-                jdk_pkg="openjdk-17-jdk"
-            fi
-            pkg_install curl wget git unzip "$jdk_pkg" \
-                        python3 python3-pip python3-venv \
+            pkg_install curl wget git unzip openjdk-17-jdk python3 python3-pip \
                         build-essential pkg-config
             ;;
         arch|manjaro|endeavouros)
-            jdk_pkg="jdk21-openjdk"
-            if ! pkg_available "$jdk_pkg"; then
-                warn "jdk21-openjdk not available; falling back to jdk-openjdk."
-                jdk_pkg="jdk-openjdk"
-            fi
-            pkg_install curl wget git unzip "$jdk_pkg" \
-                        python python-pip \
+            pkg_install curl wget git unzip jdk17-openjdk python python-pip \
                         base-devel pkgconf
             ;;
         fedora|rhel|centos|rocky|almalinux)
-            jdk_pkg="java-21-openjdk-devel"
-            if ! pkg_available "$jdk_pkg"; then
-                warn "java-21-openjdk-devel not available; falling back to java-17-openjdk-devel."
-                jdk_pkg="java-17-openjdk-devel"
-            fi
-            pkg_install curl wget git unzip "$jdk_pkg" \
-                        python3 python3-pip \
+            pkg_install curl wget git unzip java-17-openjdk-devel python3 python3-pip \
                         @development-tools
             ;;
     esac
 
     if [[ $? -eq 0 ]]; then
-        ok "Base dependencies installed (JDK package: ${jdk_pkg})."
+        ok "Base dependencies installed."
         record_result "Base dependencies" "INSTALLED" "system" "-" \
-            "curl wget git unzip ${jdk_pkg} python3 build tools"
+            "curl wget git unzip JDK17 python3 build tools"
         return 0
     else
         err "Base dependency installation failed."
@@ -220,103 +165,30 @@ install_base_deps() {
 }
 
 # =============================================================================
-# MODULE: Java runtime configuration (for Ghidra)
-# =============================================================================
-
-configure_java() {
-    header "Module: Java (JAVA_HOME for Ghidra)"
-
-    if ! command -v javac >/dev/null 2>&1; then
-        err "javac not found; cannot configure JAVA_HOME."
-        record_result "Java runtime" "FAILED" "-" "-" "javac missing"
-        return 1
-    fi
-
-    # Resolve JDK home from javac's real path
-    local javac_path jdk_home
-    javac_path="$(readlink -f "$(command -v javac)")"
-    jdk_home="$(dirname "$(dirname "$javac_path")")"
-
-    if [[ ! -x "${jdk_home}/bin/java" ]]; then
-        err "Resolved JAVA_HOME looks invalid: ${jdk_home}"
-        record_result "Java runtime" "FAILED" "-" "-" "Invalid JAVA_HOME"
-        return 1
-    fi
-
-    local java_ver
-    java_ver="$("${jdk_home}/bin/java" -version 2>&1 | head -n1 | tr -d '"' || echo unknown)"
-
-    # Persist globally
-    cat > /etc/profile.d/re-toolkit-java.sh <<EOF
-# Set by install-re-tools.sh
-export JAVA_HOME="${jdk_home}"
-export PATH="\$JAVA_HOME/bin:\$PATH"
-EOF
-    chmod 0644 /etc/profile.d/re-toolkit-java.sh
-
-    # Also make JDK discoverable via alternatives (Debian/Ubuntu only, best-effort)
-    if [[ "$DISTRO" == "ubuntu" || "$DISTRO" == "debian" || "$DISTRO" == "linuxmint" || "$DISTRO" == "pop" || "$DISTRO" == "kali" ]]; then
-        if [[ -x /usr/sbin/update-java-alternatives || -x /usr/bin/update-java-alternatives ]]; then
-            local jdk_name
-            jdk_name="$(basename "$jdk_home")"
-            update-java-alternatives -s "$jdk_name" >/dev/null 2>&1 || true
-        fi
-    fi
-
-    ok "JAVA_HOME set to: ${jdk_home} (${java_ver})"
-    record_result "Java runtime" "INSTALLED" "$jdk_home" "$java_ver" \
-        "Persisted via /etc/profile.d/re-toolkit-java.sh"
-    return 0
-}
-
-# =============================================================================
-# MODULE: Radare2 (installed as real user; sys/user.sh avoids root refusal)
+# MODULE: Radare2
 # =============================================================================
 
 install_radare2() {
-    header "Module: Radare2 (user-space install)"
+    header "Module: Radare2"
 
-    # Check both current PATH and the real user's ~/.local/bin
-    local user_r2="${REAL_HOME}/.local/bin/r2"
-
-    if [[ -x "$user_r2" ]]; then
-        local ver; ver="$("$user_r2" -v 2>/dev/null | head -n1 || echo unknown)"
-        skip "Radare2 already installed: $ver"
-        record_result "Radare2" "SKIPPED" "$user_r2" "$ver" "Already present"
-        return 0
-    fi
     if command -v r2 >/dev/null 2>&1; then
         local ver; ver="$(r2 -v 2>/dev/null | head -n1 || echo unknown)"
-        skip "Radare2 already installed (system PATH): $ver"
+        skip "Radare2 already installed: $ver"
         record_result "Radare2" "SKIPPED" "$(command -v r2)" "$ver" "Already present"
         return 0
     fi
 
     local tmp; tmp="$(mktemp -d)"
-    chmod 755 "$tmp"
-
-    if ! as_user git clone --depth=1 https://github.com/radareorg/radare2 "$tmp/radare2"; then
-        err "Radare2 clone failed."
-        record_result "Radare2" "FAILED" "-" "-" "git clone failed"
-        rm -rf "$tmp"
-        return 1
-    fi
-    chown -R "$REAL_USER":"$REAL_USER" "$tmp/radare2" 2>/dev/null || true
-
-    # sys/user.sh is the KEY FIX: installs to ~/.local without sudo,
-    # so Radare2 does NOT refuse to run as root.
-    if as_user bash "$tmp/radare2/sys/user.sh"; then
-        local ver="unknown"
-        [[ -x "$user_r2" ]] && ver="$("$user_r2" -v 2>/dev/null | head -n1 || echo unknown)"
-        ok "Radare2 installed to ${REAL_HOME}/.local (${ver})"
-        record_result "Radare2" "INSTALLED" "${REAL_HOME}/.local/bin/r2" "$ver" \
-            "Built from source via sys/user.sh (no sudo)"
-        warn "Ensure ${REAL_HOME}/.local/bin is in ${REAL_USER}'s PATH."
+    if git clone --depth=1 https://github.com/radareorg/radare2 "$tmp/radare2" \
+       && "$tmp/radare2/sys/install.sh"; then
+        local ver; ver="$(r2 -v 2>/dev/null | head -n1 || echo unknown)"
+        ok "Radare2 installed: $ver"
+        record_result "Radare2" "INSTALLED" "$(command -v r2)" "$ver" "Built from source"
         rm -rf "$tmp"
         return 0
     else
         err "Radare2 build/install failed."
-        record_result "Radare2" "FAILED" "-" "-" "sys/user.sh failed"
+        record_result "Radare2" "FAILED" "-" "-" "Source build failed"
         rm -rf "$tmp"
         return 1
     fi
@@ -329,30 +201,21 @@ install_radare2() {
 install_ghidra() {
     header "Module: Ghidra"
 
-    if [[ -d "${OPT_PREFIX}/ghidra" ]]; then
-        skip "Ghidra already installed at ${OPT_PREFIX}/ghidra."
-        record_result "Ghidra" "SKIPPED" "${OPT_PREFIX}/ghidra" "$GHIDRA_VER" "Already present"
+    local ghidra_ver="11.2.1"
+    local ghidra_date="20241105"
+
+    if command -v ghidra >/dev/null 2>&1 || [[ -d "${OPT_PREFIX}/ghidra" ]]; then
+        skip "Ghidra already installed."
+        record_result "Ghidra" "SKIPPED" "${OPT_PREFIX}/ghidra" "$ghidra_ver" "Already present"
         return 0
     fi
 
-    # Ensure JAVA_HOME is set for this session
-    if [[ -f /etc/profile.d/re-toolkit-java.sh ]]; then
-        # shellcheck disable=SC1091
-        . /etc/profile.d/re-toolkit-java.sh
-    fi
+    local url="https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${ghidra_ver}_build/ghidra_${ghidra_ver}_PUBLIC_${ghidra_date}.zip"
 
-    if [[ -z "${JAVA_HOME:-}" || ! -x "${JAVA_HOME}/bin/java" ]]; then
-        err "JAVA_HOME is not set or invalid; cannot install Ghidra."
-        record_result "Ghidra" "FAILED" "-" "$GHIDRA_VER" "JAVA_HOME not set"
-        return 1
-    fi
-
-    local url="https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${GHIDRA_VER}_build/ghidra_${GHIDRA_VER}_PUBLIC_${GHIDRA_DATE}.zip"
-
-    log "Downloading Ghidra ${GHIDRA_VER}..."
+    log "Downloading Ghidra ${ghidra_ver}..."
     if ! wget -q --show-progress -O /tmp/ghidra.zip "$url"; then
         err "Ghidra download failed."
-        record_result "Ghidra" "FAILED" "-" "$GHIDRA_VER" "Download failed"
+        record_result "Ghidra" "FAILED" "-" "$ghidra_ver" "Download failed"
         return 1
     fi
 
@@ -360,22 +223,19 @@ install_ghidra() {
         mv "${OPT_PREFIX}"/ghidra_* "${OPT_PREFIX}/ghidra"
         rm -f /tmp/ghidra.zip
 
-        # Wrapper that exports JAVA_HOME explicitly so Ghidra always finds it
-        cat > "${TOOL_PREFIX}/ghidra" <<EOF
+        cat > "${TOOL_PREFIX}/ghidra" <<'EOF'
 #!/usr/bin/env bash
-export JAVA_HOME="${JAVA_HOME}"
-export PATH="\$JAVA_HOME/bin:\$PATH"
-exec /opt/ghidra/ghidraRun "\$@"
+exec /opt/ghidra/ghidraRun "$@"
 EOF
         chmod +x "${TOOL_PREFIX}/ghidra"
 
         ok "Ghidra installed to ${OPT_PREFIX}/ghidra"
-        record_result "Ghidra" "INSTALLED" "${OPT_PREFIX}/ghidra" "$GHIDRA_VER" \
-            "Launcher: ${TOOL_PREFIX}/ghidra (JAVA_HOME=${JAVA_HOME})"
+        record_result "Ghidra" "INSTALLED" "${OPT_PREFIX}/ghidra" "$ghidra_ver" \
+            "Launcher: ${TOOL_PREFIX}/ghidra"
         return 0
     else
         err "Ghidra extraction failed."
-        record_result "Ghidra" "FAILED" "-" "$GHIDRA_VER" "Unzip failed"
+        record_result "Ghidra" "FAILED" "-" "$ghidra_ver" "Unzip failed"
         return 1
     fi
 }
@@ -389,8 +249,7 @@ install_ida_free() {
 
     if command -v ida >/dev/null 2>&1 || [[ -d /opt/idafree* ]]; then
         skip "IDA Free already installed."
-        record_result "IDA Free" "SKIPPED" \
-            "$(command -v ida 2>/dev/null || echo /opt/idafree*)" \
+        record_result "IDA Free" "SKIPPED" "$(command -v ida 2>/dev/null || echo /opt/idafree*)" \
             "unknown" "Already present"
         return 0
     fi
@@ -400,8 +259,7 @@ install_ida_free() {
             if pkg_available ida-free; then
                 if pkg_install ida-free; then
                     ok "IDA Free installed via apt."
-                    record_result "IDA Free" "INSTALLED" \
-                        "$(command -v ida 2>/dev/null || echo /opt)" \
+                    record_result "IDA Free" "INSTALLED" "$(command -v ida 2>/dev/null || echo /opt)" \
                         "repo" "Installed via apt"
                     return 0
                 fi
@@ -463,8 +321,7 @@ install_pev() {
 
     if pkg_install pev; then
         ok "pev installed via package manager."
-        record_result "readpe (pev)" "INSTALLED" \
-            "$(command -v readpe 2>/dev/null || echo '-')" \
+        record_result "readpe (pev)" "INSTALLED" "$(command -v readpe 2>/dev/null || echo '-')" \
             "repo" "Via package manager"
         return 0
     fi
@@ -475,8 +332,7 @@ install_pev() {
        && make -C "$tmp/pev" -j"$(nproc)" \
        && make -C "$tmp/pev" install; then
         ok "pev built and installed from source."
-        record_result "readpe (pev)" "INSTALLED" \
-            "$(command -v readpe 2>/dev/null || echo '-')" \
+        record_result "readpe (pev)" "INSTALLED" "$(command -v readpe 2>/dev/null || echo '-')" \
             "source" "Built from source"
         rm -rf "$tmp"
         return 0
@@ -489,10 +345,41 @@ install_pev() {
 }
 
 # =============================================================================
+# MODULE: ht (hte)
+# =============================================================================
+
+install_ht() {
+    header "Module: ht (hte)"
+
+    if command -v ht >/dev/null 2>&1 || command -v hte >/dev/null 2>&1; then
+        skip "ht already installed."
+        record_result "ht (hte)" "SKIPPED" "$(command -v ht 2>/dev/null || command -v hte)" \
+            "-" "Already present"
+        return 0
+    fi
+
+    local tmp; tmp="$(mktemp -d)"
+    if ! git clone --depth=1 https://github.com/htdump/ht "$tmp/ht" 2>/dev/null; then
+        warn "ht clone failed; skipping (optional tool)."
+        record_result "ht (hte)" "FAILED" "-" "-" "Upstream clone failed (optional)"
+        rm -rf "$tmp"
+        return 0
+    fi
+
+    if ( cd "$tmp/ht" && ./configure && make -j"$(nproc)" && make install ); then
+        ok "ht installed."
+        record_result "ht (hte)" "INSTALLED" "$(command -v ht 2>/dev/null || echo '-')" \
+            "source" "Built from source"
+    else
+        warn "ht build failed; skipping (optional)."
+        record_result "ht (hte)" "FAILED" "-" "-" "Source build failed (optional)"
+    fi
+    rm -rf "$tmp"
+}
+
+# =============================================================================
 # MODULE: pefile + capstone (Python)
 # =============================================================================
-# NOTE: 'ht' module was removed. Its upstream repo (htdump/ht) no longer exists
-# and caused spurious GitHub credential prompts. readpe/pev covers the use case.
 
 install_pefile() {
     header "Module: pefile + capstone (Python)"
@@ -505,11 +392,9 @@ install_pefile() {
     fi
 
     if [[ $installed -eq 1 ]]; then
-        local pefile_ver
-        pefile_ver="$(python3 -c 'import pefile; print(pefile.__version__)' 2>/dev/null || echo unknown)"
-        ok "pefile + capstone installed (pefile ${pefile_ver})."
-        record_result "pefile (Python)" "INSTALLED" \
-            "$(python3 -c 'import pefile, os; print(os.path.dirname(pefile.__file__))' 2>/dev/null || echo 'site-packages')" \
+        local pefile_ver; pefile_ver="$(python3 -c 'import pefile; print(pefile.__version__)' 2>/dev/null || echo unknown)"
+        ok "pefile + capstone installed (pefile $pefile_ver)."
+        record_result "pefile (Python)" "INSTALLED" "$(python3 -c 'import pefile, os; print(os.path.dirname(pefile.__file__))' 2>/dev/null || echo 'site-packages')" \
             "$pefile_ver" "Python module"
         record_result "capstone (Python)" "INSTALLED" "site-packages" \
             "$(python3 -c 'import capstone; print(capstone.__version__)' 2>/dev/null || echo unknown)" \
@@ -592,22 +477,21 @@ write_report() {
         echo " Host      : $(hostname)"
         echo " Distro    : ${DISTRO}"
         echo " Kernel    : $(uname -r)"
-        echo " Real user : ${REAL_USER} (home: ${REAL_HOME})"
         echo " Script    : install-re-tools.sh v${SCRIPT_VERSION}"
         echo "================================================================="
         echo
-        printf "%-22s %-11s %-40s %-16s %s\n" \
+        printf "%-22s %-11s %-32s %-14s %s\n" \
                "TOOL" "STATUS" "LOCATION" "VERSION" "NOTES"
-        printf "%-22s %-11s %-40s %-16s %s\n" \
+        printf "%-22s %-11s %-32s %-14s %s\n" \
                "----------------------" "-----------" \
-               "----------------------------------------" "----------------" \
+               "--------------------------------" "--------------" \
                "------------------------------"
 
         local installed=0 skipped=0 failed=0 manual=0
 
         for entry in "${RESULTS[@]}"; do
             IFS='|' read -r name status location version notes <<<"$entry"
-            printf "%-22s %-11s %-40s %-16s %s\n" \
+            printf "%-22s %-11s %-32s %-14s %s\n" \
                    "$name" "$status" "$location" "$version" "$notes"
 
             case "$status" in
@@ -628,22 +512,12 @@ write_report() {
         printf "  Manual    : %d\n" "$manual"
         echo
         echo "-----------------------------------------------------------------"
-        echo " Environment notes"
-        echo "-----------------------------------------------------------------"
-        echo "  JAVA_HOME      : ${JAVA_HOME:-<not set in this shell>}"
-        echo "  Java profile   : /etc/profile.d/re-toolkit-java.sh"
-        if [[ "$REAL_USER" != "root" ]]; then
-            echo "  User PATH hint : add '${REAL_HOME}/.local/bin' to PATH"
-            echo "                   (Radare2 installs there)."
-        fi
-        echo
-        echo "-----------------------------------------------------------------"
         echo " Quick reference"
         echo "-----------------------------------------------------------------"
         cat <<'EOF'
   Ghidra             ->  ghidra
   IDA Free           ->  ida  (or manual download)
-  Radare2            ->  r2 / rabin2 / radare2   (~/.local/bin)
+  Radare2            ->  r2 / rabin2 / radare2
   msitools (MSI)     ->  msiextract file.msi -C outdir
                          msiinfo    file.msi
                          msidump    file.msi
@@ -651,6 +525,7 @@ write_report() {
   readpe / pev       ->  readpe file.exe
                          pescan file.exe
                          pesec  file.exe
+  ht (hte)           ->  ht file.exe
   pefile (Python)    ->  python3 -c "import pefile; pe=pefile.PE('file.exe')"
   Wine               ->  wine file.exe
 EOF
@@ -662,6 +537,7 @@ EOF
 
     echo
     ok "Report saved to: ${report_file}"
+    # Also drop a stable "latest" symlink for convenience
     ln -sf "$report_file" "${REPORT_DIR}/latest.txt" 2>/dev/null || true
     ok "Latest symlink: ${REPORT_DIR}/latest.txt"
 }
@@ -685,18 +561,19 @@ BANNER
 
     preflight
 
-    # ---- Modules (each independent, records its own result) ----
-    install_base_deps        # must run first (provides JDK 21)
-    configure_java           # must run before Ghidra
-    install_radare2          # user-space, uses sys/user.sh
-    install_ghidra           # needs JAVA_HOME from configure_java
-    install_ida_free         # manual/repo
-    install_installer_tools  # msitools + innoextract
-    install_pev              # readpe (pev)
-    install_pefile           # Python pefile + capstone
-    install_wine             # dynamic analysis
-    install_extras           # binutils, file, xxd, foremost
-    # NOTE: install_ht was removed (dead upstream, caused auth prompts).
+    # ---- Modules ----
+    # Each module is independent and records its own result.
+    # Order matters only for dependencies (base_deps must be first).
+    install_base_deps
+    install_radare2
+    install_ghidra
+    install_ida_free
+    install_installer_tools
+    install_pev
+    install_ht
+    install_pefile
+    install_wine
+    install_extras
 
     # ---- Report ----
     write_report
