@@ -1,0 +1,14 @@
+Project 1
+1. Execute a deep and wide multi agentic research across authentic sources papers that talk about the more pressing
+and immediate security vulnerabilities that are being faced by organizations that are integrating AI into their stacks 
+2. Then after findind them find out what are the relevant mitigations, tools , monitoring methodologies etc 
+3. The goal is to make a detaile report such that it canbe reviewed by security teams to impelement directly and 
+immediately , by way of a security consultant which is me , so that I can present the problem and get their business
+4. FInd out the top 20 such problems and find their mitigation and continuous monitoring etc 
+5. Then write a one detailed markdown report with a header that has the current date and time explaining 
+what model was used etc, then numbered toc with jumpable link to the relevnt numbered sections , the markdown report
+should follow the layout of rest of the reports in /W/report/r1 amd the report should also be in that same folder
+6. I have many mcps connected , leverage their research capabilities 
+7. Implement a token optimization plan before executing , also fetch only those sources that have some relevancy 
+before pulling the entire text
+8. Find as many authentic sources as possible, before executing first find out the sources and then execute
