@@ -1,0 +1,2 @@
+Frbf - Location 
+~/.bun/install/global/node_modules/freebuff

@@ -1,0 +1,7 @@
+Project 1
+--- 
+I have installed a cool program called - ~/.bun/install/global/node_modules/freebuff , i want to understand how it 
+functions, one of the things it does is when you run it , the cli harness pull text ads into the cli view, i want
+to know how this is being done , identify the exact code block from those files , and explain if that was removed
+why would the program not function ? or better what can i do to competely remove the ad component, 
+

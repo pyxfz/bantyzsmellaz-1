@@ -12,3 +12,8 @@ should follow the layout of rest of the reports in /W/report/r1 amd the report s
 7. Implement a token optimization plan before executing , also fetch only those sources that have some relevancy 
 before pulling the entire text
 8. Find as many authentic sources as possible, before executing first find out the sources and then execute
+
+Project 2
+--- 
+Due to rise in the use of AI based APIs in virtually all applications, My hunch is that thre will be security problems 
+with it, Standard API level security may not be implemented
