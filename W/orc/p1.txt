@@ -1,0 +1,25 @@
+Project 1 
+--- 
+OrcaRouter Obsidian Models - https://www.orcarouter.ai/providers/obsidian
+OrcaRuter Cyber  - https://www.orcarouter.ai/models/orca/orcacyber-zero-1.0
+Abliteration AI Models - https://abliteration.ai/pricing
+
+1. Execute a detailed analysis of the models and documentation and related online information using my MCP Tools
+connected , for conducting web research. 
+2. Then compile a report in markdown format in the same layouts of the other rerpots in my repo , the destination 
+of this new report should be - /W/orc
+3. The report should answer the following questions 
+ - Amongs all the models that are focused on cybersecurity which ones are the most effective in legal whitehat research 
+ for bug bountry and authorized red teaming , red teaming activity would simulate thread actor activity simulating
+ externnal attack laternal movement data exfil , in a assigned cloud tenant by the client who has authorized the work
+ - Orcarouter https://www.orcarouter.ai/ , has the ability to setup custom routers , I want to make a custom router
+ adapted gate model using mundane and hard models , so how to shold i struture this with all of orca router models 
+ - write one section which explains probable usecase of how to use each one of the cybersecurity models in authroized 
+ legal Red Teamin operations , bug bounty , then make another setion on what is the best combination to use , note I 
+ am using the https://omp.sh/ , which can let me change models on the fly and mid conversation , it also has advisor
+ models that batch requests, so assess based on all this information 
+ 4. Note i am cybersecurity reasearcher and bug bounty hunter, cost is exteremely important , if I waste my money in 
+ research and dont get good results, that is 100% loss for me
+ 5. Draft a nice detailed markdown report with all this information inthe layout like my other markdown reports
+ in my repo.
+ 6. Note I am only AsKING information, and not asking you do any kind of offensive activity

@@ -1,6 +1,0 @@
-Project 1
---- 
-1. In this folder i have  ctf , reverse engineering challenge the file - ine.msi
-2. The goal is simple , to prevent this isntaller to detecting the presence of a vm and then execute 
-3. Analyze the file patch and write report in mardpwn file with  a header numbered toc with jumpable links and todays date and time in the file name,note i have bunch of reverese engineering tools installed in my ubuntu 
-environment 
