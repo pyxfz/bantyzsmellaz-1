@@ -1,0 +1,7 @@
+Project 1
+1. Thare are some cool very mooth videos being produced using only code , this is quite popular these days 
+2. I need to know how thsi is being done exactly, epecially for the complex motion ? What libraries are being used ? 
+what frameworks ? are there some hidden shortcuts ?
+3. Using my MCP research tools do a deep and wide research on how they are produced thaen write a report in the path 
+/workspaces/bantyzsmellaz-1/W/codevid , write report as a markdown file which has a header a numbered TOC and they jump to relevant sections 
+4. Note social media mentions you have to use the expensive LLM , but I want to you Opencode and the free models only , the videos should have that cool smooth motion, find out exact details on how this s being done
