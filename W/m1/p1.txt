@@ -1,0 +1,18 @@
+Goal - Building a tool to assess if a crypto project has a legitinate use case and is worth investing in
+1. For building the above tool examine the tools at the website - https://www.msawox.com/en/tools , go into
+each tool to understand how it is made , it is a type of questionaire that gives a score , a radar chat.
+2. The final tool wille eventually look and feel like the website mentioned, before being able to build the tool 
+and write the user stories acceptance criteria etc, which will go into development a deep research on this subject 
+must first be conducted.
+3. Do a very deep and wide research on what characteristics a Crypto project either new or existing must have for it to 
+be legimitate project with a real work use case , rather than having casino mechanics of pumping the value of the token 
+as the primary means of renue. This research should look at characteristics of successful crypto project that have a
+legimate use case. The research should also focus on the security aspect, some projects by design are not secure 
+or have some looopholes such as in a DAO wehre multi sig is stated existing but with no evidence of it . 
+4. After conducting this deep wide research , then draft one authorative markdown report which should have a header
+and  numbered TOC that has jumpable link the relevant section and references section. 
+5. When conducting this deep research build a token optomization plan and then execute by using the powerful ressearch 
+MCP serveers that are connected with the project, make sure resources are authentic and authoratative and not some
+useless blog.
+6. The plan and report should be written in this directory - /workspaces/bantyzsmellaz-1/W/m1
+
